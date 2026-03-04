@@ -6,7 +6,7 @@ namespace BgCommon.Script.Models;
 /// 表示脚本输入参数的类,包含参数名称、类型、值及默认值信息.
 /// </summary>
 [Serializable]
-public partial class InputParam
+public partial class InputParam : ObservableObject
 {
     private string name = string.Empty;
     private Type valueType = typeof(string);
@@ -30,10 +30,10 @@ public partial class InputParam
     /// <param name="value">参数值.</param>
     public InputParam(string name, Type valueType, object? value = null)
     {
-        this.name = name;
-        this.valueType = valueType;
-        this.value = value;
-        this.defaultValue = value;
+        this.Name = name;
+        this.ValueType = valueType;
+        this.Value = value;
+        this.DefaultValue = value;
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public partial class InputParam
     public string Name
     {
         get => this.name;
-        set => this.name = value;
+        set => this.SetProperty(ref this.name, value);
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ public partial class InputParam
     public Type ValueType
     {
         get => this.valueType;
-        set => this.valueType = value;
+        set => this.SetProperty(ref this.valueType, value);
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public partial class InputParam
     public object? Value
     {
         get => this.value;
-        set => this.value = value;
+        set => this.SetProperty(ref this.value, value);
     }
 
     /// <summary>
@@ -69,16 +69,16 @@ public partial class InputParam
     public object? DefaultValue
     {
         get => this.defaultValue;
-        set => this.defaultValue = value;
+        set => this.SetProperty(ref this.defaultValue, value);
     }
 
     /// <summary>
-    /// Gets or sets 是否为必填参数.
+    /// Gets or sets a value indicating whether 是否为必填参数.
     /// </summary>
     public bool IsRequired
     {
         get => this.isRequired;
-        set => this.isRequired = value;
+        set => this.SetProperty(ref this.isRequired, value);
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ public partial class InputParam
     public string Description
     {
         get => this.description;
-        set => this.description = value;
+        set => this.SetProperty(ref this.description, value);
     }
 
     /// <summary>
@@ -149,12 +149,12 @@ public partial class InputParam
     {
         return new InputParam
         {
-            name = this.name,
-            valueType = this.valueType,
-            value = this.value,
-            defaultValue = this.defaultValue,
-            isRequired = this.isRequired,
-            description = this.description
+            Name = this.Name,
+            ValueType = this.ValueType,
+            Value = this.Value,
+            DefaultValue = this.DefaultValue,
+            IsRequired = this.IsRequired,
+            Description = this.Description,
         };
     }
 
