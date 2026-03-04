@@ -20,6 +20,9 @@ public partial class ScriptFile : ScriptBase
     private bool isEnabled = true;
     private int executionCount;
 
+    [NonSerialized]
+    private string? contentBackupBeforeSerialization;
+
     /// <summary>
     /// 最后一次执行耗时(运行时统计,不序列化).
     /// </summary>
@@ -115,7 +118,6 @@ public partial class ScriptFile : ScriptBase
     {
         this.LastExecutionDuration = duration;
         this.LastExecutionResult = result;
-        this.ModifiedTime = DateTime.Now;
     }
 
     /// <summary>
@@ -124,32 +126,21 @@ public partial class ScriptFile : ScriptBase
     /// <returns>脚本文件的副本.</returns>
     public ScriptFile Clone()
     {
-        var clone = new ScriptFile()
-        {
-            Id = Guid.NewGuid(),
-            Name = this.Name,
-            Content = this.Content,
-            Summary = this.Summary,
-            Description = this.Description,
-            Author = this.Author,
-            CreatedTime = this.CreatedTime,
-            ModifiedTime = this.ModifiedTime,
-            Version = this.Version,
-            Category = this.Category,
-            Password = this.Password,
-            TargetType = this.TargetType,
-            TargetMethod = this.TargetMethod,
-            IsEnabled = this.IsEnabled,
-            ExecutionCount = this.ExecutionCount,
-            ReferencedAssemblies = new List<string>(this.ReferencedAssemblies),
-            Namespaces = new List<string>(this.Namespaces),
-        };
-
-        clone.Inputs = this.Inputs.Select(p => p.Clone()).ToList();
-        clone.Outputs = this.Outputs.Select(p => p.Clone()).ToList();
-        clone.Tags = new List<string>(this.Tags);
-
+        var clone = new ScriptFile();
+        clone.PatchMetadata(this);
         return clone;
+    }
+
+    /// <inheritdoc/>
+    public override void PatchMetadata(ScriptBase? source)
+    {
+        base.PatchMetadata(source);
+        if (source is ScriptFile sourceFile)
+        {
+            this.IsEnabled = sourceFile.IsEnabled;
+            this.Password = sourceFile.Password;
+            this.ExecutionCount = sourceFile.ExecutionCount;
+        }
     }
 
     /// <summary>
@@ -195,6 +186,9 @@ public partial class ScriptFile : ScriptBase
             return; // 无内容或无密码，无需加密
         }
 
+        // 备份明文到非序列化字段
+        this.contentBackupBeforeSerialization = this.Content;
+
         try
         {
             // 1. SourceCode 和 Password 按位与操作
@@ -211,7 +205,29 @@ public partial class ScriptFile : ScriptBase
         }
         catch (Exception ex)
         {
+            // 恢复原始内容，避免序列化失败导致数据丢失
+            if (this.Content != this.contentBackupBeforeSerialization)
+            {
+                this.Content = this.contentBackupBeforeSerialization;
+                this.contentBackupBeforeSerialization = null;
+            }
+
             throw new SerializationException("序列化时加密 SourceCode 失败", ex);
+        }
+    }
+
+    /// <summary>
+    /// 序列化完成后立即触发.
+    /// </summary>
+    /// <param name="context">二进制序列化上下文.</param>
+    [OnSerialized]
+    private void OnSerialized(StreamingContext context)
+    {
+        // 恢复内存中的明文代码
+        if (this.contentBackupBeforeSerialization != null)
+        {
+            this.Content = this.contentBackupBeforeSerialization;
+            this.contentBackupBeforeSerialization = null;
         }
     }
 

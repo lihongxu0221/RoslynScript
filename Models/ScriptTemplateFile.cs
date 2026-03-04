@@ -84,28 +84,8 @@ public partial class ScriptTemplateFile : ScriptBase
     /// <returns>新的脚本文件信息.</returns>
     public ScriptFile CreateScriptFile(string newScriptName)
     {
-        var scriptFile = new ScriptFile(newScriptName)
-        {
-            Summary = this.Summary,
-            Description = this.Description,
-            Author = this.Author,
-            Version = this.Version,
-            Tags = new List<string>(this.Tags),
-            ReferencedAssemblies = new List<string>(this.ReferencedAssemblies),
-            Namespaces = new List<string>(this.Namespaces),
-        };
-
-        // 复制输入参数
-        foreach (var param in this.Inputs)
-        {
-            scriptFile.AddInputParameter(param.Clone());
-        }
-
-        // 复制输出参数
-        foreach (var param in this.Outputs)
-        {
-            scriptFile.AddOutputParameter(param.Clone());
-        }
+        var scriptFile = new ScriptFile(newScriptName);
+        scriptFile.PatchMetadata(this);
 
         // 更新使用统计
         this.IncrementUsageCount();
@@ -119,31 +99,22 @@ public partial class ScriptTemplateFile : ScriptBase
     /// <returns>模板的副本.</returns>
     public ScriptTemplateFile Clone()
     {
-        var clone = new ScriptTemplateFile()
-        {
-            Id = Guid.NewGuid(),
-            Name = this.Name,
-            Content = this.Content,
-            Summary = this.Summary,
-            Description = this.Description,
-            Author = this.Author,
-            CreatedTime = this.CreatedTime,
-            ModifiedTime = this.ModifiedTime,
-            Version = this.Version,
-            Category = this.Category,
-            IsBuiltin = this.IsBuiltin,
-            UsageCount = this.UsageCount,
-            Icon = this.Icon,
-            PreviewImage = this.PreviewImage,
-            ReferencedAssemblies = new List<string>(this.ReferencedAssemblies),
-            Namespaces = new List<string>(this.Namespaces),
-        };
-
-        clone.Inputs = this.Inputs.Select(p => p.Clone()).ToList();
-        clone.Outputs = this.Outputs.Select(p => p.Clone()).ToList();
-        clone.Tags = new List<string>(this.Tags);
-
+        var clone = new ScriptTemplateFile();
+        clone.PatchMetadata(this);
         return clone;
+    }
+
+    /// <inheritdoc/>
+    public override void PatchMetadata(ScriptBase? source)
+    {
+        base.PatchMetadata(source);
+        if (source is ScriptTemplateFile sourceTemplate)
+        {
+            this.IsBuiltin = sourceTemplate.IsBuiltin;
+            this.UsageCount = sourceTemplate.UsageCount;
+            this.Icon = sourceTemplate.Icon;
+            this.PreviewImage = sourceTemplate.PreviewImage;
+        }
     }
 
     /// <summary>

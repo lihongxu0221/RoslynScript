@@ -9,8 +9,8 @@ public abstract partial class ScriptBase : ObservableObject
     private Guid id = Guid.NewGuid();
     private string name = string.Empty;
     private string content = string.Empty;
-    private string referencedAssemblies = string.Empty;
-    private string namespaces = string.Empty;
+    private List<string> referencedAssemblies = new();
+    private List<string> namespaces = new();
     private string targetType = string.Empty;
     private string targetMethod = string.Empty;
     private string summary = string.Empty;
@@ -67,54 +67,13 @@ public abstract partial class ScriptBase : ObservableObject
         set => this.SetProperty(ref this.content, value);
     }
 
-
-
     /// <summary>
     /// Gets or sets 引用程序集列表.
     /// </summary>
     public List<string> ReferencedAssemblies
     {
-        get
-        {
-            // 将分号分隔的字符串转换为列表
-            List<string> assemblyList = this.referencedAssemblies.Split(';').ToList();
-            for (int i = 0; i < assemblyList.Count; i++)
-            {
-                // 去除首尾空格
-                assemblyList[i] = assemblyList[i].Trim();
-            }
-
-            // 移除空字符串项
-            assemblyList.Remove(string.Empty);
-            return assemblyList;
-        }
-
-        set
-        {
-            var assemblyBuilder = new StringBuilder();
-            foreach (string item in value)
-            {
-                string trimmedAssembly = item.Trim();
-                if (!string.IsNullOrEmpty(trimmedAssembly))
-                {
-                    assemblyBuilder.Append(trimmedAssembly);
-                    assemblyBuilder.Append(';');
-                }
-            }
-
-            // 如果有内容，移除最后一个分号
-            if (value.Count > 0 && assemblyBuilder.Length > 0)
-            {
-                assemblyBuilder.Length--;
-            }
-
-            string joinedAssemblies = assemblyBuilder.ToString();
-            if (this.referencedAssemblies != joinedAssemblies)
-            {
-                this.referencedAssemblies = joinedAssemblies;
-                this.OnPropertyChanged(nameof(this.ReferencedAssemblies));
-            }
-        }
+        get => this.referencedAssemblies;
+        set => this.SetProperty(ref this.referencedAssemblies, value);
     }
 
     /// <summary>
@@ -122,45 +81,8 @@ public abstract partial class ScriptBase : ObservableObject
     /// </summary>
     public List<string> Namespaces
     {
-        get
-        {
-            // 将内部存储的字符串拆分为列表
-            List<string> namespaceList = this.namespaces.Split(';').ToList();
-            for (int i = 0; i < namespaceList.Count; i++)
-            {
-                namespaceList[i] = namespaceList[i].Trim();
-            }
-
-            namespaceList.Remove(string.Empty);
-            return namespaceList;
-        }
-
-        set
-        {
-            var namespaceBuilder = new StringBuilder();
-            foreach (string item in value)
-            {
-                string trimmedNamespace = item.Trim();
-                if (!string.IsNullOrEmpty(trimmedNamespace))
-                {
-                    namespaceBuilder.Append(trimmedNamespace);
-                    namespaceBuilder.Append(';');
-                }
-            }
-
-            // 移除末尾的分号分隔符
-            if (value.Count > 0 && namespaceBuilder.Length > 0)
-            {
-                namespaceBuilder.Length--;
-            }
-
-            string joinedNamespaces = namespaceBuilder.ToString();
-            if (this.namespaces != joinedNamespaces)
-            {
-                this.namespaces = joinedNamespaces;
-                this.OnPropertyChanged(nameof(this.Namespaces));
-            }
-        }
+        get => this.namespaces;
+        set => this.SetProperty(ref this.namespaces, value);
     }
 
     /// <summary>
@@ -342,6 +264,50 @@ public abstract partial class ScriptBase : ObservableObject
     public bool HasTag(string tag)
     {
         return this.tags.Contains(tag);
+    }
+
+    /// <summary>
+    /// 将源实体（元数据属性值）拷贝到当前实体中.
+    /// </summary>
+    /// <param name="source">源实体.</param>
+    public virtual void PatchMetadata(ScriptBase? source)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        // --- 核心内容同步 ---
+        // 注意：不拷贝 Id 以保持内存/克隆对象的同一性隔离
+        this.Name = source.Name;
+        this.Content = source.Content;
+
+        // --- 其他元数据同步 ---
+        this.ReferencedAssemblies.Clear();
+        this.ReferencedAssemblies.AddRange(source.ReferencedAssemblies);
+        this.Namespaces.Clear();
+        this.Namespaces.AddRange(source.Namespaces);
+        this.TargetType = source.TargetType;
+        this.TargetMethod = source.TargetMethod;
+        this.Summary = source.Summary;
+        this.Description = source.Description;
+        this.Author = source.Author;
+        this.Category = source.Category;
+        this.Version = source.Version;
+        this.ModifiedTime = source.ModifiedTime;
+        this.CreatedTime = source.CreatedTime;
+        this.Inputs.Clear();
+        this.Inputs.AddRange(source.Inputs.Select(p => p.Clone()));
+        this.Outputs.Clear();
+        this.Outputs.AddRange(source.Outputs.Select(p => p.Clone()));
+        this.Tags.Clear();
+        this.Tags.AddRange(source.Tags);
+
+        this.OnPropertyChanged(nameof(ReferencedAssemblies));
+        this.OnPropertyChanged(nameof(Namespaces));
+        this.OnPropertyChanged(nameof(Inputs));
+        this.OnPropertyChanged(nameof(Outputs));
+        this.OnPropertyChanged(nameof(Tags));
     }
 
     /// <summary>
