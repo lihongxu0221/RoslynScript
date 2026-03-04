@@ -9,6 +9,8 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.Loader;
 
+namespace BgCommon.Script;
+
 /// <summary>
 /// 脚本上下文类，集成 Roslyn 脚本引擎实现代码的加载、编译与执行.
 /// </summary>
