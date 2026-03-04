@@ -84,9 +84,11 @@ public sealed class ScriptContext : IDisposable
         // 统一从配置获取脚本存储根路径，确保模板模式下也能正确找到保存目录.
         this.ScriptPath = config.ScriptPath;
         this.Extension = string.IsNullOrEmpty(config.ScriptFileExtension) ? "csx" : config.ScriptFileExtension;
-        this.Namespaces = DefaultNamespaces.Concat(config.Namespaces).Distinct().ToList();
+        this.Namespaces = new ObservableCollection<string>();
+        this.Namespaces.AddRange(DefaultNamespaces.Concat(config.Namespaces).Distinct());
         this.ReferLibsPath = config.ReferLibsPath;
-        this.ReferLibs = new List<string>(config.ReferLibs);
+        this.ReferLibs = new ObservableCollection<string>();
+        this.ReferLibs.AddRange(config.ReferLibs);
         this.isDirty = false;
         this.isRunning = false;
 
@@ -167,12 +169,12 @@ public sealed class ScriptContext : IDisposable
     /// <summary>
     /// Gets 脚本预定义的命名空间列表.
     /// </summary>
-    public List<string> Namespaces { get; } = new List<string>();
+    public ObservableCollection<string> Namespaces { get; } = new ObservableCollection<string>();
 
     /// <summary>
     /// Gets 脚本需要引用的外部程序集列表.
     /// </summary>
-    public List<string> ReferLibs { get; } = new List<string>();
+    public ObservableCollection<string> ReferLibs { get; } = new ObservableCollection<string>();
 
     /// <summary>
     /// Gets 脚本的代码内容.
@@ -896,8 +898,8 @@ public sealed class ScriptContext : IDisposable
         newContext.ReferLibs.AddRange(this.ReferLibs.Distinct());
         newContext.Extension = this.Extension;
         newContext.code = this.Code;
-        newContext.script = newEntity;
         newContext.scriptFileMgr = newMgr;
+        newContext.SubscribeMetadata(newEntity); // 订阅新实体的变化
         newContext.IsDirty = false;
 
         // 触发另存为事件
