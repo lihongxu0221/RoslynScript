@@ -1,3 +1,5 @@
+using BgCommon.Configuration;
+using BgCommon.Script.Models;
 using DryIoc.ImTools;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
@@ -6,8 +8,6 @@ using Microsoft.CodeAnalysis.Scripting.Hosting;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.Loader;
-
-namespace BgCommon.Script;
 
 /// <summary>
 /// 脚本上下文类，集成 Roslyn 脚本引擎实现代码的加载、编译与执行.
@@ -45,6 +45,9 @@ public sealed class ScriptContext : IDisposable
     private Assembly? cachedAssembly;
     private Type? cachedTargetType;
     private MethodInfo? cachedMethod;
+
+    private ScriptBase? scriptBase;
+    private ConfigurationMgr<ScriptBase>? scriptBaseMgr;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ScriptContext"/> class.
@@ -145,6 +148,16 @@ public sealed class ScriptContext : IDisposable
     /// Gets 脚本模板配置信息.
     /// </summary>
     public ScriptTemplate? Template { get; private set; }
+
+    /// <summary>
+    /// Gets 脚本文件元数据.
+    /// </summary>
+    public ScriptFile? ScriptFile => this.scriptBase as ScriptFile;
+
+    /// <summary>
+    /// Gets 脚本模板文件元数据.
+    /// </summary>
+    public ScriptTemplateFile? TemplateFile => this.scriptBase as ScriptTemplateFile;
 
     /// <summary>
     /// Gets 脚本预定义的命名空间列表.
@@ -257,33 +270,47 @@ public sealed class ScriptContext : IDisposable
     {
         try
         {
-            // 1. 如果是模板模式，从模板路径加载初始代码.
+            // 1. 如果是模板模式，加载 ScriptTemplateFile 并从中获取初始代码.
             if (this.Template != null)
             {
-                string templateFilePath = this.Template.CodeTemplateFilePath;
-                if (File.Exists(templateFilePath))
-                {
-                    this.code = await File.ReadAllTextAsync(templateFilePath);
+                // 加载 ScriptTemplateFile 元数据
+                string templateMetaFilePath = Path.Combine(this.Template.TemplatePath, $"{this.Template.TemplateName}.{this.Template.Extension}");
+                this.scriptBaseMgr = new ConfigurationMgr<ScriptBase>(templateMetaFilePath, ConfigurationMgr<ScriptBase>.SerializeMethod.Bin);
+                this.scriptBaseMgr.LoadFromFile();
+                this.scriptBase = this.scriptBaseMgr.Entity ?? new ScriptTemplateFile(this.Template.TemplateName);
 
-                    // 模板加载视为新创作，标记为已修改.
-                    this.IsDirty = true;
-                    this.OnInitialized?.Invoke(this, new ScriptFileEventArgs(ScriptFileAction.Loaded, $"Template:{this.Template.TemplateName}", templateFilePath));
+                var templateFile = this.scriptBase as ScriptTemplateFile;
+                if (templateFile != null && !string.IsNullOrEmpty(templateFile.Content))
+                {
+                    // 使用 ScriptTemplateFile 中的内容
+                    this.code = templateFile.Content;
                 }
 
+                // 模板加载视为新创作，标记为已修改.
+                this.IsDirty = true;
+                this.OnInitialized?.Invoke(this, new ScriptFileEventArgs(ScriptFileAction.Loaded, $"Template:{this.Template.TemplateName}", this.Template.CodeTemplateFilePath));
                 return;
             }
 
-            // 2. 如果是普通脚本模式，从已知的物理文件路径加载内容.
-            if (!string.IsNullOrEmpty(this.ScriptFilePath) && File.Exists(this.ScriptFilePath))
+            // 2. 如果是普通脚本模式，加载 ScriptFile 并从中获取内容.
+            if (!string.IsNullOrEmpty(this.ScriptFilePath))
             {
-                this.code = await File.ReadAllTextAsync(this.ScriptFilePath);
+                // 加载 ScriptFile 元数据
+                this.scriptBaseMgr = new ConfigurationMgr<ScriptBase>(this.ScriptFilePath, ConfigurationMgr<ScriptBase>.SerializeMethod.Bin);
+                this.scriptBaseMgr.LoadFromFile();
+                this.scriptBase = this.scriptBaseMgr.Entity ?? new ScriptFile(this.ScriptName);
 
-                // 物理文件加载，初始状态设为未修改.
-                this.IsDirty = false;
-                this.OnInitialized?.Invoke(this, new ScriptFileEventArgs(
-                    ScriptFileAction.Loaded,
-                    this.ScriptName,
-                    this.ScriptFilePath));
+                var scriptFile = this.scriptBase as ScriptFile;
+                if (scriptFile != null && !string.IsNullOrEmpty(scriptFile.Content))
+                {
+                    // 使用 ScriptFile 中的内容
+                    this.code = scriptFile.Content;
+                    this.IsDirty = false;
+                    this.OnInitialized?.Invoke(this, new ScriptFileEventArgs(
+                        ScriptFileAction.Loaded,
+                        this.ScriptName,
+                        this.ScriptFilePath));
+                }
             }
         }
         catch (Exception ex)
@@ -606,6 +633,21 @@ public sealed class ScriptContext : IDisposable
 
                 this.scriptName = newScriptName;
                 action = ScriptFileAction.CreatedFromTemplate; // 标记为从模板创建
+
+                // 从模板创建 ScriptFile
+                var templateFile = this.scriptBase as ScriptTemplateFile;
+                if (templateFile != null)
+                {
+                    this.scriptBase = templateFile.CreateScriptFile(newScriptName);
+                }
+                else
+                {
+                    this.scriptBase = new ScriptFile(newScriptName);
+                }
+
+                // 初始化 ScriptBase 配置管理器
+                string scriptFilePath = Path.Combine(this.ScriptPath, $"{newScriptName}.{this.Extension}");
+                this.scriptBaseMgr = new ConfigurationMgr<ScriptBase>(scriptFilePath, this.scriptBase, ConfigurationMgr<ScriptBase>.SerializeMethod.Bin);
             }
 
             if (string.IsNullOrEmpty(this.ScriptFilePath))
@@ -613,8 +655,19 @@ public sealed class ScriptContext : IDisposable
                 throw new InvalidOperationException("保存路径无效，文件名不能为空.");
             }
 
-            // 异步写入文件内容.
-            await File.WriteAllTextAsync(this.ScriptFilePath, this.Code);
+            // 更新 ScriptBase 的内容
+            if (this.scriptBase != null)
+            {
+                this.scriptBase.Content = this.Code;
+                this.scriptBase.ModifiedTime = DateTime.Now;
+
+                // 保存 ScriptBase 元数据
+                if (this.scriptBaseMgr != null)
+                {
+                    await this.scriptBaseMgr.SaveToFileAsync();
+                }
+            }
+
             this.IsDirty = false;
             this.OnSaved?.Invoke(this, new ScriptFileEventArgs(action, this.ScriptName, this.ScriptFilePath));
 
@@ -644,15 +697,20 @@ public sealed class ScriptContext : IDisposable
             throw new InvalidOperationException("从模板创建的上下文不支持重命名操作.");
         }
 
-        // 记录旧文件路径.
+        // 检查 ScriptBase 和 ScriptBaseMgr 是否存在
+        if (this.scriptBase == null || this.scriptBaseMgr == null)
+        {
+            throw new InvalidOperationException("无法重命名：脚本元数据未加载.");
+        }
+
+        // 记录旧文件路径和配置管理器
         string oldFilePath = this.ScriptFilePath;
         string oldScriptName = this.ScriptName;
+        var oldScriptBaseMgr = this.scriptBaseMgr;
 
         // 检查新旧名称是否一致.
         if (oldScriptName.Equals(newName, StringComparison.Ordinal))
         {
-            // 是否有必要保存当前文件？
-            // await this.SaveAsync();
             return;
         }
 
@@ -661,10 +719,19 @@ public sealed class ScriptContext : IDisposable
 
         try
         {
-            // 物理写入新文件
-            await File.WriteAllTextAsync(newFilePath, this.Code);
+            // 更新 ScriptBase 元数据
+            this.scriptBase.Name = newName;
+            this.scriptBase.ModifiedTime = DateTime.Now;
 
-            if (!string.IsNullOrEmpty(oldFilePath) && File.Exists(oldFilePath))
+            // 创建新的配置管理器并保存到新路径（原子性操作）
+            var newScriptBaseMgr = new ConfigurationMgr<ScriptBase>(newFilePath, this.scriptBase, ConfigurationMgr<ScriptBase>.SerializeMethod.Bin);
+            await newScriptBaseMgr.SaveToFileAsync();
+
+            // 新文件保存成功后，更新配置管理器引用
+            this.scriptBaseMgr = newScriptBaseMgr;
+
+            // 删除旧的元数据文件
+            if (File.Exists(oldFilePath))
             {
                 await Task.Run(() => File.Delete(oldFilePath));
             }
@@ -678,7 +745,11 @@ public sealed class ScriptContext : IDisposable
         }
         catch (Exception ex)
         {
-            this.scriptName = oldScriptName; // 回滚名称
+            // 回滚所有状态
+            this.scriptName = oldScriptName;
+            this.scriptBase.Name = oldScriptName;
+            this.scriptBaseMgr = oldScriptBaseMgr;
+
             this.OnError?.Invoke(this, new ScriptErrorEventArgs(
                 ScriptErrorSource.FileOperation,
                 ex,
@@ -701,20 +772,41 @@ public sealed class ScriptContext : IDisposable
         }
 
         string oldPath = this.ScriptFilePath;
-
-        // 在物理磁盘创建新副本.
         string targetPath = Path.Combine(this.ScriptPath, $"{newName}.{this.Extension}");
-        await File.WriteAllTextAsync(targetPath, this.Code);
 
         // 另存为成功后，当前内存中的代码已视为已同步到磁盘副本.
         this.IsDirty = false;
 
-        // 2. 初始化并返回一个全新的上下文对象.
+        // 检查 ScriptBase 是否存在
+        if (this.scriptBase == null)
+        {
+            throw new InvalidOperationException("无法另存为：脚本元数据未加载.");
+        }
+
+        // 创建新的 ScriptFile（只支持从 ScriptFile 另存为）
+        var currentScriptFile = this.scriptBase as ScriptFile;
+        if (currentScriptFile == null)
+        {
+            throw new InvalidOperationException("无法另存为：只能从脚本文件另存为，不支持从模板另存为.");
+        }
+
+        // 克隆当前的 ScriptFile
+        ScriptBase newScriptBase = currentScriptFile.Clone();
+        newScriptBase.Name = newName;
+        newScriptBase.ModifiedTime = DateTime.Now;
+
+        // 保存新的 ScriptFile 元数据
+        var newScriptBaseMgr = new ConfigurationMgr<ScriptBase>(targetPath, newScriptBase, ConfigurationMgr<ScriptBase>.SerializeMethod.Bin);
+        await newScriptBaseMgr.SaveToFileAsync();
+
+        // 初始化并返回一个全新的上下文对象.
         var newContext = new ScriptContext(newName, this.ScriptPath, this.ReferLibsPath);
         newContext.Namespaces.AddRange(this.Namespaces);
         newContext.ReferLibs.AddRange(this.ReferLibs);
         newContext.Extension = this.Extension;
         newContext.code = this.Code;
+        newContext.scriptBase = newScriptBase;
+        newContext.scriptBaseMgr = newScriptBaseMgr;
         newContext.IsDirty = false;
 
         // 触发另存为事件
