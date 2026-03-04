@@ -14,7 +14,7 @@ namespace BgCommon.Script;
 /// <summary>
 /// 脚本上下文类，集成 Roslyn 脚本引擎实现代码的加载、编译与执行.
 /// </summary>
-public sealed class ScriptContext : IDisposable
+public sealed class ScriptContext : ObservableObject, IDisposable
 {
     private static readonly ConcurrentDictionary<string, MetadataReference> SystemReferenceCache = new();
     private static IReadOnlyList<Assembly>? defaultBaseAssemblies;
@@ -31,6 +31,7 @@ public sealed class ScriptContext : IDisposable
         "BgCommon.Script",    // 允许脚本直接识别 ScriptGlobals 类型
     };
 
+    private readonly SemaphoreSlim runLock = new(1, 1); // 初始化信号量，允许 1 个并发。
     private static int contextCount;
     private string scriptName = string.Empty;
     private string code = string.Empty;
@@ -52,7 +53,7 @@ public sealed class ScriptContext : IDisposable
     private ScriptBase? script;
     private ConfigurationMgr<ScriptFile>? scriptFileMgr;
     private ConfigurationMgr<ScriptTemplateFile>? templateFileMgr;
-    private bool isInternalSyncing = false; // 标记位
+    private bool isInternalSyncing; // 标记位
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ScriptContext"/> class.
@@ -184,9 +185,8 @@ public sealed class ScriptContext : IDisposable
         get => this.code;
         private set
         {
-            if (this.code != value)
+            if (this.SetProperty(ref this.code, value))
             {
-                this.code = value;
                 this.IsDirty = true;
                 this.UnloadContext(); // 代码改变，立即卸载旧程序集
             }
@@ -201,13 +201,13 @@ public sealed class ScriptContext : IDisposable
         get
         {
             // 只有当代码发生过变化时，才重新解析摘要
-            if (cachedSummary == null || summarySourceCode != this.Code)
+            if (this.cachedSummary == null || this.summarySourceCode != this.Code)
             {
-                summarySourceCode = this.Code;
-                cachedSummary = ScriptMetadataParser.GetSummary(this.Code);
+                this.summarySourceCode = this.Code;
+                this.cachedSummary = ScriptMetadataParser.GetSummary(this.Code);
             }
 
-            return cachedSummary;
+            return this.cachedSummary;
         }
     }
 
@@ -217,7 +217,7 @@ public sealed class ScriptContext : IDisposable
     public bool IsDirty
     {
         get => this.isDirty;
-        set => this.isDirty = value;
+        set => this.SetProperty(ref this.isDirty, value);
     }
 
     /// <summary>
@@ -226,7 +226,7 @@ public sealed class ScriptContext : IDisposable
     public bool IsRunning
     {
         get => this.isRunning;
-        private set => this.isRunning = value;
+        private set => this.SetProperty(ref this.isRunning, value);
     }
 
     /// <summary>
@@ -495,12 +495,14 @@ public sealed class ScriptContext : IDisposable
     /// <returns>脚本返回值.</returns>
     public async Task<ScriptResult> RunAsync(ScriptGlobals globals, CancellationToken ct = default)
     {
-        // 1. 并发守卫
-        if (this.IsRunning)
+        this.internalCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+
+        // 1. 原子性尝试获取锁。WaitAsync(0) 表示如果拿不到锁立即返回 false，不阻塞线程。
+        if (!await runLock.WaitAsync(0, this.internalCts.Token))
         {
             return new ScriptResult(
                 success: false,
-                message: "脚本正在运行中，请等待执行完成后再试。",
+                message: "脚本正在运行中，请勿重复触发。",
                 scriptFilePath: this.ScriptFilePath);
         }
 
@@ -527,7 +529,6 @@ public sealed class ScriptContext : IDisposable
             }
 
             globals.CancellationToken = ct;
-            this.internalCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
 
             if (this.cachedAssembly == null)
             {
@@ -680,6 +681,9 @@ public sealed class ScriptContext : IDisposable
 
             var cts = Interlocked.Exchange(ref this.internalCts, null);
             cts?.Dispose();
+
+            // 必须在 finally 块中释放信号量，确保即便崩溃也不会死锁
+            runLock.Release();
         }
     }
 
@@ -968,6 +972,8 @@ public sealed class ScriptContext : IDisposable
         OnRunning = null;
         OnRuned = null;
 
+        // 释放信号量
+        runLock.Dispose();
         GC.SuppressFinalize(this);
     }
 
