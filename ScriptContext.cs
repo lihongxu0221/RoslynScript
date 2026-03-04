@@ -85,13 +85,11 @@ public sealed class ScriptContext : ObservableObject, IDisposable
         // 统一从配置获取脚本存储根路径，确保模板模式下也能正确找到保存目录.
         this.ScriptPath = config.ScriptPath;
         this.Extension = string.IsNullOrEmpty(config.ScriptFileExtension) ? "csx" : config.ScriptFileExtension;
-        this.Namespaces = new ObservableCollection<string>();
         this.Namespaces.AddRange(DefaultNamespaces.Concat(config.Namespaces).Distinct());
         this.ReferLibsPath = config.ReferLibsPath;
-        this.ReferLibs = new ObservableCollection<string>();
         this.ReferLibs.AddRange(config.ReferLibs);
-        this.isDirty = false;
-        this.isRunning = false;
+        this.IsDirty = false;
+        this.IsRunning = false;
 
         if (isTemplate)
         {
@@ -495,10 +493,8 @@ public sealed class ScriptContext : ObservableObject, IDisposable
     /// <returns>脚本返回值.</returns>
     public async Task<ScriptResult> RunAsync(ScriptGlobals globals, CancellationToken ct = default)
     {
-        this.internalCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-
         // 1. 原子性尝试获取锁。WaitAsync(0) 表示如果拿不到锁立即返回 false，不阻塞线程。
-        if (!await runLock.WaitAsync(0, this.internalCts.Token))
+        if (!await runLock.WaitAsync(0))
         {
             return new ScriptResult(
                 success: false,
@@ -510,6 +506,7 @@ public sealed class ScriptContext : ObservableObject, IDisposable
         try
         {
             this.IsRunning = true;
+            this.internalCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
             this.OnRunning?.Invoke(this, EventArgs.Empty);
             if (this.compiledScript == null)
             {
@@ -896,14 +893,20 @@ public sealed class ScriptContext : ObservableObject, IDisposable
         // 3. 深度同步上下文配置
         // 强制同步 Namespace 和 ReferLibs (去重处理)
         var newContext = new ScriptContext(newName, this.ScriptPath, this.ReferLibsPath);
-        newContext.Namespaces.Clear();
-        newContext.Namespaces.AddRange(this.Namespaces.Distinct());
-        newContext.ReferLibs.Clear();
-        newContext.ReferLibs.AddRange(this.ReferLibs.Distinct());
         newContext.Extension = this.Extension;
         newContext.code = this.Code;
         newContext.scriptFileMgr = newMgr;
         newContext.SubscribeMetadata(newEntity); // 订阅新实体的变化
+        foreach (var ns in this.Namespaces)
+        {
+            newContext.Namespaces.Add(ns);
+        }
+
+        foreach (var lib in this.ReferLibs)
+        {
+            newContext.ReferLibs.Add(lib);
+        }
+
         newContext.IsDirty = false;
 
         // 触发另存为事件
@@ -948,21 +951,18 @@ public sealed class ScriptContext : ObservableObject, IDisposable
             this.script.PropertyChanged -= OnMetadataPropertyChanged;
         }
 
-        // 3. 彻底清理 Roslyn 资源和元数据缓存
-        this.UnloadContext();
-
-        // 4. 断开元数据引用，确保 ALC 能够被 GC 回收（关键！）
+        // 断开元数据引用，确保 ALC 能够被 GC 回收（关键！）
         this.script = null;
         this.scriptFileMgr = null;
         this.templateFileMgr = null;
-        this.cachedAssembly = null;
-        this.cachedTargetType = null;
-        this.cachedMethod = null;
 
-        // 5. 触发事件并注销 (防止内存泄漏)
+        // 3. 彻底清理 Roslyn 资源和元数据缓存
+        this.UnloadContext();
+
+        // 4. 触发事件并注销 (防止内存泄漏)
         this.OnDispose?.Invoke(this, EventArgs.Empty);
 
-        // 6. 清空事件订阅者
+        // 5. 清空事件订阅者
         OnDispose = null;
         OnInitialized = null;
         OnSaved = null;
@@ -1033,7 +1033,8 @@ public sealed class ScriptContext : ObservableObject, IDisposable
     /// </summary>
     private void UnloadContext()
     {
-        this.cachedSummary = null; // 必须清理，确保下次解析新摘要
+        // 断开元数据引用，确保 ALC 能够被 GC 回收（关键！）
+        this.cachedSummary = null;
         this.compiledScript = null;
         this.cachedAssembly = null;
         this.cachedTargetType = null;
