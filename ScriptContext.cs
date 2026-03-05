@@ -231,7 +231,7 @@ public sealed class ScriptContext : ObservableObject, IDisposable
     /// Gets or sets 操作的默认超时时间间隔.
     /// </summary>
     /// <remarks>默认值为30秒。调整此属性可控制操作在超时前允许运行的时长.</remarks>
-    public TimeSpan DefaultTimeout { get; set; } = TimeSpan.FromSeconds(30);
+    public TimeSpan DefaultTimeout { get; set; } = TimeSpan.FromSeconds(3);
 
     /// <summary>
     /// 当对象释放时触发.
@@ -649,7 +649,7 @@ public sealed class ScriptContext : ObservableObject, IDisposable
             this.OnRuned?.Invoke(this, new ScriptExecutionEventArgs(null, stopwatch.Elapsed, coeT));
             return new ScriptResult(
                 success: false,
-                message: $"脚本执行超时（超过 {DefaultTimeout.TotalSeconds} 秒）"
+                message: $"脚本执行超时（超过 {DefaultTimeout.TotalSeconds} 秒）",
                 result: null,
                 exception: coeT,
                 inputs: globals.Data,

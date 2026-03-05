@@ -2,6 +2,7 @@ using BgLogger;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.Extensions.FileSystemGlobbing;
+using System.Collections.Concurrent;
 using System.Collections.Specialized;
 using System.Runtime.ConstrainedExecution;
 
@@ -17,6 +18,7 @@ public sealed class ScriptManager : IDisposable
     /// </summary>
     private readonly ScriptConfig config;
     private readonly SynchronizationContext? syncContext = SynchronizationContext.Current;
+    private readonly ConcurrentDictionary<string, CancellationTokenSource> debounceTokens = new();
     private FileSystemWatcher? watcher;
 
     /// <summary>
@@ -124,13 +126,33 @@ public sealed class ScriptManager : IDisposable
             return;
         }
 
-        var context = GetContext(name);
-
-        // 只有当内存中未修改时，才允许被外部覆盖，防止丢失正在编辑的内容
-        if (context != null && !context.IsDirty)
+        // 取消之前的延迟任务
+        if (debounceTokens.TryRemove(name, out var oldCts))
         {
-            await context.LoadAsync();
+            oldCts.Cancel();
+            oldCts.Dispose();
         }
+
+        var cts = new CancellationTokenSource();
+        debounceTokens[name] = cts;
+
+        _ = Task.Delay(500, cts.Token).ContinueWith(
+            async t =>
+            {
+                if (t.IsCanceled)
+                {
+                    return;
+                }
+
+                var context = GetContext(name);
+                if (context != null && !context.IsDirty)
+                {
+                    await context.LoadAsync();
+                    LogRun.Info($"脚本 [{name}] 已通过文件系统同步自动重载。");
+                }
+
+                debounceTokens.TryRemove(name, out _);
+            });
     }
 
     private void OnFileDeleted(object? sender, FileSystemEventArgs e)
