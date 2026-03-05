@@ -9,9 +9,8 @@ namespace BgCommon.Script;
 /// </summary>
 public abstract class ScriptGlobals
 {
-    // 缓存 Task<T> 的 Result 属性访问器，避免频繁反射开销
-    // 注意: 使用 AssemblyQualifiedName 作为 key 以避免跨 AssemblyLoadContext 的类型冲突
     private static readonly ConcurrentDictionary<string, PropertyInfo?> TaskResultCache = new ConcurrentDictionary<string, PropertyInfo?>();
+    private static readonly ConcurrentDictionary<string, object?> SharedProperties = new();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ScriptGlobals"/> class.
@@ -82,6 +81,51 @@ public abstract class ScriptGlobals
     /// <param name="targetType">目标类型.</param>
     /// <returns>方法反射信息.</returns>
     internal MethodInfo InternalResolveMethod(Type targetType) => ResolveTargetMethod(targetType);
+
+    /// <summary>
+    /// 获取指定的共享属性值.
+    /// </summary>
+    /// <param name="propertyKey">属性的唯一键名.</param>
+    /// <returns>返回找到的对象；如果未找到，则返回 null.</returns>
+    public object? GetShared(string propertyKey)
+    {
+        // 尝试从共享属性集合中获取与键关联的值
+        return SharedProperties.TryGetValue(propertyKey, out var sharedValue) ? sharedValue : null;
+    }
+
+    /// <summary>
+    /// 设置共享属性值.
+    /// </summary>
+    /// <param name="propertyKey">属性的唯一键名.</param>
+    /// <param name="propertyValue">要存储的属性值对象.</param>
+    public void SetShared(string propertyKey, object? propertyValue)
+    {
+        // 将指定的值通过键名存入共享属性集合中
+        SharedProperties[propertyKey] = propertyValue;
+    }
+
+    /// <summary>
+    /// 将对象序列化为 JSON 字符串.
+    /// </summary>
+    /// <param name="targetObject">需要序列化的目标对象.</param>
+    /// <returns>返回序列化后的 JSON 字符串.</returns>
+    public string ToJson(object targetObject)
+    {
+        // 调用系统内置的 JSON 序列化工具
+        return System.Text.Json.JsonSerializer.Serialize(targetObject);
+    }
+
+    /// <summary>
+    /// 将 JSON 字符串反序列化为指定的泛型对象.
+    /// </summary>
+    /// <typeparam name="T">目标对象类型.</typeparam>
+    /// <param name="jsonString">要解析的 JSON 字符串.</param>
+    /// <returns>返回反序列化后的对象实例.</returns>
+    public T? FromJson<T>(string jsonString)
+    {
+        // 调用系统内置的 JSON 反序列化工具并返回指定类型
+        return System.Text.Json.JsonSerializer.Deserialize<T>(jsonString);
+    }
 
     /// <summary>
     /// 提供一个通用的异步输出方法.
@@ -423,7 +467,7 @@ public abstract class ScriptGlobals
         // 这避免了 PropertyInfo 在不同上下文中使用时的潜在问题
         var typeKey = taskType.AssemblyQualifiedName ?? taskType.FullName ?? taskType.Name;
         var prop = TaskResultCache.GetOrAdd(typeKey, _ => taskType.GetProperty("Result"));
-        
+
         return prop?.GetValue(task);
     }
 }

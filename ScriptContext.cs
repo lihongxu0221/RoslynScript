@@ -228,6 +228,12 @@ public sealed class ScriptContext : ObservableObject, IDisposable
     }
 
     /// <summary>
+    /// Gets or sets 操作的默认超时时间间隔.
+    /// </summary>
+    /// <remarks>默认值为30秒。调整此属性可控制操作在超时前允许运行的时长.</remarks>
+    public TimeSpan DefaultTimeout { get; set; } = TimeSpan.FromSeconds(30);
+
+    /// <summary>
     /// 当对象释放时触发.
     /// </summary>
     public event EventHandler? OnDispose;
@@ -503,10 +509,14 @@ public sealed class ScriptContext : ObservableObject, IDisposable
         }
 
         var stopwatch = Stopwatch.StartNew();
+
+        // 创建一个带超时的组合取消令牌
+        using var timeoutCts = new CancellationTokenSource(DefaultTimeout);
+        using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(ct, timeoutCts.Token);
         try
         {
             this.IsRunning = true;
-            this.internalCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+            this.internalCts = linkedCts;
             this.OnRunning?.Invoke(this, EventArgs.Empty);
             if (this.compiledScript == null)
             {
@@ -627,6 +637,21 @@ public sealed class ScriptContext : ObservableObject, IDisposable
                 message: "执行成功",
                 result: finalValue,
                 exception: null,
+                inputs: globals.Data,
+                outputs: globals.Outputs,
+                scriptFilePath: this.ScriptFilePath,
+                scriptCode: this.Code,
+                targetType: globals.ResolvedTypeName,
+                targetMethod: globals.ResolvedMethodName);
+        }
+        catch (OperationCanceledException coeT) when (timeoutCts.IsCancellationRequested)
+        {
+            this.OnRuned?.Invoke(this, new ScriptExecutionEventArgs(null, stopwatch.Elapsed, coeT));
+            return new ScriptResult(
+                success: false,
+                message: $"脚本执行超时（超过 {DefaultTimeout.TotalSeconds} 秒）"
+                result: null,
+                exception: coeT,
                 inputs: globals.Data,
                 outputs: globals.Outputs,
                 scriptFilePath: this.ScriptFilePath,
