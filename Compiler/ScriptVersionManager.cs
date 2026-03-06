@@ -7,6 +7,7 @@ namespace BgCommon.Script.Compiler;
 /// <summary>
 /// 脚本版本管理器，用于管理脚本的历史版本、创建新版本以及执行版本回滚操作.
 /// 存放目录为 {ScriptName}/{VersionId}.ver，版本记录包含脚本内容快照、创建时间、作者等元信息.
+/// 将指定脚本回滚到特定的历史版本 不应该在此类中存在.
 /// </summary>
 public class ScriptVersionManager
 {
@@ -23,40 +24,42 @@ public class ScriptVersionManager
     }
 
     /// <summary>
-    /// 为指定的脚本创建一个新版本.
+    /// 创建新版本（修复了引用类型污染问题）.
     /// </summary>
-    /// <param name="script">目标脚本对象.</param>
-    /// <param name="currentUser">当前操作用户.</param>
-    /// <returns>返回新创建的脚本版本对象.</returns>
+    /// <param name="script">脚本对象.</param>
+    /// <param name="currentUser">当前用户.</param>
+    /// <returns>脚本版本.</returns>
     public virtual async Task<ScriptVersion> CreateVersionAsync(ScriptFile script, UserInfo? currentUser)
     {
-        // 验证输入参数
         ArgumentNullException.ThrowIfNull(script, nameof(script));
         ArgumentNullException.ThrowIfNull(currentUser, nameof(currentUser));
 
-        string targetScriptName = script.Name;
+        string targetName = script.Name;
 
-        // 构建新的脚本版本实体，记录当前脚本状态快照
-        var newScriptVersion = new ScriptVersion
+        // 潜在问题修复：创建 ScriptFile 的浅拷贝，防止后续修改影响历史记录
+        var scriptSnapshot = new ScriptFile();
+        scriptSnapshot.Id = script.Id;
+        scriptSnapshot.PatchMetadata(script);
+
+        var versionEntry = new ScriptVersion
         {
             Id = Guid.NewGuid().ToString("N"),
-            ScriptName = targetScriptName,
+            ScriptName = targetName,
             CreatedAt = DateTime.Now,
-            Script = script,
+            Script = scriptSnapshot,
             Author = currentUser.UserName ?? "System",
         };
 
-        // 如果脚本尚未在字典中记录，则为其初始化版本列表
-        if (!this.versionStore.TryGetValue(targetScriptName, out List<ScriptVersion>? historyList))
-        {
-            historyList = new List<ScriptVersion>();
-            this.versionStore[targetScriptName] = historyList;
-        }
+        this.versionStore.AddOrUpdate(
+            targetName,
+            _ => new List<ScriptVersion> { versionEntry },
+            (_, list) =>
+            {
+                lock (list) { list.Add(versionEntry); }
+                return list;
+            });
 
-        // 将新版本添加至历史记录列表
-        historyList.Add(newScriptVersion);
-
-        return await Task.FromResult(newScriptVersion);
+        return await Task.FromResult(versionEntry);
     }
 
     /// <summary>
@@ -99,32 +102,5 @@ public class ScriptVersionManager
         }
 
         return await Task.FromResult(Enumerable.Empty<ScriptVersion>());
-    }
-
-    /// <summary>
-    /// 将指定脚本回滚到特定的历史版本（待完善）.
-    /// </summary>
-    /// <param name="targetScriptName">脚本名称.</param>
-    /// <param name="targetVersionId">要回滚到的目标版本标识符.</param>
-    /// <param name="currentUser">执行回滚操作的用户.</param>
-    /// <returns>表示异步操作的任务.</returns>
-    public virtual async Task RevertToVersionAsync(string targetScriptName, string targetVersionId, UserInfo currentUser)
-    {
-        // 验证回滚参数
-        ArgumentNullException.ThrowIfNull(targetScriptName, nameof(targetScriptName));
-        ArgumentNullException.ThrowIfNull(targetVersionId, nameof(targetVersionId));
-        ArgumentNullException.ThrowIfNull(currentUser, nameof(currentUser));
-
-        // 1. 检索目标版本记录
-        var targetVersion = await this.GetVersionAsync(targetScriptName, targetVersionId).ConfigureAwait(false);
-        if (targetVersion == null || targetVersion.Script == null)
-        {
-            // 若版本或关联脚本内容不存在，则中断回滚操作
-            return;
-        }
-
-        // 2. 执行回滚逻辑：创建一个基于旧版本内容的新版本（类似于 Git 的 Revert 提交）
-        // 这样可以保留回滚动作本身的历史轨迹
-        await this.CreateVersionAsync(targetVersion.Script, currentUser).ConfigureAwait(false);
     }
 }
