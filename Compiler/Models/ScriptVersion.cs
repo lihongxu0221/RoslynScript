@@ -1,6 +1,4 @@
-using BgCommon.Script.Compiler.Models;
-
-namespace BgCommon.Script.Compiler;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 表示脚本的版本信息实体.
