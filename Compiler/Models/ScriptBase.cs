@@ -1,4 +1,4 @@
-namespace BgCommon.Script.Models;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 脚本配置基类.

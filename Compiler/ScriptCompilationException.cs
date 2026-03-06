@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 表示脚本编译错误的异常类.

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Text;
 
-namespace BgCommon.Script.Models;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 表示脚本模板文件的元数据类,包含模板的基本信息和配置.

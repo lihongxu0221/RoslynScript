@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 脚本执行时的全局寄宿对象基类.

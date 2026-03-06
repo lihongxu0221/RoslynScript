@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 提供对脚本源代码进行静态分析的工具类.

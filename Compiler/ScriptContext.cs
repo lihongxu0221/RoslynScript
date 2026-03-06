@@ -1,5 +1,5 @@
 using BgCommon.Configuration;
-using BgCommon.Script.Models;
+using BgCommon.Script.Compiler.Models;
 using DryIoc.ImTools;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 脚本上下文类，集成 Roslyn 脚本引擎实现代码的加载、编译与执行.

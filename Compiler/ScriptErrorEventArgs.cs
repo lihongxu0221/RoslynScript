@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 表示脚本错误的来源枚举.

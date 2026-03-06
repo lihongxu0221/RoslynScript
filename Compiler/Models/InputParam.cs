@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace BgCommon.Script.Models;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 表示脚本输入参数的类,包含参数名称、类型、值及默认值信息.

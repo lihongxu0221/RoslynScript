@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
 using System.Collections.Concurrent;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 表示脚本执行结果的类，包含成功状态、返回消息、结果对象及可能的异常信息.

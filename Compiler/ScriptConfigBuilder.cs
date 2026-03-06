@@ -1,4 +1,4 @@
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 提供用于构建和配置 <see cref="ScriptConfig"/> 对象的扩展方法和静态方法.

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Text;
 
-namespace BgCommon.Script.Models;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 表示脚本输出参数的类,用于存储脚本执行后的输出结果.

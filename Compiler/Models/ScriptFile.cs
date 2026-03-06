@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
-namespace BgCommon.Script.Models;
+namespace BgCommon.Script.Compiler.Models;
 
 /// <summary>
 /// 表示脚本文件的元数据类,包含脚本的基本信息和配置.

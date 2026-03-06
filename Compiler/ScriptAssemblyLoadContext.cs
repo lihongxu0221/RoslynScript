@@ -11,7 +11,7 @@ internal sealed class ScriptAssemblyLoadContext : AssemblyLoadContext
     /// <summary>
     /// Initializes a new instance of the <see cref="ScriptAssemblyLoadContext"/> class.
     /// </summary>
-    /// <param name="name">新实例中 System.Runtime.Loader.AssemblyLoadContext.Name 属性的值，可为 null.</param>
+    /// <param name="name"> The value for System.Runtime.Loader.AssemblyLoadContext.Name in the new instance.Its value can be null.</param>
     public ScriptAssemblyLoadContext(string name)
         : base(name, isCollectible: true)
     {

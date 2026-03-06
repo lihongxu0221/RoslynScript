@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 using System.Collections.Specialized;
 using System.Runtime.ConstrainedExecution;
 
-namespace BgCommon.Script;
+namespace BgCommon.Script.Compiler;
 
 /// <summary>
 /// 脚本管理器类，负责管理脚本上下文集合、处理生命周期事件及提供编辑执行接口.
