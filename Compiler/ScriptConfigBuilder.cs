@@ -1,3 +1,5 @@
+using BgCommon.Script.Compiler.Configs;
+
 namespace BgCommon.Script.Compiler;
 
 /// <summary>

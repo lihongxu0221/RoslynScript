@@ -1,4 +1,5 @@
 using BgCommon.Configuration;
+using BgCommon.Script.Compiler.Configs;
 using BgCommon.Script.Compiler.Models;
 using DryIoc.ImTools;
 using Microsoft.CodeAnalysis;

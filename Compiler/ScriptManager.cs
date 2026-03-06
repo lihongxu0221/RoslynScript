@@ -1,3 +1,4 @@
+using BgCommon.Script.Compiler.Configs;
 using BgLogger;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;

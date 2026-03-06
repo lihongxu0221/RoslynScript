@@ -1,4 +1,4 @@
-namespace BgCommon.Script.Compiler;
+namespace BgCommon.Script.Compiler.Configs;
 
 /// <summary>
 /// 表示脚本的配置信息类，用于定义程序集路径、脚本路径及相关的引用关系.

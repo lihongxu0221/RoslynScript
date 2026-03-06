@@ -1,4 +1,4 @@
-namespace BgCommon.Script.Compiler;
+namespace BgCommon.Script.Compiler.Configs;
 
 /// <summary>
 /// 表示脚本模板的配置信息类.
