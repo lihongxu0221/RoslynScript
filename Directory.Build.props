@@ -11,7 +11,7 @@
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
     <!--生成输出路径-->
-    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
 
     <!--在构建时强制执行代码风格规则-->
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>

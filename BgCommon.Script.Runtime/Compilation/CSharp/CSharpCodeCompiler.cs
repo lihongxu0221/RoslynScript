@@ -2,6 +2,7 @@ using BgCommon.Script.Runtime.CodeAnalysis;
 using BgCommon.Script.Runtime.DotNet;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Emit;
 using System.Collections.Concurrent;
@@ -240,12 +241,13 @@ internal class CSharpCodeCompiler : ICodeCompiler
     /// <returns>配置完成的 CSharpCompilation 对象.</returns>
     private CSharpCompilation CreateCompilation(CompilationInput input, string assemblyName)
     {
-        // 获取源代码语法树.
+        // 获取源代码语法树（包含预制的 using 语句以支持智能提示）
         var syntaxTree = this.codeAnalysisService.GetSyntaxTree(
             input.Code,
             input.SourceCodeKind,
             input.TargetFrameworkVersion,
-            input.OptimizationLevel);
+            input.OptimizationLevel,
+            input.Usings);
 
         // 使用字典管理引用，键为程序集简单名称，防止 CS1703 标识冲突.
         var referenceMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
@@ -297,6 +299,12 @@ internal class CSharpCodeCompiler : ICodeCompiler
             syntaxTrees: new SyntaxTree[] { syntaxTree },
             options: options,
             references: metadataReferences);
+
+        // 使用语法树重写器添加 using 语句
+        if (input.Usings.Count > 0)
+        {
+            compilation = this.AddUsingsToCompilation(compilation, input.Usings);
+        }
 
         // 获取并运行源代码生成器（Source Generators）.
         var generators = GetSourceGenerators(referenceMap.Values.ToHashSet());
@@ -411,6 +419,121 @@ internal class CSharpCodeCompiler : ICodeCompiler
         }
 
         return results.ToArray();
+    }
+
+    /// <summary>
+    /// 使用语法树重写器为编译对象添加 using 语句
+    /// </summary>
+    /// <param name="compilation">原始编译对象</param>
+    /// <param name="usings">需要添加的命名空间集合</param>
+    /// <returns>添加了 using 语句的编译对象</returns>
+    private CSharpCompilation AddUsingsToCompilation(CSharpCompilation compilation, HashSet<string> usings)
+    {
+        if (usings == null || usings.Count == 0)
+        {
+            return compilation;
+        }
+
+        // 过滤掉空的命名空间
+        var validUsings = usings.Where(u => !string.IsNullOrWhiteSpace(u)).Distinct().ToList();
+        if (validUsings.Count == 0)
+        {
+            return compilation;
+        }
+
+        // 获取第一个语法树（假设只有一个语法树）
+        var originalTree = compilation.SyntaxTrees.FirstOrDefault();
+        if (originalTree == null)
+        {
+            return compilation;
+        }
+
+        // 获取根节点
+        var root = originalTree.GetRoot();
+        
+        // 检查是否已经有 using 语句
+        var existingUsings = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var usingDirectives = root.DescendantNodes().OfType<UsingDirectiveSyntax>();
+        foreach (var usingDirective in usingDirectives)
+        {
+            var name = usingDirective.Name?.ToString();
+            if (!string.IsNullOrEmpty(name))
+            {
+                existingUsings.Add(name);
+            }
+        }
+
+        // 找出需要添加的 using 语句
+        var usingsToAdd = validUsings.Where(u => !existingUsings.Contains(u.Trim())).ToList();
+        if (usingsToAdd.Count == 0)
+        {
+            return compilation;
+        }
+
+        // 创建新的 using 语句
+        var newUsings = usingsToAdd.Select(u => 
+            SyntaxFactory.UsingDirective(SyntaxFactory.ParseName(u.Trim()))
+                .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed)
+        ).ToArray();
+
+        // 创建语法树重写器
+        var rewriter = new UsingAdderRewriter(newUsings);
+        var newRoot = rewriter.Visit(root);
+
+        // 如果根节点有变化，创建新的语法树
+        if (newRoot != root)
+        {
+            var newTree = originalTree.WithRootAndOptions(newRoot, originalTree.Options);
+            return compilation.ReplaceSyntaxTree(originalTree, newTree);
+        }
+
+        return compilation;
+    }
+
+    /// <summary>
+    /// 语法树重写器，用于添加 using 语句
+    /// </summary>
+    private class UsingAdderRewriter : CSharpSyntaxRewriter
+    {
+        private readonly UsingDirectiveSyntax[] newUsings;
+        private bool hasAddedUsings = false;
+
+        public UsingAdderRewriter(UsingDirectiveSyntax[] newUsings)
+        {
+            this.newUsings = newUsings;
+        }
+
+        public override SyntaxNode? VisitCompilationUnit(CompilationUnitSyntax node)
+        {
+            if (hasAddedUsings)
+            {
+                return base.VisitCompilationUnit(node);
+            }
+
+            hasAddedUsings = true;
+            
+            // 在现有 using 语句之后添加新的 using 语句
+            var existingUsings = node.Usings;
+            var allUsings = existingUsings.AddRange(newUsings);
+            
+            return node.WithUsings(allUsings);
+        }
+
+        public override SyntaxNode? VisitNamespaceDeclaration(NamespaceDeclarationSyntax node)
+        {
+            if (hasAddedUsings)
+            {
+                return base.VisitNamespaceDeclaration(node);
+            }
+
+            hasAddedUsings = true;
+            
+            // 在命名空间内的 using 语句之后添加新的 using 语句
+            var existingUsings = node.Usings;
+            var allUsings = existingUsings.AddRange(newUsings);
+            
+            return node.WithUsings(allUsings);
+        }
     }
 }
 
