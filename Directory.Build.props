@@ -1,0 +1,113 @@
+<Project>
+  <!--构建配置-->
+  <PropertyGroup>
+    <DefaultTargetFramework>net8.0</DefaultTargetFramework>
+    <LtsTargetFramework>net8.0</LtsTargetFramework>
+    <EarliestSupportedTargetFramework>net8.0</EarliestSupportedTargetFramework>
+    <UseWPF Condition=" $(MSBuildProjectName.Contains('Windows')) ">true</UseWPF>
+    <TargetFramework Condition=" '$(UseWPF)' == 'true' ">$(LtsTargetFramework)-windows</TargetFramework>
+    <TargetFramework Condition=" '$(TargetFramework)' == '' and '$(TargetFrameworks)' == '' ">$(DefaultTargetFramework)</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+    <!--生成输出路径-->
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+
+    <!--在构建时强制执行代码风格规则-->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- (使用通用输出目录) 启用后无法将Nuget引用的DLL复制到输出目录-->
+    <UseCommonOutputDirectory>false</UseCommonOutputDirectory>
+
+    <!--生成的输出路径不带Target-->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+
+    <!--<Version>1.1.0</Version>
+		<BgToolkitVersion>1.1.0</BgToolkitVersion>
+		<ApplicationVersion>$(BgToolkitVersion.Replace('.', ''))</ApplicationVersion>
+		<ApplicationDisplayVersion>$(BgToolkitVersion)</ApplicationDisplayVersion>-->
+
+    <Copyright>Sz-Baigu</Copyright>
+    <LangVersion>latest</LangVersion>
+    <Company>sz-Baigu</Company>
+    <Authors>sz-baigu;Blank Li</Authors>
+  </PropertyGroup>
+
+  <!--多语言输出配置-->
+  <PropertyGroup>
+    <!-- 1. 默认多语言资源 -->
+    <NeutralLanguage>zh-CN</NeutralLanguage>
+    <!-- 2. 只配置需要生成的文化代码（用分号分隔） -->
+    <SupportedCultures>zh-CN;zh-TW;en-US;vi</SupportedCultures>
+    <!-- 3. 确保只生成指定文化的卫星程序集（.NET 5+ 推荐配置） -->
+    <GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
+    <SatelliteResourceLanguages>$(SupportedCultures)</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!--NuGet配置-->
+  <PropertyGroup>
+    <!--确保在编译 XAML 等标记文件时能够正确解析相关的 NuGet 包引用-->
+    <IncludePackageReferencesDuringMarkupCompilation>true</IncludePackageReferencesDuringMarkupCompilation>
+    <!--把NuGet包放到项目中-->
+    <RestorePackagesPath>..\..\packages</RestorePackagesPath>
+
+    <!-- 强制复制所有 NuGet 依赖到输出目录 -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!--二进制序列化支持-->
+  <PropertyGroup>
+    <!-- Disable "BinaryFormatter is obsolete" warnings for entire project -->
+    <NoWarn>$(NoWarn);SYSLIB0011;SYSLIB0050;VSTHRD001;VSTHRD103;</NoWarn>
+    <!-- Warning: Setting the following switch is *NOT* recommended in web apps. -->
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);SA1101;SA1124;SA1310;SA1405;SA1633;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CA1000;CA1305;CA1309;CA1310;CA1710;CA1711;CA1822;CA5369;</NoWarn>
+  </PropertyGroup>
+
+  <!--代码风格-->
+  <PropertyGroup>
+    <Features>strict</Features>
+    <Deterministic>True</Deterministic>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <IncludeSymbols>true</IncludeSymbols>
+    <!--抑制 .NET Core SDK 预览版警告消息-->
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+  </PropertyGroup>
+
+  <!--根据条件决定是否启用裁剪模式-->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <!-- 剪裁模式 partial：只移除明显未使用的程序集，相对安全 full：更积极地移除未使用的代码，可能破坏反射等动态功能-->
+    <TrimMode>partial</TrimMode>
+    <!-- 剪裁器是否只生成一个警告，而不是为每个剪裁的程序集生成一个警告-->
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
+    <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
+
+  <!--根据条件决定是否启用裁剪模式-->
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+
+  <!--代码风格统一和低级错误智能提示配置-->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub"
+                      PrivateAssets="All"
+                      IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+    <PackageReference Include="PolySharp"
+                      PrivateAssets="All"
+                      IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+    <PackageReference Include="StyleCop.Analyzers"
+                      PrivateAssets="All"
+                      IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+  </ItemGroup>
+</Project>
