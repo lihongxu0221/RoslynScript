@@ -1,0 +1,1 @@
+namespace BgCommon.Localization.Json.Models;/// <summary>/// 为具有模式版本的翻译容器定义合约./// </summary>public interface ITranslationsContainer{    /// <summary>    /// Gets 获取翻译容器的版本.    /// </summary>    string Version { get; }}

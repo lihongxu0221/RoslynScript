@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "VM": {
+      "commandName": "Executable",
+      "executablePath": "..\\Debug\\VM.Studio.exe"
+    },
+    "LG": {
+      "commandName": "Executable",
+      "executablePath": "..\\Debug\\LG.Studio.exe"
+    },
+    "CE3D": {
+      "commandName": "Executable",
+      "executablePath": "..\\Debug\\CurveEdge3D.exe"
+    }
+  }
+}

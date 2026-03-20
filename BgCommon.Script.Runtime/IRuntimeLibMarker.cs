@@ -1,0 +1,1 @@
+namespace BgCommon.Script.Runtime;/// <summary>/// BgCommon.Script 程序集的标记接口./// </summary>public interface IRuntimeLibMarker;

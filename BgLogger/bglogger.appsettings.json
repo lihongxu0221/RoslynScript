@@ -1,0 +1,193 @@
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Trace",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        }
+    },
+    "NLog": {
+        "autoReload": true,
+        "internalLogLevel": "Info",
+        "internalLogFile": "${basedir}/logs/nlog-appsettings-internal.log",
+        "internalLogToConsole": true,
+        "throwConfigExceptions": true,
+        "extensions": [
+            { "assembly": "NLog.Database" },
+            { "assembly": "BgLogger" },
+            { "assembly": "BgCommon.Prism.Wpf" }
+        ],
+        "variables": {
+            "logDirectory": "${basedir}/logs",
+            "dbPath": "${basedir}/DataDir/HistoricalLogs.sqlite",
+            "defaultLayout": "${longdate}|${level:uppercase=true}|${threadid}|${logger}|${message} ${exception:format=ToString}"
+        },
+        "targets": {
+            "centralAsyncRouter": {
+                "type": "AsyncWrapper",
+                "batchSize": 100,
+                "queueLimit": 50000,
+                "overflowAction": "Discard",
+                "target": {
+                    "type": "Splitter",
+                    "targets": [
+                        {
+                            "type": "BufferingWrapper",
+                            "bufferSize": 100,
+                            "flushTimeout": 500,
+                            "target": {
+                                "type": "WpfEventAggregatorTarget"
+                            }
+                        },
+                        {
+                            "type": "File",
+                            "fileName": "${var:logDirectory}/all-${date:format=yyyy-MM-dd}.log",
+                            "layout": "${var:defaultLayout}"
+                        },
+                        {
+                            "type": "Database",
+                            "dbProvider": "Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite",
+                            "connectionString": "Data Source=${var:dbPath}",
+                            "commandText": "INSERT INTO Logs (Timestamp, Level, Source, Message, Exception) VALUES (@Timestamp, @Level, @Source, @Message, @Exception);",
+                            "parameters": [
+                                {
+                                    "name": "@Timestamp",
+                                    "layout": "${date}"
+                                },
+                                {
+                                    "name": "@Level",
+                                    "layout": "${level:uppercase=true}"
+                                },
+                                {
+                                    "name": "@Source",
+                                    "layout": "${logger}"
+                                },
+                                {
+                                    "name": "@Message",
+                                    "layout": "${message}"
+                                },
+                                {
+                                    "name": "@Exception",
+                                    "layout": "${exception:format=ToString}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and (logger == 'Popup' or logger == 'General')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and starts-with(logger, 'Vision')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/vision/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and starts-with(logger, 'Motion')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/motion/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and starts-with(logger, 'MES')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/mes/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and starts-with(logger, 'DataBase')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/database/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        },
+                        {
+                            "type": "FilteringWrapper",
+                            "condition": "level >= LogLevel.Debug and starts-with(logger, 'Hardware')",
+                            "target": {
+                                "type": "File",
+                                "fileName": "${var:logDirectory}/hardware/${date:format=yyyy-MM-dd}.log",
+                                "layout": "${var:defaultLayout}"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "rules": [
+            {
+                "logger": "*",
+                "minLevel": "Trace",
+                "writeTo": "centralAsyncRouter"
+            }
+        ]
+    },
+    "AppSettings": {
+        "LogSourceSettings": [
+            {
+                "Name": "General",
+                "IsDisplayEnabled": true,
+                "StorageDays": 90,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "Popup",
+                "IsDisplayEnabled": true,
+                "StorageDays": 60,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "Vision",
+                "IsDisplayEnabled": true,
+                "StorageDays": 60,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "Motion",
+                "IsDisplayEnabled": true,
+                "StorageDays": 60,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "MES",
+                "IsDisplayEnabled": true,
+                "StorageDays": 180,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "DataBase",
+                "IsDisplayEnabled": true,
+                "StorageDays": 180,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "Hardware",
+                "IsDisplayEnabled": true,
+                "StorageDays": 180,
+                "MaxRealTimeEntries": 200
+            },
+            {
+                "Name": "RealtimeProduction",
+                "IsDisplayEnabled": true,
+                "StorageDays": 30,
+                "MaxRealTimeEntries": 200
+            }
+        ]
+    }
+}

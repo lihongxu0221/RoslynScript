@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm">
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">8.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

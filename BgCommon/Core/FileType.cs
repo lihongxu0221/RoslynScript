@@ -1,0 +1,1 @@
+namespace BgCommon.Core;/// <summary>/// 文件类型枚举./// </summary>public enum FileType{    /// <summary>    /// 项目文件    /// </summary>    Project = 0,    /// <summary>    /// 项目运行结果文件    /// </summary>    ProjectResult = 1,}

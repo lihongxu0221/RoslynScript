@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <BgNLogVersion>5.4.0</BgNLogVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)BgCommon.dll" />
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)BgCommon.Localization.dll" />
+    <!--<None Include="$(MSBuildThisFileDirectory)bglogger.appsettings.json">
+      <Link>bglogger.appsettings.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>-->
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NLog">
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">$(BgNLogVersion)</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Database">
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">$(BgNLogVersion)</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Extensions.Logging">
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">$(BgNLogVersion)</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Schema">
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">$(BgNLogVersion)</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

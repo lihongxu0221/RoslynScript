@@ -1,0 +1,1890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ClearAlarm" xml:space="preserve">
+    <value>清除报警</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>全屏</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登陆</value>
+  </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>用户名或密码不正确，登陆失败！</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>复位</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>用户登陆</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="UserNameOrPasswordIsEmpty" xml:space="preserve">
+    <value>用户名和密码不允许为空！</value>
+  </data>
+  <data name="CoverImage" xml:space="preserve">
+    <value>封面图像</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="FilePath" xml:space="preserve">
+    <value>路径</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>文件大小</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="ModifyTime" xml:space="preserve">
+    <value>修改时间</value>
+  </data>
+  <data name="ProjectInfo" xml:space="preserve">
+    <value>项目信息</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="ProjectPath" xml:space="preserve">
+    <value>项目路径</value>
+  </data>
+  <data name="QuickAction" xml:space="preserve">
+    <value>快速操作</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>未命名</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Machine" xml:space="preserve">
+    <value>机器</value>
+  </data>
+  <data name="TrackParameter" xml:space="preserve">
+    <value>轨道参数</value>
+  </data>
+  <data name="TrackWidth" xml:space="preserve">
+    <value>轨道宽度</value>
+  </data>
+  <data name="TrackClamping" xml:space="preserve">
+    <value>夹紧量</value>
+  </data>
+  <data name="BoardWidth" xml:space="preserve">
+    <value>板宽</value>
+  </data>
+  <data name="BoardHeight" xml:space="preserve">
+    <value>板高</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="ErrorPrompt" xml:space="preserve">
+    <value>错误提示</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>專案儲存失敗。原因：{Reason}{NewLine}</value>
+  </data>
+  <data name="Local" xml:space="preserve">
+    <value>本地</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="SystemWarning" xml:space="preserve">
+    <value>系统警告</value>
+  </data>
+  <data name="SystemPrompt" xml:space="preserve">
+    <value>系统提示</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="LimitZ" xml:space="preserve">
+    <value>限制Z</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="ToolName" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="DisConnect" xml:space="preserve">
+    <value>断开连接</value>
+  </data>
+  <data name="TypeNotEnum" xml:space="preserve">
+    <value>類型 {TypeName} 不是列舉類型。</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>复制到剪贴板</value>
+  </data>
+  <data name="请输入" xml:space="preserve">
+    <value>请输入</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="DeleteAll" xml:space="preserve">
+    <value>删除所有</value>
+  </data>
+  <data name="BaseSetting" xml:space="preserve">
+    <value>基础设置</value>
+  </data>
+  <data name="Execute" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="WorkStation" xml:space="preserve">
+    <value>工位</value>
+  </data>
+  <data name="操作员" xml:space="preserve">
+    <value>操作員</value>
+  </data>
+  <data name="工程师" xml:space="preserve">
+    <value>工程师</value>
+  </data>
+  <data name="管理员" xml:space="preserve">
+    <value>管理員</value>
+  </data>
+  <data name="最大值" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="最小值" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="集合控件" xml:space="preserve">
+    <value> 集合控制項</value>
+  </data>
+  <data name="确定" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="取消" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="用户权限" xml:space="preserve">
+    <value>用戶權限</value>
+  </data>
+  <data name="用户名" xml:space="preserve">
+    <value>使用者名稱</value>
+  </data>
+  <data name="密码" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="自动登录" xml:space="preserve">
+    <value>自動登入</value>
+  </data>
+  <data name="记住密码" xml:space="preserve">
+    <value>記住密碼</value>
+  </data>
+  <data name="登陆" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="切换用户" xml:space="preserve">
+    <value>切換使用者</value>
+  </data>
+  <data name="用户登陆" xml:space="preserve">
+    <value>使用者登入</value>
+  </data>
+  <data name="系统维护" xml:space="preserve">
+    <value>系統維護</value>
+  </data>
+  <data name="用户管理" xml:space="preserve">
+    <value>用戶管理</value>
+  </data>
+  <data name="角色管理" xml:space="preserve">
+    <value>角色管理</value>
+  </data>
+  <data name="模块管理" xml:space="preserve">
+    <value>模塊管理</value>
+  </data>
+  <data name="参数管理" xml:space="preserve">
+    <value>參數管理</value>
+  </data>
+  <data name="操作权限" xml:space="preserve">
+    <value>操作許可權</value>
+  </data>
+  <data name="用户ID" xml:space="preserve">
+    <value>用戶ID</value>
+  </data>
+  <data name="已启用" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="在线" xml:space="preserve">
+    <value>線上</value>
+  </data>
+  <data name="权限" xml:space="preserve">
+    <value>權限</value>
+  </data>
+  <data name="新增用户" xml:space="preserve">
+    <value>新增用戶</value>
+  </data>
+  <data name="修改用户" xml:space="preserve">
+    <value>修改用戶</value>
+  </data>
+  <data name="删除用户" xml:space="preserve">
+    <value>删除用戶</value>
+  </data>
+  <data name="刷新" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="导入模块" xml:space="preserve">
+    <value>導入模塊</value>
+  </data>
+  <data name="新增模块" xml:space="preserve">
+    <value>新增模塊</value>
+  </data>
+  <data name="序号" xml:space="preserve">
+    <value>序號</value>
+  </data>
+  <data name="菜单名称" xml:space="preserve">
+    <value>選單名稱</value>
+  </data>
+  <data name="排序" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="图标" xml:space="preserve">
+    <value>圖標</value>
+  </data>
+  <data name="操作" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="新增参数" xml:space="preserve">
+    <value>新增參數</value>
+  </data>
+  <data name="修改参数" xml:space="preserve">
+    <value>修改參數</value>
+  </data>
+  <data name="删除参数" xml:space="preserve">
+    <value>删除參數</value>
+  </data>
+  <data name="约束管理" xml:space="preserve">
+    <value>約束管理</value>
+  </data>
+  <data name="所属模块" xml:space="preserve">
+    <value>所屬模塊</value>
+  </data>
+  <data name="参数分组" xml:space="preserve">
+    <value>參數分組</value>
+  </data>
+  <data name="参数名称" xml:space="preserve">
+    <value>參數名稱</value>
+  </data>
+  <data name="操作名称" xml:space="preserve">
+    <value>操作名稱</value>
+  </data>
+  <data name="操作编码" xml:space="preserve">
+    <value>操作編碼</value>
+  </data>
+  <data name="备注" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="新增操作" xml:space="preserve">
+    <value>新增操作</value>
+  </data>
+  <data name="修改操作" xml:space="preserve">
+    <value>修改操作</value>
+  </data>
+  <data name="删除操作" xml:space="preserve">
+    <value>删除操作</value>
+  </data>
+  <data name="是否启用" xml:space="preserve">
+    <value>是否啟用</value>
+  </data>
+  <data name="清除" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="添加子模块" xml:space="preserve">
+    <value>添加子模塊</value>
+  </data>
+  <data name="编辑" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="更新模块信息" xml:space="preserve">
+    <value>更新模塊資訊</value>
+  </data>
+  <data name="模块编号" xml:space="preserve">
+    <value>模塊編號</value>
+  </data>
+  <data name="模块编码" xml:space="preserve">
+    <value>模塊編碼</value>
+  </data>
+  <data name="模块名" xml:space="preserve">
+    <value>模塊名</value>
+  </data>
+  <data name="父模块" xml:space="preserve">
+    <value>父模塊</value>
+  </data>
+  <data name="模块路径" xml:space="preserve">
+    <value>模塊路徑</value>
+  </data>
+  <data name="系统模块" xml:space="preserve">
+    <value>系統模塊</value>
+  </data>
+  <data name="添加用户" xml:space="preserve">
+    <value>添加用戶</value>
+  </data>
+  <data name="编辑用户" xml:space="preserve">
+    <value>編輯用戶</value>
+  </data>
+  <data name="账号" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="基本信息" xml:space="preserve">
+    <value>基本資訊</value>
+  </data>
+  <data name="访客" xml:space="preserve">
+    <value>訪客</value>
+  </data>
+  <data name="修改操作权限" xml:space="preserve">
+    <value>修改操作許可權</value>
+  </data>
+  <data name="新增操作权限" xml:space="preserve">
+    <value>新增操作許可權</value>
+  </data>
+  <data name="编码" xml:space="preserve">
+    <value>編碼</value>
+  </data>
+  <data name="备注信息" xml:space="preserve">
+    <value>備註資訊</value>
+  </data>
+  <data name="超级管理员" xml:space="preserve">
+    <value>超級管理員</value>
+  </data>
+  <data name="查看" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="查看参数约束" xml:space="preserve">
+    <value>查看參數約束</value>
+  </data>
+  <data name="编辑模块" xml:space="preserve">
+    <value>編輯模塊</value>
+  </data>
+  <data name="新增约束" xml:space="preserve">
+    <value>新增約束</value>
+  </data>
+  <data name="修改约束" xml:space="preserve">
+    <value>修改約束</value>
+  </data>
+  <data name="参数配置" xml:space="preserve">
+    <value>參數配寘</value>
+  </data>
+  <data name="新增" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="游客" xml:space="preserve">
+    <value>遊客</value>
+  </data>
+  <data name="未分配角色" xml:space="preserve">
+    <value>未分配角色</value>
+  </data>
+  <data name="验证失败：指定的模块Code '{ModuleCode}' 不存在。" xml:space="preserve">
+    <value>驗證失敗：指定的模塊Code '{ModuleCode}'不存在。</value>
+  </data>
+  <data name="权限验证通过 (直接授权)" xml:space="preserve">
+    <value>許可權驗證通過（直接授權）</value>
+  </data>
+  <data name="权限验证失败。该用户的权限由直接授权列表定义，但此模块未在列表中" xml:space="preserve">
+    <value>許可權驗證失敗。 該用戶的許可權由直接授權清單定義，但此模塊未在清單中</value>
+  </data>
+  <data name="用户 '{UserName}' 未分配任何角色，无权访问。" xml:space="preserve">
+    <value>用戶'{UserName}'未分配任何角色，無權訪問。</value>
+  </data>
+  <data name="模块访问权限验证通过" xml:space="preserve">
+    <value>模塊存取權限驗證通過</value>
+  </data>
+  <data name="访问被拒绝。用户权限等级 ({maxUserAuthority}) 低于模块要求等级 ({requiredAuthority})。" xml:space="preserve">
+    <value>訪問被拒絕。 用戶許可權等級（{maxUserAuthority}）低於模塊要求等級（{requiredAuthority}）。</value>
+  </data>
+  <data name="验证失败：操作 '{ActionCode}' 在模块 '{ModuleCode}' 中未定义。" xml:space="preserve">
+    <value>驗證失敗：操作'{ActionCode}'在模塊'{ModuleCode}'中未定義。</value>
+  </data>
+  <data name="操作权限验证通过 (直接授权)" xml:space="preserve">
+    <value>操作許可權驗證通過（直接授權）</value>
+  </data>
+  <data name="权限验证失败。该用户的权限由直接授权列表定义，但此操作未在列表中" xml:space="preserve">
+    <value>許可權驗證失敗。 該用戶的許可權由直接授權清單定義，但此操作未在清單中</value>
+  </data>
+  <data name="用户 '{UserName}' 未分配任何角色，无权执行操作。" xml:space="preserve">
+    <value>用戶'{UserName}'未分配任何角色，無權執行操作。</value>
+  </data>
+  <data name="操作权限验证通过" xml:space="preserve">
+    <value>操作許可權驗證通過</value>
+  </data>
+  <data name="用户 '{UserName}' 没有对模块ID '{Id}' 执行 '{ActionCode}' 操作的权限。" xml:space="preserve">
+    <value>用戶'{UserName}'沒有對模塊ID '{Id}'執行'{ActionCode}'操作的許可權。</value>
+  </data>
+  <data name="用户不存在。" xml:space="preserve">
+    <value>用戶不存在。</value>
+  </data>
+  <data name="密码错误。" xml:space="preserve">
+    <value>密碼錯誤。</value>
+  </data>
+  <data name="用户已被禁用，请联系管理员。" xml:space="preserve">
+    <value>用戶已被禁用，請聯系管理員。</value>
+  </data>
+  <data name="用户 '{UserName}' 成功登录。" xml:space="preserve">
+    <value>用戶'{UserName}'成功登入。</value>
+  </data>
+  <data name="登录成功" xml:space="preserve">
+    <value>登入成功</value>
+  </data>
+  <data name="用户 '{UserName}' 已注销。" xml:space="preserve">
+    <value>用戶'{UserName}'已註銷。</value>
+  </data>
+  <data name="注销成功" xml:space="preserve">
+    <value>註銷成功</value>
+  </data>
+  <data name="未找到账户" xml:space="preserve">
+    <value>未找到帳戶</value>
+  </data>
+  <data name="登陆成功" xml:space="preserve">
+    <value>登入成功</value>
+  </data>
+  <data name="用户取消了密码确认。" xml:space="preserve">
+    <value>用戶取消了密碼確認。</value>
+  </data>
+  <data name="验证失败：权限代码 '{PermissionCode}' 未定义。" xml:space="preserve">
+    <value>驗證失敗：許可權程式碼'{PermissionCode}'未定義。</value>
+  </data>
+  <data name="限验证失败。该用户的权限由直接授权列表定义，但此操作未在列表中" xml:space="preserve">
+    <value>限驗證失敗。 該用戶的許可權由直接授權清單定義，但此操作未在清單中</value>
+  </data>
+  <data name="用户未分配任何角色，无权执行操作。" xml:space="preserve">
+    <value>用戶未分配任何角色，無權執行操作。</value>
+  </data>
+  <data name="没有执行 '{PermissionCode}' 操作的权限。" xml:space="preserve">
+    <value>沒有執行'{PermissionCode}'操作的許可權。</value>
+  </data>
+  <data name="限验证失败, 用户不能为空" xml:space="preserve">
+    <value>限驗證失敗，用戶不能為空</value>
+  </data>
+  <data name="权限验证时发生内部错误: {ErrorMessage}" xml:space="preserve">
+    <value>許可權驗證時發生內部錯誤：{ErrorMessage}</value>
+  </data>
+  <data name="用户取消了切换操作。" xml:space="preserve">
+    <value>用戶取消了切換操作。</value>
+  </data>
+  <data name="用户取消了登录。" xml:space="preserve">
+    <value>用戶取消了登入。</value>
+  </data>
+  <data name="切换失败:{Error}" xml:space="preserve">
+    <value>切換失敗：{Error}</value>
+  </data>
+  <data name="登录失败:{Error}" xml:space="preserve">
+    <value>登入失敗：{Error}</value>
+  </data>
+  <data name="未知错误" xml:space="preserve">
+    <value>未知錯誤</value>
+  </data>
+  <data name="用户切换成功。" xml:space="preserve">
+    <value>用戶切換成功。</value>
+  </data>
+  <data name="未配置自动登陆参数" xml:space="preserve">
+    <value>未配寘自動登陸參數</value>
+  </data>
+  <data name="找到已保存的登录信息" xml:space="preserve">
+    <value>找到已保存的登入資訊</value>
+  </data>
+  <data name="未找到任何已保存的登录信息" xml:space="preserve">
+    <value>未找到任何已保存的登入資訊</value>
+  </data>
+  <data name="查找登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>查找登入資訊時出錯：{ErrorMessage}</value>
+  </data>
+  <data name="登录信息保存成功。" xml:space="preserve">
+    <value>登入資訊保存成功。</value>
+  </data>
+  <data name="保存登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>保存登入資訊時出錯：{ErrorMessage}</value>
+  </data>
+  <data name="已清除用户的登录信息。" xml:space="preserve">
+    <value>已清除用戶的登入資訊。</value>
+  </data>
+  <data name="本地无该用户的登录信息" xml:space="preserve">
+    <value>本地無該用戶的登入資訊</value>
+  </data>
+  <data name="清除登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>清除登入資訊時出錯：{ErrorMessage}</value>
+  </data>
+  <data name="未找到代码为 '{ModuleCode}' 的模块" xml:space="preserve">
+    <value>未找到程式碼為'{ModuleCode}'的模塊</value>
+  </data>
+  <data name="查找成功" xml:space="preserve">
+    <value>查找成功</value>
+  </data>
+  <data name="查找失败,原因：{ErrorMessage}" xml:space="preserve">
+    <value>查找失敗，原因：{ErrorMessage}</value>
+  </data>
+  <data name="获取所有系统模块成功" xml:space="preserve">
+    <value>獲取所有系統模塊成功</value>
+  </data>
+  <data name="获取系统模块失败: {ErrorMessage}" xml:space="preserve">
+    <value>獲取系統模塊失敗：{ErrorMessage}</value>
+  </data>
+  <data name="批量操作需要编辑模块的权限：{ErrorMessage}" xml:space="preserve">
+    <value>批量操作需要編輯模塊的許可權：{ErrorMessage}</value>
+  </data>
+  <data name="没有需要添加的模块" xml:space="preserve">
+    <value>沒有需要添加的模塊</value>
+  </data>
+  <data name="模块Code不能为空" xml:space="preserve">
+    <value>模塊Code不能為空</value>
+  </data>
+  <data name="数据库保存失败: {ErrorMessage}" xml:space="preserve">
+    <value>資料庫保存失敗：{ErrorMessage}</value>
+  </data>
+  <data name="批量处理模块失败。成功 0 个，更新 0 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>批量處理模塊失敗。 成功0個，更新0個，跳過{SkippedCount}個，失敗{FailedCount}個。</value>
+  </data>
+  <data name="所有模块均未发生变化，已全部跳过。" xml:space="preserve">
+    <value>所有模塊均未發生變化，已全部跳過。</value>
+  </data>
+  <data name="批量处理模块完成。新增 {SuccessCount} 个，更新 {UpdateCount} 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>批量處理模塊完成。 新增{SuccessCount}個，更新{UpdateCount}個，跳過{SkippedCount}個，失敗{FailedCount}個。</value>
+  </data>
+  <data name="新模块添加成功" xml:space="preserve">
+    <value>新模塊添加成功</value>
+  </data>
+  <data name="指定的模块不存在" xml:space="preserve">
+    <value>指定的模塊不存在</value>
+  </data>
+  <data name="模块 '{ModuleName}' 的信息已被更新。" xml:space="preserve">
+    <value>模塊'{ModuleName}'的資訊已被更新。</value>
+  </data>
+  <data name="模块信息更新成功" xml:space="preserve">
+    <value>模塊資訊更新成功</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它包含子模块" xml:space="preserve">
+    <value>無法删除模塊'{ModuleName}'，因為它包含子模塊</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它已关联了权限项" xml:space="preserve">
+    <value>無法删除模塊'{ModuleName}'，因為它已關聯了許可權項</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它已被用户访问权限直接关联" xml:space="preserve">
+    <value>無法删除模塊'{ModuleName}'，因為它已被用戶存取權限直接關聯</value>
+  </data>
+  <data name="模块 '{ModuleName}' (ID: {ModuleId}) 已被删除。" xml:space="preserve">
+    <value>模塊'{ModuleName}'（ID: {ModuleId}）已被删除。</value>
+  </data>
+  <data name="模块{ModuleName}删除成功" xml:space="preserve">
+    <value>模塊{ModuleName}删除成功</value>
+  </data>
+  <data name="传入的用户不能为空" xml:space="preserve">
+    <value>傳入的用戶不能為空</value>
+  </data>
+  <data name="获取授权模块失败: {ErrorMessage}" xml:space="preserve">
+    <value>獲取授權模塊失敗：{ErrorMessage}</value>
+  </data>
+  <data name="模块Code不能为空。" xml:space="preserve">
+    <value>模塊Code不能為空。</value>
+  </data>
+  <data name="模块Code '{ModuleCode}' 已存在。" xml:space="preserve">
+    <value>模塊Code '{ModuleCode}'已存在。</value>
+  </data>
+  <data name="模块Code '{ModuleCode}' 已被另一个模块使用。" xml:space="preserve">
+    <value>模塊Code '{ModuleCode}'已被另一個模塊使用。</value>
+  </data>
+  <data name="用户{UserName}没有模块{ModuleCode}的操作权限" xml:space="preserve">
+    <value>用戶{UserName}沒有模塊{ModuleCode}的操作許可權</value>
+  </data>
+  <data name="未登录" xml:space="preserve">
+    <value>未登錄</value>
+  </data>
+  <data name="未找到{ModuleCode}对应的模块" xml:space="preserve">
+    <value>未找到{ModuleCode}對應的模塊</value>
+  </data>
+  <data name="操作成功" xml:space="preserve">
+    <value>操作成功</value>
+  </data>
+  <data name="编码{ModuleCode} 模块不存在，无法配置参数" xml:space="preserve">
+    <value>編碼{ModuleCode}模塊不存在，無法配寘參數</value>
+  </data>
+  <data name="取消参数配置" xml:space="preserve">
+    <value>取消參數配寘</value>
+  </data>
+  <data name="编码{ModuleCode} 模块配置参数完成" xml:space="preserve">
+    <value>編碼{ModuleCode}模塊配寘參數完成</value>
+  </data>
+  <data name="参数配置出现未知错误，请联系管理人员" xml:space="preserve">
+    <value>參數配寘出現未知錯誤，請聯系管理人員</value>
+  </data>
+  <data name="查找参数并赋值失败，具体看Failed" xml:space="preserve">
+    <value>查找參數並賦值失敗，具體看Failed</value>
+  </data>
+  <data name="更新{ParameterCode}属性值失败" xml:space="preserve">
+    <value>更新{ParameterCode}屬性值失敗</value>
+  </data>
+  <data name="更新{ParameterCode}属性值失败,原因:{Reason}" xml:space="preserve">
+    <value>更新{ParameterCode}屬性值失敗，原因：{Reason}</value>
+  </data>
+  <data name="该角色已配置了此参数的权限，无法重复添加" xml:space="preserve">
+    <value>該角色已配寘了此參數的許可權，無法重複添加</value>
+  </data>
+  <data name="参数权限添加成功" xml:space="preserve">
+    <value>參數許可權添加成功</value>
+  </data>
+  <data name="添加参数权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>添加參數許可權失敗：{ErrorMessage}</value>
+  </data>
+  <data name="要删除的权限记录不存在" xml:space="preserve">
+    <value>要删除的許可權記錄不存在</value>
+  </data>
+  <data name="删除参数权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>删除參數許可權失敗：{ErrorMessage}</value>
+  </data>
+  <data name="权限码 '{ParameterCode}' 已存在，不能重复" xml:space="preserve">
+    <value>許可權碼'{ParameterCode}'已存在，不能重複</value>
+  </data>
+  <data name="权限创建成功" xml:space="preserve">
+    <value>許可權創建成功</value>
+  </data>
+  <data name="创建权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>創建許可權失敗：{ErrorMessage}</value>
+  </data>
+  <data name="要更新的权限不存在" xml:space="preserve">
+    <value>要更新的許可權不存在</value>
+  </data>
+  <data name="权限码 '{ParameterCode}' 已被其他权限占用。" xml:space="preserve">
+    <value>許可權碼'{ParameterCode}'已被其他許可權佔用。</value>
+  </data>
+  <data name="更新了权限 '{ParameterName}' (Code: {ParameterCode})." xml:space="preserve">
+    <value>更新了許可權'{ParameterName}'（Code: {ParameterCode}）.</value>
+  </data>
+  <data name="权限更新成功" xml:space="preserve">
+    <value>許可權更新成功</value>
+  </data>
+  <data name="权限更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>許可權更新失敗：{ErrorMessage}</value>
+  </data>
+  <data name="要删除的权限不存在" xml:space="preserve">
+    <value>要删除的許可權不存在</value>
+  </data>
+  <data name="无法删除权限 '{ParameterName}'，因为它已被分配给一个或多个角色。请先从所有角色中移除此权限。" xml:space="preserve">
+    <value>無法删除許可權'{ParameterName}'，因為它已被分配給一個或多個角色。 請先從所有角色中移除此許可權。</value>
+  </data>
+  <data name="删除权限 '{ParameterName}' (Code: {ParameterCode})." xml:space="preserve">
+    <value>删除許可權'{ParameterName}'（Code: {ParameterCode}）.</value>
+  </data>
+  <data name="权限删除成功" xml:space="preserve">
+    <value>許可權删除成功</value>
+  </data>
+  <data name="权限删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>許可權删除失敗：{ErrorMessage}</value>
+  </data>
+  <data name="权限不足：无法操作权限等级高于或等于自己的角色。" xml:space="preserve">
+    <value>許可權不足：無法操作許可權等級高於或等於自己的角色。</value>
+  </data>
+  <data name="权限不足：无法将角色权限等级提升到高于自己的最高等级。" xml:space="preserve">
+    <value>許可權不足：無法將角色許可權等級提升到高於自己的最高等級。</value>
+  </data>
+  <data name="获取角色列表成功" xml:space="preserve">
+    <value>獲取角色清單成功</value>
+  </data>
+  <data name="获取角色列表失败: {ErrorMessage}" xml:space="preserve">
+    <value>獲取角色清單失敗：{ErrorMessage}</value>
+  </data>
+  <data name="获取用户角色信息成功" xml:space="preserve">
+    <value>獲取用戶角色資訊成功</value>
+  </data>
+  <data name="获取用户角色信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>獲取用戶角色資訊時出錯：{ErrorMessage}</value>
+  </data>
+  <data name="角色 '{RoleName}' 已存在。" xml:space="preserve">
+    <value>角色'{RoleName}'已存在。</value>
+  </data>
+  <data name="角色 '{RoleName}' 添加成功。" xml:space="preserve">
+    <value>角色'{RoleName}'添加成功。</value>
+  </data>
+  <data name="指定Id({RoleId})的角色不存在。" xml:space="preserve">
+    <value>指定Id（{RoleId}）的角色不存在。</value>
+  </data>
+  <data name="角色 '{RoleName}' 的信息已更新。" xml:space="preserve">
+    <value>角色'{RoleName}'的資訊已更新。</value>
+  </data>
+  <data name="无法删除角色 '{RoleName}'，因为它已被分配给一个或多个用户。" xml:space="preserve">
+    <value>無法删除角色'{RoleName}'，因為它已被分配給一個或多個用戶。</value>
+  </data>
+  <data name="角色 '{RoleName}' (ID: {RoleId}) 已删除。" xml:space="preserve">
+    <value>角色'{RoleName}'（ID: {RoleId}）已删除。</value>
+  </data>
+  <data name="模块 '{ModuleCode}' 不存在，无法查看参数" xml:space="preserve">
+    <value>模塊'{ModuleCode}'不存在，無法查看參數</value>
+  </data>
+  <data name="获取参数列表成功" xml:space="preserve">
+    <value>獲取參數列表成功</value>
+  </data>
+  <data name="参数编码 '{ModuleCode}' 在指定模块下已存在。" xml:space="preserve">
+    <value>參數編碼'{ModuleCode}'在指定模塊下已存在。</value>
+  </data>
+  <data name="创建了新参数 '{ParameterName}'." xml:space="preserve">
+    <value>創建了新參數'{ParameterName}'.</value>
+  </data>
+  <data name="参数创建失败: {ErrorMessage}" xml:space="preserve">
+    <value>參數創建失敗：{ErrorMessage}</value>
+  </data>
+  <data name="参数编码 '{ModuleCode}' 在指定模块下已被另一个参数使用。" xml:space="preserve">
+    <value>參數編碼'{ModuleCode}'在指定模塊下已被另一個參數使用。</value>
+  </data>
+  <data name="参数不存在" xml:space="preserve">
+    <value>參數不存在</value>
+  </data>
+  <data name="更新参数 '{ParameterName}' 旧值：{OldValue}, 新值：{NewValue}." xml:space="preserve">
+    <value>更新參數'{ParameterName}'舊值：{OldValue}，新值：{NewValue}.</value>
+  </data>
+  <data name="参数更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>參數更新失敗：{ErrorMessage}</value>
+  </data>
+  <data name="参数 '{ParameterName}'成功删除." xml:space="preserve">
+    <value>參數'{ParameterName}'成功删除.</value>
+  </data>
+  <data name="参数删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>參數删除失敗：{ErrorMessage}</value>
+  </data>
+  <data name="没有需要处理的参数" xml:space="preserve">
+    <value>沒有需要處理的參數</value>
+  </data>
+  <data name="参数编码不能为空。" xml:space="preserve">
+    <value>參數編碼不能為空。</value>
+  </data>
+  <data name="批处理请求中发现重复的参数组合 (编码='{ModuleCode}', 模块ID='{ModuleId}')。" xml:space="preserve">
+    <value>批次處理請求中發現重複的參數組合（編碼='{ModuleCode}'，模塊ID='{ModuleId}'）。</value>
+  </data>
+  <data name="尝试更新的参数ID '{ParameterId}' 在数据库中不存在。" xml:space="preserve">
+    <value>嘗試更新的參數ID '{ParameterId}'在資料庫中不存在。</value>
+  </data>
+  <data name="参数ID '{ParameterId}' 匹配成功，但其数据库中的组合 (编码='{ModuleCode}', 模块ID='{ModuleId}') 与您提供的不符。" xml:space="preserve">
+    <value>參數ID '{ParameterId}'匹配成功，但其資料庫中的組合（編碼='{ModuleCode}'，模塊ID='{ModuleId}'）與您提供的不符。</value>
+  </data>
+  <data name="参数组合 (编码='{ModuleCode}', 模块ID='{ModuleId}') 已存在，无法新增。" xml:space="preserve">
+    <value>參數組合（編碼='{ModuleCode}'，模塊ID='{ModuleId}'）已存在，無法新增。</value>
+  </data>
+  <data name="数据保存失败: {ErrorMessage}" xml:space="preserve">
+    <value>數據保存失敗：{ErrorMessage}</value>
+  </data>
+  <data name="批量处理完成。新增 {AddedCount} 个，更新 {UpdatedCount} 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>批量處理完成。 新增{AddedCount}個，更新{UpdatedCount}個，跳過{SkippedCount}個，失敗{FailedCount}個。</value>
+  </data>
+  <data name="指定的参数的约束不存在" xml:space="preserve">
+    <value>指定的參數的約束不存在</value>
+  </data>
+  <data name="参数约束获取成功" xml:space="preserve">
+    <value>參數約束獲取成功</value>
+  </data>
+  <data name="参数约束获取时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>參數約束獲取時發生錯誤：{ErrorMessage}</value>
+  </data>
+  <data name="无法添加约束，因为所属的参数不存在" xml:space="preserve">
+    <value>無法添加約束，因為所屬的參數不存在</value>
+  </data>
+  <data name="约束添加成功:参数ID '{ParameterId}' 添加了约束 '{ConstraintType}'." xml:space="preserve">
+    <value>約束添加成功：參數ID '{ParameterId}'添加了約束'{ConstraintType}'.</value>
+  </data>
+  <data name="约束添加失败: {ErrorMessage}" xml:space="preserve">
+    <value>約束添加失敗：{ErrorMessage}</value>
+  </data>
+  <data name="约束更新成功: 参数ID '{ParameterId}' 的约束 '{ConstraintType}'." xml:space="preserve">
+    <value>約束更新成功：參數ID '{ParameterId}'的約束'{ConstraintType}'.</value>
+  </data>
+  <data name="约束更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>約束更新失敗：{ErrorMessage}</value>
+  </data>
+  <data name="约束不存在" xml:space="preserve">
+    <value>約束不存在</value>
+  </data>
+  <data name="约束删除成功 : 参数ID '{ParameterId}' 的约束 '{ConstraintType}'." xml:space="preserve">
+    <value>約束删除成功：參數ID '{ParameterId}'的約束'{ConstraintType}'.</value>
+  </data>
+  <data name="约束删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>約束删除失敗：{ErrorMessage}</value>
+  </data>
+  <data name="当前用户信息不能为空，无法查看参数" xml:space="preserve">
+    <value>當前用戶資訊不能為空，無法查看參數</value>
+  </data>
+  <data name="用户没有任何角色，无法查看参数" xml:space="preserve">
+    <value>用戶沒有任何角色，無法查看參數</value>
+  </data>
+  <data name="获取用户可见参数时发生错误。" xml:space="preserve">
+    <value>獲取用戶可見參數時發生錯誤。</value>
+  </data>
+  <data name="获取用户可见参数时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>獲取用戶可見參數時發生錯誤：{ErrorMessage}</value>
+  </data>
+  <data name="指定的引用对象 (类型: {RefObjectType}, ID: {RefObjectId}) 不存在。" xml:space="preserve">
+    <value>指定的引用對象（類型：{RefObjectType}，ID: {RefObjectId}）不存在。</value>
+  </data>
+  <data name="用户未配置直接权限，应使用角色权限" xml:space="preserve">
+    <value>用戶未配寘直接許可權，應使用角色許可權</value>
+  </data>
+  <data name="获取直接授权的模块ID成功" xml:space="preserve">
+    <value>獲取直接授權的模塊ID成功</value>
+  </data>
+  <data name="获取直接授权信息时出错: {Message}" xml:space="preserve">
+    <value>獲取直接授權資訊時出錯：{Message}</value>
+  </data>
+  <data name="要授权的用户不存在。" xml:space="preserve">
+    <value>要授權的用戶不存在。</value>
+  </data>
+  <data name="该用户已拥有此权限，无法重复授予。" xml:space="preserve">
+    <value>該用戶已擁有此許可權，無法重複授予。</value>
+  </data>
+  <data name="权限授予成功" xml:space="preserve">
+    <value>許可權授予成功</value>
+  </data>
+  <data name="授予用户ID '{UserId}' 对对象 '{RefObjectType}:{RefObjectId}' 的访问权限" xml:space="preserve">
+    <value>授予用戶ID '{UserId}'對對象'{RefObjectType}：{RefObjectId}'的存取權限</value>
+  </data>
+  <data name="授予权限时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>授予許可權時發生錯誤：{ErrorMessage}</value>
+  </data>
+  <data name="要撤销的权限记录不存在" xml:space="preserve">
+    <value>要撤銷的許可權記錄不存在</value>
+  </data>
+  <data name="撤销了用户ID '{UserId}' 对对象 '{RefObjType}:{RefObjId}' 的访问权限 (记录ID: {AccessRightId})" xml:space="preserve">
+    <value>撤銷了用戶ID '{UserId}'對對象'{RefObjType}：{RefObjId}'的存取權限（記錄ID: {AccessRightId}）</value>
+  </data>
+  <data name="权限撤销成功" xml:space="preserve">
+    <value>許可權撤銷成功</value>
+  </data>
+  <data name="撤销权限时发生错误: {Message}" xml:space="preserve">
+    <value>撤銷許可權時發生錯誤：{Message}</value>
+  </data>
+  <data name="获取用户权限列表成功" xml:space="preserve">
+    <value>獲取用戶許可權清單成功</value>
+  </data>
+  <data name="获取用户权限列表时发生错误: {Message}" xml:space="preserve">
+    <value>獲取用戶許可權清單時發生錯誤：{Message}</value>
+  </data>
+  <data name="用户拥有直接访问权限" xml:space="preserve">
+    <value>用戶擁有直接存取權限</value>
+  </data>
+  <data name="用户没有直接访问权限" xml:space="preserve">
+    <value>用戶沒有直接存取權限</value>
+  </data>
+  <data name="检查访问权限时发生错误: {Message}" xml:space="preserve">
+    <value>檢查存取權限時發生錯誤：{Message}</value>
+  </data>
+  <data name="没有需要处理的授权请求" xml:space="preserve">
+    <value>沒有需要處理的授權請求</value>
+  </data>
+  <data name="要授权的用户不存在" xml:space="preserve">
+    <value>要授權的用戶不存在</value>
+  </data>
+  <data name="引用的对象 (类型: {RefObjectType}, ID: {RefObjectId}) 不存在" xml:space="preserve">
+    <value>引用的對象（類型：{RefObjectType}，ID: {RefObjectId}）不存在</value>
+  </data>
+  <data name="批量授权完成。成功 {SuccessCount} 个，跳过 {SkippedCount} 个，失败 {FailureCount} 个" xml:space="preserve">
+    <value>批量授權完成。 成功{SuccessCount}個，跳過{SkippedCount}個，失敗{FailureCount}個</value>
+  </data>
+  <data name="没有需要撤销的权限" xml:space="preserve">
+    <value>沒有需要撤銷的許可權</value>
+  </data>
+  <data name="根据提供的ID，未找到任何可撤销的权限记录" xml:space="preserve">
+    <value>根據提供的ID，未找到任何可撤銷的許可權記錄</value>
+  </data>
+  <data name="批量撤销了 {Count} 条直接访问权限" xml:space="preserve">
+    <value>批量撤銷了{Count}條直接存取權限</value>
+  </data>
+  <data name="批量权限撤销成功" xml:space="preserve">
+    <value>批量許可權撤銷成功</value>
+  </data>
+  <data name="批量撤销权限时发生错误: {Message}" xml:space="preserve">
+    <value>批量撤銷許可權時發生錯誤：{Message}</value>
+  </data>
+  <data name="读取/创建操作的数据权限校验默认通过" xml:space="preserve">
+    <value>讀取/創建操作的數據許可權校驗默認通過</value>
+  </data>
+  <data name="无法删除自己" xml:space="preserve">
+    <value>無法删除自己</value>
+  </data>
+  <data name="允许修改自身信息" xml:space="preserve">
+    <value>允許修改自身資訊</value>
+  </data>
+  <data name="未知的操作类型" xml:space="preserve">
+    <value>未知的操作類型</value>
+  </data>
+  <data name="获取用户权限信息失败" xml:space="preserve">
+    <value>獲取用戶許可權資訊失敗</value>
+  </data>
+  <data name="权限不足：无法操作权限等级高于或等于自己的用户" xml:space="preserve">
+    <value>許可權不足：無法操作許可權等級高於或等於自己的用戶</value>
+  </data>
+  <data name="数据权限校验通过" xml:space="preserve">
+    <value>數據許可權校驗通過</value>
+  </data>
+  <data name="数据权限校验时发生错误: {Message}" xml:space="preserve">
+    <value>數據許可權校驗時發生錯誤：{Message}</value>
+  </data>
+  <data name="无法获取操作员的权限信息" xml:space="preserve">
+    <value>無法獲取操作員的許可權資訊</value>
+  </data>
+  <data name="一个或多个待分配的角色不存在" xml:space="preserve">
+    <value>一個或多個待分配的角色不存在</value>
+  </data>
+  <data name="权限不足：无法为用户分配权限等级高于自己的角色" xml:space="preserve">
+    <value>許可權不足：無法為用戶分配許可權等級高於自己的角色</value>
+  </data>
+  <data name="用户名 '{UserName}' 已存在" xml:space="preserve">
+    <value>用戶名'{UserName}'已存在</value>
+  </data>
+  <data name="成功创建并配置了新用户 '{UserName}'" xml:space="preserve">
+    <value>成功創建並配寘了新用戶'{UserName}'</value>
+  </data>
+  <data name="用户注册成功" xml:space="preserve">
+    <value>用戶註冊成功</value>
+  </data>
+  <data name="用户不存在" xml:space="preserve">
+    <value>用戶不存在</value>
+  </data>
+  <data name="更新了用户 '{UserName}' 的信息、角色和直接权限" xml:space="preserve">
+    <value>更新了用戶'{UserName}'的資訊、角色和直接許可權</value>
+  </data>
+  <data name="用户信息更新成功" xml:space="preserve">
+    <value>用戶資訊更新成功</value>
+  </data>
+  <data name="用户信息更新时发生错误: {Message}" xml:space="preserve">
+    <value>用戶資訊更新時發生錯誤：{Message}</value>
+  </data>
+  <data name="注册失败: {Message}" xml:space="preserve">
+    <value>注册失敗：{Message}</value>
+  </data>
+  <data name="更新了用户'{UserName}'的信息" xml:space="preserve">
+    <value>更新了用戶'{UserName}'的資訊</value>
+  </data>
+  <data name="更新用户信息时发生错误: {Message}" xml:space="preserve">
+    <value>更新用戶資訊時發生錯誤：{Message}</value>
+  </data>
+  <data name="用户删除成功" xml:space="preserve">
+    <value>用戶删除成功</value>
+  </data>
+  <data name="用户信息删除时发生错误: {Message}" xml:space="preserve">
+    <value>用戶資訊删除時發生錯誤：{Message}</value>
+  </data>
+  <data name="获取用户列表成功" xml:space="preserve">
+    <value>獲取用戶列表成功</value>
+  </data>
+  <data name="按角色获取用户列表成功" xml:space="preserve">
+    <value>按角色獲取用戶列表成功</value>
+  </data>
+  <data name="按角色获取用户列表失败: {Message}" xml:space="preserve">
+    <value>按角色獲取用戶列表失敗：{Message}</value>
+  </data>
+  <data name="无法为用户分配权限等级高于自己的角色" xml:space="preserve">
+    <value>無法為用戶分配許可權等級高於自己的角色</value>
+  </data>
+  <data name="用户角色分配成功" xml:space="preserve">
+    <value>用戶角色分配成功</value>
+  </data>
+  <data name="分配角色时发生错误: {Message}" xml:space="preserve">
+    <value>分配角色時發生錯誤：{Message}</value>
+  </data>
+  <data name="成功修改密码" xml:space="preserve">
+    <value>成功修改密碼</value>
+  </data>
+  <data name="GlobalVarService不能为空!" xml:space="preserve">
+    <value>GlobalVarService不能為空！</value>
+  </data>
+  <data name="[框架初始化]" xml:space="preserve">
+    <value>[框架初始化]</value>
+  </data>
+  <data name="基础初始化完成..." xml:space="preserve">
+    <value>基礎初始化完成. ..</value>
+  </data>
+  <data name="日志模块初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>日誌模塊初始化完成，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="注入数据库服务初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>注入資料庫服務初始化完成，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="InitialServiceType 不能为空，且必须从InitializationServiceBase派生!" xml:space="preserve">
+    <value>InitialServiceType不能為空，且必須從InitializationServiceBase派生！</value>
+  </data>
+  <data name="基础模块初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>基礎模塊初始化完成，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="模块 {ModuleName} 加载完成。。。。。。" xml:space="preserve">
+    <value>模塊{ModuleName}加載完成。。。。。。</value>
+  </data>
+  <data name="参数" xml:space="preserve">
+    <value>參數</value>
+  </data>
+  <data name="系统警告" xml:space="preserve">
+    <value>系統警告</value>
+  </data>
+  <data name="系统提示" xml:space="preserve">
+    <value>系統提示</value>
+  </data>
+  <data name="密码不允许为空" xml:space="preserve">
+    <value>密碼不允許為空</value>
+  </data>
+  <data name="俩次输入的密码不一致" xml:space="preserve">
+    <value>倆次輸入的密碼不一致</value>
+  </data>
+  <data name="【{UserName}】登录需要密码确认" xml:space="preserve">
+    <value>【{UserName}】登入需要密碼確認</value>
+  </data>
+  <data name="没有选择任何程序集" xml:space="preserve">
+    <value>沒有選擇任何程式集</value>
+  </data>
+  <data name="请先选择要加载的程序集文件." xml:space="preserve">
+    <value>請先選擇要加載的程式集檔案.</value>
+  </data>
+  <data name="没有在选中的程序集文件中找到任何插件." xml:space="preserve">
+    <value>沒有在選中的程式集檔案中找到任何挿件.</value>
+  </data>
+  <data name="程序集文件 (*.dll, *.exe)" xml:space="preserve">
+    <value>程式集檔案（*.dll，*.exe）</value>
+  </data>
+  <data name="程序集文件 (*.dll)" xml:space="preserve">
+    <value>程式集檔案（*.dll）</value>
+  </data>
+  <data name="程序集文件 (*.exe)" xml:space="preserve">
+    <value>程式集檔案（*.exe）</value>
+  </data>
+  <data name="选择程序集文件" xml:space="preserve">
+    <value>選擇程式集檔案</value>
+  </data>
+  <data name="扫描完成，共找到 {Count} 个程序集" xml:space="preserve">
+    <value>掃描完成，共找到{Count}個程式集</value>
+  </data>
+  <data name="扫描已由用户取消" xml:space="preserve">
+    <value>掃描已由用戶取消</value>
+  </data>
+  <data name="扫描时发生错误: {Message}" xml:space="preserve">
+    <value>掃描時發生錯誤：{Message}</value>
+  </data>
+  <data name="用户取消登陆" xml:space="preserve">
+    <value>用戶取消登入</value>
+  </data>
+  <data name="用户名或密码不能为空" xml:space="preserve">
+    <value>用戶名或密碼不能為空</value>
+  </data>
+  <data name="日志数据配置界面" xml:space="preserve">
+    <value>日誌數據配寘介面</value>
+  </data>
+  <data name="状态初始化完成。请查看日志源" xml:space="preserve">
+    <value>狀態初始化完成。 請查看日誌源</value>
+  </data>
+  <data name="日志配置已更改，正在重新加载显示设置" xml:space="preserve">
+    <value>日誌配寘已更改，正在重新加載顯示設定</value>
+  </data>
+  <data name="模块名称不能为空" xml:space="preserve">
+    <value>模塊名稱不能為空</value>
+  </data>
+  <data name="默认模块不能被删除" xml:space="preserve">
+    <value>默認模塊不能被删除</value>
+  </data>
+  <data name="模块参数配置" xml:space="preserve">
+    <value>模塊參數配寘</value>
+  </data>
+  <data name="视图：{ModuleCode} 配置不正确，请联系管理人员" xml:space="preserve">
+    <value>視圖：{ModuleCode}配寘不正確，請聯系管理人員</value>
+  </data>
+  <data name="不能删除默认模块的操作权限" xml:space="preserve">
+    <value>不能删除默認模塊的操作許可權</value>
+  </data>
+  <data name="请先选中要删除的用户" xml:space="preserve">
+    <value>請先選中要删除的用戶</value>
+  </data>
+  <data name="默认用户不允许删除" xml:space="preserve">
+    <value>默認用戶不允許删除</value>
+  </data>
+  <data name="操作已取消" xml:space="preserve">
+    <value>操作已取消</value>
+  </data>
+  <data name="处理实体变更时发生意外错误" xml:space="preserve">
+    <value>處理實體變更時發生意外錯誤</value>
+  </data>
+  <data name="数据加载失败，请稍后重试，原因：{Message}" xml:space="preserve">
+    <value>數據加載失敗，請稍後重試，原因：{Message}</value>
+  </data>
+  <data name="请先选中要删除的项" xml:space="preserve">
+    <value>請先選中要删除的項</value>
+  </data>
+  <data name="请先选中要创建子节点的项" xml:space="preserve">
+    <value>請先選中要創建子節點的項</value>
+  </data>
+  <data name="请先选中要编辑的项" xml:space="preserve">
+    <value>請先選中要編輯的項</value>
+  </data>
+  <data name="无法找到创建视图对应的模块，请联系管理员" xml:space="preserve">
+    <value>無法找到創建視圖對應的模塊，請聯系管理員</value>
+  </data>
+  <data name="创建成功" xml:space="preserve">
+    <value>創建成功</value>
+  </data>
+  <data name="更新成功" xml:space="preserve">
+    <value>更新成功</value>
+  </data>
+  <data name="保存失败: {Message}" xml:space="preserve">
+    <value>保存失敗：{Message}</value>
+  </data>
+  <data name="请先选择一个实体" xml:space="preserve">
+    <value>請先選擇一個實體</value>
+  </data>
+  <data name="确定要删除吗?" xml:space="preserve">
+    <value>確定要删除嗎？</value>
+  </data>
+  <data name="删除成功" xml:space="preserve">
+    <value>删除成功</value>
+  </data>
+  <data name="删除失败: {Message}" xml:space="preserve">
+    <value>删除失敗：{Message}</value>
+  </data>
+  <data name="数据验证失败，请修正以下错误：{NewLine}{Errors}" xml:space="preserve">
+    <value>數據驗證失敗，請修正以下錯誤：{NewLine}{Errors}</value>
+  </data>
+  <data name="正在加载，请稍候..." xml:space="preserve">
+    <value>正在加載，請稍候. ..</value>
+  </data>
+  <data name="导航到 {ViewName} 失败，原因未知" xml:space="preserve">
+    <value>導航到{ViewName}失敗，原因未知</value>
+  </data>
+  <data name="扫描完成" xml:space="preserve">
+    <value>掃描完成</value>
+  </data>
+  <data name="[数据库同步]" xml:space="preserve">
+    <value>[資料庫同步]</value>
+  </data>
+  <data name="正在同步数据库初始数据..." xml:space="preserve">
+    <value>正在同步資料庫初始數據. ..</value>
+  </data>
+  <data name="数据库初始数据同步失败" xml:space="preserve">
+    <value>資料庫初始資料同步失敗</value>
+  </data>
+  <data name="数据库初始数据同步完成 , 耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>資料庫初始資料同步完成，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="数据库初始化失败: {Message} , 耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>資料庫初始化失敗：{Message}，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="[初始化]" xml:space="preserve">
+    <value>[初始化]</value>
+  </data>
+  <data name="开始基础初始化..." xml:space="preserve">
+    <value>開始基礎初始化. ..</value>
+  </data>
+  <data name="权限系统初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>許可權系統初始化完成，耗時{Milliseconds} ms</value>
+  </data>
+  <data name="应用初始化完成..." xml:space="preserve">
+    <value>應用初始化完成. ..</value>
+  </data>
+  <data name="[用户认证]" xml:space="preserve">
+    <value>[用戶認證]</value>
+  </data>
+  <data name="正在检查自动登录信息..." xml:space="preserve">
+    <value>正在檢查自動登錄資訊. ..</value>
+  </data>
+  <data name="用户 '{UserName}' 自动登录完成..." xml:space="preserve">
+    <value>用戶'{UserName}'自動登錄完成. ..</value>
+  </data>
+  <data name="[加载模块]" xml:space="preserve">
+    <value>[加載模塊]</value>
+  </data>
+  <data name="正在动态注入视图..." xml:space="preserve">
+    <value>正在動態注入視圖. ..</value>
+  </data>
+  <data name="开始加载模块..." xml:space="preserve">
+    <value>開始加載模塊. ..</value>
+  </data>
+  <data name="加载模块：{ModuleName}" xml:space="preserve">
+    <value>加載模塊：{ModuleName}</value>
+  </data>
+  <data name="[应用程序数据]" xml:space="preserve">
+    <value>[應用程序數據]</value>
+  </data>
+  <data name="开始载入应用程序数据..." xml:space="preserve">
+    <value>開始載入應用程序數據. ..</value>
+  </data>
+  <data name="[初始化完成]" xml:space="preserve">
+    <value>[初始化完成]</value>
+  </data>
+  <data name="初始化完成" xml:space="preserve">
+    <value>初始化完成</value>
+  </data>
+  <data name="应用程序初始化失败: {Message}" xml:space="preserve">
+    <value>應用程序初始化失敗：{Message}</value>
+  </data>
+  <data name="[加载出错]" xml:space="preserve">
+    <value>[加載出錯]</value>
+  </data>
+  <data name="集合编辑" xml:space="preserve">
+    <value>集合編輯</value>
+  </data>
+  <data name="此电脑" xml:space="preserve">
+    <value>此電腦</value>
+  </data>
+  <data name="文件夹" xml:space="preserve">
+    <value>資料夾</value>
+  </data>
+  <data name="驱动器" xml:space="preserve">
+    <value>驅動器</value>
+  </data>
+  <data name="文件" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="执行" xml:space="preserve">
+    <value>執行</value>
+  </data>
+  <data name="杂项" xml:space="preserve">
+    <value>雜項</value>
+  </data>
+  <data name="正在以操作员模式启动..." xml:space="preserve">
+    <value>正在以操作員模式啟動. ..</value>
+  </data>
+  <data name="操作员模式启动失败: {Message}" xml:space="preserve">
+    <value>操作員模式啟動失敗：{Message}</value>
+  </data>
+  <data name="监控服务已在运行中" xml:space="preserve">
+    <value>監控服務已在運行中</value>
+  </data>
+  <data name="监控服务已成功启动" xml:space="preserve">
+    <value>監控服務已成功啟動</value>
+  </data>
+  <data name="监控服务未运行" xml:space="preserve">
+    <value>監控服務未運行</value>
+  </data>
+  <data name="监控服务已成功停止" xml:space="preserve">
+    <value>監控服務已成功停止</value>
+  </data>
+  <data name="监控服务尚未启动，请先调用 StartAsync" xml:space="preserve">
+    <value>監控服務尚未啟動，請先調用StartAsync</value>
+  </data>
+  <data name="已开启 {Target} 监控" xml:space="preserve">
+    <value>已開啟{Target}監控</value>
+  </data>
+  <data name="未登陆" xml:space="preserve">
+    <value>未登陸</value>
+  </data>
+  <data name="确认密码" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="功能暂未实现" xml:space="preserve">
+    <value>功能暫未實現</value>
+  </data>
+  <data name="重试" xml:space="preserve">
+    <value>重試</value>
+  </data>
+  <data name="详细信息" xml:space="preserve">
+    <value>詳細資訊</value>
+  </data>
+  <data name="功能正在加载中" xml:space="preserve">
+    <value>功能正在加載中</value>
+  </data>
+  <data name="程序集列表" xml:space="preserve">
+    <value>程式集清單</value>
+  </data>
+  <data name="从文件加载" xml:space="preserve">
+    <value>從檔案加載</value>
+  </data>
+  <data name="从文件夹加载" xml:space="preserve">
+    <value>從資料夾加載</value>
+  </data>
+  <data name="启用" xml:space="preserve">
+    <value>啟用</value>
+  </data>
+  <data name="插件名称" xml:space="preserve">
+    <value>挿件名稱</value>
+  </data>
+  <data name="完整类名" xml:space="preserve">
+    <value>完整類名</value>
+  </data>
+  <data name="所在程序集" xml:space="preserve">
+    <value>所在程式集</value>
+  </data>
+  <data name="日志来源" xml:space="preserve">
+    <value>日誌來源</value>
+  </data>
+  <data name="级别" xml:space="preserve">
+    <value>級別</value>
+  </data>
+  <data name="开始时间" xml:space="preserve">
+    <value>開始時間</value>
+  </data>
+  <data name="结束时间" xml:space="preserve">
+    <value>結束時間</value>
+  </data>
+  <data name="查询." xml:space="preserve">
+    <value>査詢.</value>
+  </data>
+  <data name="编号" xml:space="preserve">
+    <value>編號</value>
+  </data>
+  <data name="时间戳" xml:space="preserve">
+    <value>時間戳記</value>
+  </data>
+  <data name="日志信息" xml:space="preserve">
+    <value>日誌資訊</value>
+  </data>
+  <data name="异常信息" xml:space="preserve">
+    <value>异常資訊</value>
+  </data>
+  <data name="实时日志条数" xml:space="preserve">
+    <value>實时日誌條數</value>
+  </data>
+  <data name="最长存储时间" xml:space="preserve">
+    <value>最長存儲時間</value>
+  </data>
+  <data name="重置" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="保存" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="消息" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="上一条" xml:space="preserve">
+    <value>上一條</value>
+  </data>
+  <data name="下一条" xml:space="preserve">
+    <value>下一條</value>
+  </data>
+  <data name="关闭" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="数据来源" xml:space="preserve">
+    <value>數據來源</value>
+  </data>
+  <data name="历史日志" xml:space="preserve">
+    <value>歷史日誌</value>
+  </data>
+  <data name="测试" xml:space="preserve">
+    <value>測試</value>
+  </data>
+  <data name="清除实时" xml:space="preserve">
+    <value>清除實时</value>
+  </data>
+  <data name="日志数据源参数设置" xml:space="preserve">
+    <value>日誌資料來源參數設置</value>
+  </data>
+  <data name="时间" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="来源" xml:space="preserve">
+    <value>來源</value>
+  </data>
+  <data name="信息" xml:space="preserve">
+    <value>訊息</value>
+  </data>
+  <data name="所属参数" xml:space="preserve">
+    <value>所屬參數</value>
+  </data>
+  <data name="约束类型" xml:space="preserve">
+    <value>約束類型</value>
+  </data>
+  <data name="增加约束" xml:space="preserve">
+    <value>新增約束</value>
+  </data>
+  <data name="删除约束" xml:space="preserve">
+    <value>删除約束</value>
+  </data>
+  <data name="约束值" xml:space="preserve">
+    <value>約束值</value>
+  </data>
+  <data name="描述" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="所有参数列表" xml:space="preserve">
+    <value>所有參數列表</value>
+  </data>
+  <data name="模块参数配置列表" xml:space="preserve">
+    <value>模塊參數配寘清單</value>
+  </data>
+  <data name="参数约束管理" xml:space="preserve">
+    <value>參數約束管理</value>
+  </data>
+  <data name="设置最低显示权限" xml:space="preserve">
+    <value>設定最低顯示許可權</value>
+  </data>
+  <data name="设置最低编辑权限" xml:space="preserve">
+    <value>設定最低編輯許可權</value>
+  </data>
+  <data name="最低显示权限" xml:space="preserve">
+    <value>最低顯示許可權</value>
+  </data>
+  <data name="最低编辑权限" xml:space="preserve">
+    <value>最低編輯許可權</value>
+  </data>
+  <data name="类型" xml:space="preserve">
+    <value>類型</value>
+  </data>
+  <data name="显示名称" xml:space="preserve">
+    <value>顯示名稱</value>
+  </data>
+  <data name="分类" xml:space="preserve">
+    <value>分類</value>
+  </data>
+  <data name="步长" xml:space="preserve">
+    <value>步長</value>
+  </data>
+  <data name="小数位数" xml:space="preserve">
+    <value>小數位數</value>
+  </data>
+  <data name="参数当前值" xml:space="preserve">
+    <value>參數當前值</value>
+  </data>
+  <data name="管理" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="参数值" xml:space="preserve">
+    <value>參數值</value>
+  </data>
+  <data name="创建人" xml:space="preserve">
+    <value>創建人</value>
+  </data>
+  <data name="修改人" xml:space="preserve">
+    <value>修改人</value>
+  </data>
+  <data name="左区域" xml:space="preserve">
+    <value>左區域</value>
+  </data>
+  <data name="右区域" xml:space="preserve">
+    <value>右區域</value>
+  </data>
+  <data name="启动" xml:space="preserve">
+    <value>啟動</value>
+  </data>
+  <data name="暂停" xml:space="preserve">
+    <value>暫停</value>
+  </data>
+  <data name="停止" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="开始阀标定" xml:space="preserve">
+    <value>開始閥標定</value>
+  </data>
+  <data name="停止阀标定" xml:space="preserve">
+    <value>停止閥標定</value>
+  </data>
+  <data name="最小值约束(数值或日期)" xml:space="preserve">
+    <value>最小值約束（數值或日期）</value>
+  </data>
+  <data name="最大值约束(数值或日期)" xml:space="preserve">
+    <value>最大值約束（數值或日期）</value>
+  </data>
+  <data name="正则表达式" xml:space="preserve">
+    <value>規則運算式</value>
+  </data>
+  <data name="下拉列表数据源" xml:space="preserve">
+    <value>下拉清單資料來源</value>
+  </data>
+  <data name="字符串的最大长度" xml:space="preserve">
+    <value>字串的最大長度</value>
+  </data>
+  <data name="小数点位数" xml:space="preserve">
+    <value>小數點位數</value>
+  </data>
+  <data name="字符串" xml:space="preserve">
+    <value>字串</value>
+  </data>
+  <data name="长整数" xml:space="preserve">
+    <value>長整數</value>
+  </data>
+  <data name="整数" xml:space="preserve">
+    <value>整數</value>
+  </data>
+  <data name="短整数" xml:space="preserve">
+    <value>短整數</value>
+  </data>
+  <data name="字节" xml:space="preserve">
+    <value>位元組</value>
+  </data>
+  <data name="双精度浮点数" xml:space="preserve">
+    <value>雙精度浮點數</value>
+  </data>
+  <data name="单精度浮点数" xml:space="preserve">
+    <value>單精度浮點數</value>
+  </data>
+  <data name="枚举" xml:space="preserve">
+    <value>枚舉</value>
+  </data>
+  <data name="布尔值" xml:space="preserve">
+    <value>布林值</value>
+  </data>
+  <data name="时间日期" xml:space="preserve">
+    <value>時間日期</value>
+  </data>
+  <data name="坐标点位" xml:space="preserve">
+    <value>座標點比特</value>
+  </data>
+  <data name="数组" xml:space="preserve">
+    <value>數組</value>
+  </data>
+  <data name="集合" xml:space="preserve">
+    <value>集合</value>
+  </data>
+  <data name="模块" xml:space="preserve">
+    <value>模塊</value>
+  </data>
+  <data name="功能" xml:space="preserve">
+    <value>功能</value>
+  </data>
+  <data name="查询" xml:space="preserve">
+    <value>査詢</value>
+  </data>
+  <data name="创建" xml:space="preserve">
+    <value>創建</value>
+  </data>
+  <data name="更新" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="新建" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="复制" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="重命名" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="导入" xml:space="preserve">
+    <value>導入</value>
+  </data>
+  <data name="导出" xml:space="preserve">
+    <value>匯出</value>
+  </data>
+  <data name="打印" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="从不" xml:space="preserve">
+    <value>從不</value>
+  </data>
+  <data name="获得焦点时" xml:space="preserve">
+    <value>獲得焦點時</value>
+  </data>
+  <data name="左侧标题" xml:space="preserve">
+    <value>左側標題</value>
+  </data>
+  <data name="上方标题" xml:space="preserve">
+    <value>上方標題</value>
+  </data>
+  <data name="标题隐藏" xml:space="preserve">
+    <value>標題隱藏</value>
+  </data>
+  <data name="标题折叠" xml:space="preserve">
+    <value>標題折疊</value>
+  </data>
+  <data name="左" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="居中" xml:space="preserve">
+    <value>居中</value>
+  </data>
+  <data name="右" xml:space="preserve">
+    <value>右</value>
+  </data>
+  <data name="水平方向" xml:space="preserve">
+    <value>水准方向</value>
+  </data>
+  <data name="垂直方向" xml:space="preserve">
+    <value>垂直方向</value>
+  </data>
+  <data name="纯文本" xml:space="preserve">
+    <value>純文字</value>
+  </data>
+  <data name="文本只读" xml:space="preserve">
+    <value>文字只讀</value>
+  </data>
+  <data name="字节(无符号)" xml:space="preserve">
+    <value>位元組（無符號）</value>
+  </data>
+  <data name="短整数(无符号)" xml:space="preserve">
+    <value>短整數（無符號）</value>
+  </data>
+  <data name="整数(无符号)" xml:space="preserve">
+    <value>整數（無符號）</value>
+  </data>
+  <data name="长整数(无符号)" xml:space="preserve">
+    <value>長整數（無符號）</value>
+  </data>
+  <data name="水平对齐" xml:space="preserve">
+    <value>水准對齊</value>
+  </data>
+  <data name="垂直对齐" xml:space="preserve">
+    <value>垂直對齊</value>
+  </data>
+  <data name="图像源" xml:space="preserve">
+    <value>影像源</value>
+  </data>
+  <data name="列表" xml:space="preserve">
+    <value>清單</value>
+  </data>
+  <data name="获得焦点时生效" xml:space="preserve">
+    <value>獲得焦點時生效</value>
+  </data>
+  <data name="获得焦点且鼠标悬停时生效" xml:space="preserve">
+    <value>獲得焦點且滑鼠懸停時生效</value>
+  </data>
+  <data name="鼠标悬停时生效" xml:space="preserve">
+    <value>滑鼠懸停時生效</value>
+  </data>
+  <data name="禁用鼠标滚轮" xml:space="preserve">
+    <value>禁用滑鼠滾輪</value>
+  </data>
+  <data name="深色" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="浅色" xml:space="preserve">
+    <value>淺色</value>
+  </data>
+  <data name="运行日志" xml:space="preserve">
+    <value>運行日誌</value>
+  </data>
+  <data name="弹窗日志" xml:space="preserve">
+    <value>彈窗日誌</value>
+  </data>
+  <data name="视觉日志" xml:space="preserve">
+    <value>視覺日誌</value>
+  </data>
+  <data name="运控日志" xml:space="preserve">
+    <value>運控日誌</value>
+  </data>
+  <data name="硬件日志" xml:space="preserve">
+    <value>硬體日誌</value>
+  </data>
+  <data name="生产日志" xml:space="preserve">
+    <value>生產日誌</value>
+  </data>
+  <data name="MES日志" xml:space="preserve">
+    <value>MES日誌</value>
+  </data>
+  <data name="数据库日志" xml:space="preserve">
+    <value>資料庫日誌</value>
+  </data>
+  <data name="未定义" xml:space="preserve">
+    <value>未定義</value>
+  </data>
+  <data name="无监控对象" xml:space="preserve">
+    <value>無監控對象</value>
+  </data>
+  <data name="进程状态" xml:space="preserve">
+    <value>行程狀態</value>
+  </data>
+  <data name="设备状态" xml:space="preserve">
+    <value>設備狀態</value>
+  </data>
+  <data name="运行状态" xml:space="preserve">
+    <value>運行狀態</value>
+  </data>
+  <data name="监控所有" xml:space="preserve">
+    <value>監控所有</value>
+  </data>
+  <data name="名称" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="修改时间" xml:space="preserve">
+    <value>修改時間</value>
+  </data>
+  <data name="修改日期" xml:space="preserve">
+    <value>修改日期</value>
+  </data>
+  <data name="桌面" xml:space="preserve">
+    <value>案頭</value>
+  </data>
+  <data name="文档" xml:space="preserve">
+    <value>檔案</value>
+  </data>
+  <data name="下载" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="音乐" xml:space="preserve">
+    <value>音樂</value>
+  </data>
+  <data name="图片" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="视频" xml:space="preserve">
+    <value>視頻</value>
+  </data>
+  <data name="大小" xml:space="preserve">
+    <value>大小</value>
+  </data>
+</root>

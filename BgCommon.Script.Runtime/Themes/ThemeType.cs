@@ -1,0 +1,1 @@
+namespace BgCommon.Script.Runtime.Themes;public enum ThemeType{    Light,    Dark}

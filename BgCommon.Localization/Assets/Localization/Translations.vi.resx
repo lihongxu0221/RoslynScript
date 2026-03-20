@@ -1,0 +1,1890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ClearAlarm" xml:space="preserve">
+    <value>Clear alarm</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>Full screen</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>The username or password is incorrect. Login failed!</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save as</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>User login</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="UserNameOrPasswordIsEmpty" xml:space="preserve">
+    <value>The username and password are not allowed to be empty!</value>
+  </data>
+  <data name="CoverImage" xml:space="preserve">
+    <value>Cover image</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>Create time</value>
+  </data>
+  <data name="FilePath" xml:space="preserve">
+    <value>File path</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>File size</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ModifyTime" xml:space="preserve">
+    <value>Modify time</value>
+  </data>
+  <data name="ProjectInfo" xml:space="preserve">
+    <value>Project information</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Project name</value>
+  </data>
+  <data name="ProjectPath" xml:space="preserve">
+    <value>Projectt path</value>
+  </data>
+  <data name="QuickAction" xml:space="preserve">
+    <value>Quick Actions</value>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Untitled</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Machine" xml:space="preserve">
+    <value>Machine</value>
+  </data>
+  <data name="TrackParameter" xml:space="preserve">
+    <value>Track parameter</value>
+  </data>
+  <data name="TrackWidth" xml:space="preserve">
+    <value>Track width</value>
+  </data>
+  <data name="TrackClamping" xml:space="preserve">
+    <value>Clamping amount</value>
+  </data>
+  <data name="BoardWidth" xml:space="preserve">
+    <value>Board width</value>
+  </data>
+  <data name="BoardHeight" xml:space="preserve">
+    <value>Board height</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="ErrorPrompt" xml:space="preserve">
+    <value>Error prompt</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>Lưu dự án thất bại. Lý do: {Reason}{NewLine}</value>
+  </data>
+  <data name="Local" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="SystemWarning" xml:space="preserve">
+    <value>System warning</value>
+  </data>
+  <data name="SystemPrompt" xml:space="preserve">
+    <value>System prompt</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="LimitZ" xml:space="preserve">
+    <value>LimitZ</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Seq.</value>
+  </data>
+  <data name="ToolName" xml:space="preserve">
+    <value>Tool</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="DisConnect" xml:space="preserve">
+    <value>DisConnnect</value>
+  </data>
+  <data name="TypeNotEnum" xml:space="preserve">
+    <value>Kiểu {TypeName} không phải là kiểu liệt kê.</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="请输入" xml:space="preserve">
+    <value>Please input </value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="DeleteAll" xml:space="preserve">
+    <value>Delete all</value>
+  </data>
+  <data name="BaseSetting" xml:space="preserve">
+    <value>Basic settings</value>
+  </data>
+  <data name="Execute" xml:space="preserve">
+    <value>Execute</value>
+  </data>
+  <data name="WorkStation" xml:space="preserve">
+    <value>Work station</value>
+  </data>
+  <data name="操作员" xml:space="preserve">
+    <value>Nhân viên vận hành</value>
+  </data>
+  <data name="工程师" xml:space="preserve">
+    <value>Kỹ sư</value>
+  </data>
+  <data name="管理员" xml:space="preserve">
+    <value>Quản trị viên</value>
+  </data>
+  <data name="最大值" xml:space="preserve">
+    <value>Tối đa</value>
+  </data>
+  <data name="最小值" xml:space="preserve">
+    <value>Tối thiểu</value>
+  </data>
+  <data name="集合控件" xml:space="preserve">
+    <value>Bộ điều khiển tập hợp</value>
+  </data>
+  <data name="确定" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
+  <data name="取消" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="用户权限" xml:space="preserve">
+    <value>Quyền hạn người dùng</value>
+  </data>
+  <data name="用户名" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="密码" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="自动登录" xml:space="preserve">
+    <value>Đăng nhập tự động</value>
+  </data>
+  <data name="记住密码" xml:space="preserve">
+    <value>Ghi nhớ mật khẩu</value>
+  </data>
+  <data name="登陆" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="切换用户" xml:space="preserve">
+    <value>Chuyển đổi người dùng</value>
+  </data>
+  <data name="用户登陆" xml:space="preserve">
+    <value>Người dùng đăng nhập</value>
+  </data>
+  <data name="系统维护" xml:space="preserve">
+    <value>bảo trì hệ thống</value>
+  </data>
+  <data name="用户管理" xml:space="preserve">
+    <value>Quản lý người dùng</value>
+  </data>
+  <data name="角色管理" xml:space="preserve">
+    <value>Quản lý vai trò</value>
+  </data>
+  <data name="模块管理" xml:space="preserve">
+    <value>Quản lý mô-đun</value>
+  </data>
+  <data name="参数管理" xml:space="preserve">
+    <value>Quản lý tham số</value>
+  </data>
+  <data name="操作权限" xml:space="preserve">
+    <value>Quyền hoạt động</value>
+  </data>
+  <data name="用户ID" xml:space="preserve">
+    <value>ID người dùng</value>
+  </data>
+  <data name="已启用" xml:space="preserve">
+    <value>đã bật</value>
+  </data>
+  <data name="在线" xml:space="preserve">
+    <value>trực tuyến</value>
+  </data>
+  <data name="权限" xml:space="preserve">
+    <value>Quyền hạn</value>
+  </data>
+  <data name="新增用户" xml:space="preserve">
+    <value>Người dùng mới</value>
+  </data>
+  <data name="修改用户" xml:space="preserve">
+    <value>sửa đổi người dùng</value>
+  </data>
+  <data name="删除用户" xml:space="preserve">
+    <value>xóa người dùng</value>
+  </data>
+  <data name="刷新" xml:space="preserve">
+    <value>làm mới</value>
+  </data>
+  <data name="导入模块" xml:space="preserve">
+    <value>Mô- đun nhập</value>
+  </data>
+  <data name="新增模块" xml:space="preserve">
+    <value>Module mới</value>
+  </data>
+  <data name="序号" xml:space="preserve">
+    <value>số thứ tự</value>
+  </data>
+  <data name="菜单名称" xml:space="preserve">
+    <value>Tên thực đơn</value>
+  </data>
+  <data name="排序" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="图标" xml:space="preserve">
+    <value>Biểu tượng</value>
+  </data>
+  <data name="操作" xml:space="preserve">
+    <value>thao tác</value>
+  </data>
+  <data name="新增参数" xml:space="preserve">
+    <value>Tham số mới</value>
+  </data>
+  <data name="修改参数" xml:space="preserve">
+    <value>Sửa đổi tham số</value>
+  </data>
+  <data name="删除参数" xml:space="preserve">
+    <value>Xoá tham số</value>
+  </data>
+  <data name="约束管理" xml:space="preserve">
+    <value>Quản lý ràng buộc</value>
+  </data>
+  <data name="所属模块" xml:space="preserve">
+    <value>Module sở hữu</value>
+  </data>
+  <data name="参数分组" xml:space="preserve">
+    <value>Nhóm tham số</value>
+  </data>
+  <data name="参数名称" xml:space="preserve">
+    <value>Tên tham số</value>
+  </data>
+  <data name="操作名称" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="操作编码" xml:space="preserve">
+    <value>Mã hóa hoạt động</value>
+  </data>
+  <data name="备注" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="新增操作" xml:space="preserve">
+    <value>Hành động mới</value>
+  </data>
+  <data name="修改操作" xml:space="preserve">
+    <value>Sửa đổi hành động</value>
+  </data>
+  <data name="删除操作" xml:space="preserve">
+    <value>Xoá hành động</value>
+  </data>
+  <data name="是否启用" xml:space="preserve">
+    <value>Bật hay không</value>
+  </data>
+  <data name="清除" xml:space="preserve">
+    <value>xóa bỏ</value>
+  </data>
+  <data name="添加子模块" xml:space="preserve">
+    <value>Thêm mô-đun con</value>
+  </data>
+  <data name="编辑" xml:space="preserve">
+    <value>biên tập</value>
+  </data>
+  <data name="更新模块信息" xml:space="preserve">
+    <value>Cập nhật thông tin mô-đun</value>
+  </data>
+  <data name="模块编号" xml:space="preserve">
+    <value>Số mô-đun</value>
+  </data>
+  <data name="模块编码" xml:space="preserve">
+    <value>Mã hóa mô-đun</value>
+  </data>
+  <data name="模块名" xml:space="preserve">
+    <value>Mô- đun Name</value>
+  </data>
+  <data name="父模块" xml:space="preserve">
+    <value>Module cha</value>
+  </data>
+  <data name="模块路径" xml:space="preserve">
+    <value>Đường dẫn mô-đun</value>
+  </data>
+  <data name="系统模块" xml:space="preserve">
+    <value>Mô đun hệ thống</value>
+  </data>
+  <data name="添加用户" xml:space="preserve">
+    <value>Thêm người dùng</value>
+  </data>
+  <data name="编辑用户" xml:space="preserve">
+    <value>Sửa người dùng</value>
+  </data>
+  <data name="账号" xml:space="preserve">
+    <value>tài khoản</value>
+  </data>
+  <data name="基本信息" xml:space="preserve">
+    <value>thông tin cơ bản</value>
+  </data>
+  <data name="访客" xml:space="preserve">
+    <value>khách tham quan</value>
+  </data>
+  <data name="修改操作权限" xml:space="preserve">
+    <value>Sửa đổi quyền hành động</value>
+  </data>
+  <data name="新增操作权限" xml:space="preserve">
+    <value>Thêm quyền hành động</value>
+  </data>
+  <data name="编码" xml:space="preserve">
+    <value>Mã hóa</value>
+  </data>
+  <data name="备注信息" xml:space="preserve">
+    <value>Thông tin nhận xét</value>
+  </data>
+  <data name="超级管理员" xml:space="preserve">
+    <value>Quản trị viên</value>
+  </data>
+  <data name="查看" xml:space="preserve">
+    <value>xem</value>
+  </data>
+  <data name="查看参数约束" xml:space="preserve">
+    <value>Xem các ràng buộc đối số</value>
+  </data>
+  <data name="编辑模块" xml:space="preserve">
+    <value>Sửa mô-đun</value>
+  </data>
+  <data name="新增约束" xml:space="preserve">
+    <value>Thêm ràng buộc</value>
+  </data>
+  <data name="修改约束" xml:space="preserve">
+    <value>Sửa đổi các ràng buộc</value>
+  </data>
+  <data name="参数配置" xml:space="preserve">
+    <value>Cấu hình tham số</value>
+  </data>
+  <data name="新增" xml:space="preserve">
+    <value>thêm mới</value>
+  </data>
+  <data name="游客" xml:space="preserve">
+    <value>Khách du lịch</value>
+  </data>
+  <data name="未分配角色" xml:space="preserve">
+    <value>Vai trò chưa gán</value>
+  </data>
+  <data name="验证失败：指定的模块Code '{ModuleCode}' 不存在。" xml:space="preserve">
+    <value>Xác minh không thành công: Mô-đun được chỉ định Code'{ModuleCode}'không tồn tại.</value>
+  </data>
+  <data name="权限验证通过 (直接授权)" xml:space="preserve">
+    <value>Giấy phép trực tiếp (Direct Authorization)</value>
+  </data>
+  <data name="权限验证失败。该用户的权限由直接授权列表定义，但此模块未在列表中" xml:space="preserve">
+    <value>Xác minh quyền không thành công. Quyền của người dùng được xác định bởi danh sách ủy quyền trực tiếp, nhưng mô-đun này không có trong danh sách</value>
+  </data>
+  <data name="用户 '{UserName}' 未分配任何角色，无权访问。" xml:space="preserve">
+    <value>Người dùng'{UserName}'không được gán bất kỳ vai trò nào và không có quyền truy cập.</value>
+  </data>
+  <data name="模块访问权限验证通过" xml:space="preserve">
+    <value>Module Access Authentication Thông qua</value>
+  </data>
+  <data name="访问被拒绝。用户权限等级 ({maxUserAuthority}) 低于模块要求等级 ({requiredAuthority})。" xml:space="preserve">
+    <value>Truy cập bị từ chối. Cấp quyền người dùng ({maxUserAuthority}) thấp hơn mức yêu cầu mô-đun ({requiredAuthority}).</value>
+  </data>
+  <data name="验证失败：操作 '{ActionCode}' 在模块 '{ModuleCode}' 中未定义。" xml:space="preserve">
+    <value>Lỗi xác minh: Hành động'{ActionCode}'không được định nghĩa trong mô-đun'{ModuleCode}'.</value>
+  </data>
+  <data name="操作权限验证通过 (直接授权)" xml:space="preserve">
+    <value>Xác minh quyền hoạt động thông qua (ủy quyền trực tiếp)</value>
+  </data>
+  <data name="权限验证失败。该用户的权限由直接授权列表定义，但此操作未在列表中" xml:space="preserve">
+    <value>Xác minh quyền không thành công. Quyền của người dùng đó được xác định bởi danh sách ủy quyền trực tiếp, nhưng hành động này không có trong danh sách</value>
+  </data>
+  <data name="用户 '{UserName}' 未分配任何角色，无权执行操作。" xml:space="preserve">
+    <value>Người dùng'{UserName}'không được gán bất kỳ vai trò nào và không có quyền thực hiện hành động.</value>
+  </data>
+  <data name="操作权限验证通过" xml:space="preserve">
+    <value>Kiểm tra quyền hoạt động Thông qua</value>
+  </data>
+  <data name="用户 '{UserName}' 没有对模块ID '{Id}' 执行 '{ActionCode}' 操作的权限。" xml:space="preserve">
+    <value>Người dùng'{UserName}'không có quyền thực hiện thao tác'{ActionCode}' trên ID mô-đun'{Id}'.</value>
+  </data>
+  <data name="用户不存在。" xml:space="preserve">
+    <value>User không tồn tại.</value>
+  </data>
+  <data name="密码错误。" xml:space="preserve">
+    <value>Mật khẩu sai.</value>
+  </data>
+  <data name="用户已被禁用，请联系管理员。" xml:space="preserve">
+    <value>Người dùng đã bị vô hiệu hóa, vui lòng liên hệ với quản trị viên.</value>
+  </data>
+  <data name="用户 '{UserName}' 成功登录。" xml:space="preserve">
+    <value>Người dùng'{UserName}'đã đăng nhập thành công.</value>
+  </data>
+  <data name="登录成功" xml:space="preserve">
+    <value>Đăng nhập thành công</value>
+  </data>
+  <data name="用户 '{UserName}' 已注销。" xml:space="preserve">
+    <value>Người dùng'{UserName}'đã đăng xuất.</value>
+  </data>
+  <data name="注销成功" xml:space="preserve">
+    <value>Đăng xuất thành công</value>
+  </data>
+  <data name="未找到账户" xml:space="preserve">
+    <value>Không tìm thấy tài khoản</value>
+  </data>
+  <data name="登陆成功" xml:space="preserve">
+    <value>Hạ cánh thành công</value>
+  </data>
+  <data name="用户取消了密码确认。" xml:space="preserve">
+    <value>Người dùng hủy xác nhận mật khẩu.</value>
+  </data>
+  <data name="验证失败：权限代码 '{PermissionCode}' 未定义。" xml:space="preserve">
+    <value>Xác minh không thành công: Mã quyền'{PermissionCode}'không được xác định.</value>
+  </data>
+  <data name="限验证失败。该用户的权限由直接授权列表定义，但此操作未在列表中" xml:space="preserve">
+    <value>Hạn chế kiểm tra thất bại. Quyền của người dùng đó được xác định bởi danh sách ủy quyền trực tiếp, nhưng hành động này không có trong danh sách</value>
+  </data>
+  <data name="用户未分配任何角色，无权执行操作。" xml:space="preserve">
+    <value>Người dùng không được giao bất kỳ vai trò nào và không có quyền thực hiện hành động.</value>
+  </data>
+  <data name="没有执行 '{PermissionCode}' 操作的权限。" xml:space="preserve">
+    <value>Không có quyền thực hiện thao tác'{PermissionCode}'.</value>
+  </data>
+  <data name="限验证失败, 用户不能为空" xml:space="preserve">
+    <value>Xác minh giới hạn thất bại, người dùng không thể để trống</value>
+  </data>
+  <data name="权限验证时发生内部错误: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi nội bộ xảy ra khi xác minh quyền: {ErrorMessage}</value>
+  </data>
+  <data name="用户取消了切换操作。" xml:space="preserve">
+    <value>Bạn hủy bỏ thao tác chuyển đổi.</value>
+  </data>
+  <data name="用户取消了登录。" xml:space="preserve">
+    <value>Người dùng đã hủy đăng nhập.</value>
+  </data>
+  <data name="切换失败:{Error}" xml:space="preserve">
+    <value>Chuyển đổi thất bại: {Error}</value>
+  </data>
+  <data name="登录失败:{Error}" xml:space="preserve">
+    <value>Đăng nhập thất bại: {Error}</value>
+  </data>
+  <data name="未知错误" xml:space="preserve">
+    <value>Lỗi không xác định</value>
+  </data>
+  <data name="用户切换成功。" xml:space="preserve">
+    <value>User chuyển đổi thành công.</value>
+  </data>
+  <data name="未配置自动登陆参数" xml:space="preserve">
+    <value>Tham số hạ cánh tự động chưa được cấu hình</value>
+  </data>
+  <data name="找到已保存的登录信息" xml:space="preserve">
+    <value>Tìm thông tin đăng nhập đã lưu</value>
+  </data>
+  <data name="未找到任何已保存的登录信息" xml:space="preserve">
+    <value>Không tìm thấy thông tin đăng nhập đã lưu</value>
+  </data>
+  <data name="查找登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi tìm kiếm thông tin đăng nhập: {ErrorMessage}</value>
+  </data>
+  <data name="登录信息保存成功。" xml:space="preserve">
+    <value>Thông tin đăng nhập đã được lưu thành công.</value>
+  </data>
+  <data name="保存登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>Gặp lỗi khi lưu thông tin đăng nhập: {ErrorMessage}</value>
+  </data>
+  <data name="已清除用户的登录信息。" xml:space="preserve">
+    <value>Thông tin đăng nhập của người dùng đã bị xóa.</value>
+  </data>
+  <data name="本地无该用户的登录信息" xml:space="preserve">
+    <value>Không có thông tin đăng nhập cho người dùng này tại địa phương</value>
+  </data>
+  <data name="清除登录信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi khi xóa thông tin đăng nhập: {ErrorMessage}</value>
+  </data>
+  <data name="未找到代码为 '{ModuleCode}' 的模块" xml:space="preserve">
+    <value>Không tìm thấy mô-đun có mã'{ModuleCode}'</value>
+  </data>
+  <data name="查找成功" xml:space="preserve">
+    <value>Tìm kiếm thành công</value>
+  </data>
+  <data name="查找失败,原因：{ErrorMessage}" xml:space="preserve">
+    <value>Tìm kiếm thất bại, nguyên nhân: {ErrorMessage}</value>
+  </data>
+  <data name="获取所有系统模块成功" xml:space="preserve">
+    <value>Nhận tất cả các module hệ thống thành công</value>
+  </data>
+  <data name="获取系统模块失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi lấy mô-đun hệ thống: {ErrorMessage}</value>
+  </data>
+  <data name="批量操作需要编辑模块的权限：{ErrorMessage}" xml:space="preserve">
+    <value>Hoạt động hàng loạt yêu cầu quyền chỉnh sửa mô-đun: {ErrorMessage}</value>
+  </data>
+  <data name="没有需要添加的模块" xml:space="preserve">
+    <value>Không có module cần thêm</value>
+  </data>
+  <data name="模块Code不能为空" xml:space="preserve">
+    <value>Module code không thể rỗng</value>
+  </data>
+  <data name="数据库保存失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi lưu cơ sở dữ liệu: {ErrorMessage}</value>
+  </data>
+  <data name="批量处理模块失败。成功 0 个，更新 0 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>Mô-đun xử lý hàng loạt thất bại. Thành công 0, cập nhật 0, bỏ qua {SkippedCount} và thất bại {FailedCount}.</value>
+  </data>
+  <data name="所有模块均未发生变化，已全部跳过。" xml:space="preserve">
+    <value>Tất cả các mô-đun không thay đổi và tất cả đã bị bỏ qua.</value>
+  </data>
+  <data name="批量处理模块完成。新增 {SuccessCount} 个，更新 {UpdateCount} 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>Mô-đun xử lý hàng loạt đã hoàn thành. Thêm {SuccessCount}, cập nhật {UpdateCount}, bỏ qua {SkippedCount} và thất bại {FailedCount}.</value>
+  </data>
+  <data name="新模块添加成功" xml:space="preserve">
+    <value>Module mới được thêm thành công</value>
+  </data>
+  <data name="指定的模块不存在" xml:space="preserve">
+    <value>Module không tồn tại</value>
+  </data>
+  <data name="模块 '{ModuleName}' 的信息已被更新。" xml:space="preserve">
+    <value>Thông tin về module'{ModuleName}'đã được cập nhật.</value>
+  </data>
+  <data name="模块信息更新成功" xml:space="preserve">
+    <value>Cập nhật thông tin module thành công</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它包含子模块" xml:space="preserve">
+    <value>Không thể xóa mô-đun'{ModuleName}'vì nó chứa các mô-đun con</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它已关联了权限项" xml:space="preserve">
+    <value>Không thể xóa mô-đun'{ModuleName}'vì nó đã được liên kết với mục cấp phép</value>
+  </data>
+  <data name="无法删除模块 '{ModuleName}'，因为它已被用户访问权限直接关联" xml:space="preserve">
+    <value>Không thể xóa mô-đun'{ModuleName}'vì nó đã được liên kết trực tiếp với quyền truy cập của người dùng</value>
+  </data>
+  <data name="模块 '{ModuleName}' (ID: {ModuleId}) 已被删除。" xml:space="preserve">
+    <value>Mô-đun'{ModuleName}'(ID:{ModuleId}) đã bị xóa.</value>
+  </data>
+  <data name="模块{ModuleName}删除成功" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="传入的用户不能为空" xml:space="preserve">
+    <value>Người dùng không thể để trống</value>
+  </data>
+  <data name="获取授权模块失败: {ErrorMessage}" xml:space="preserve">
+    <value>Mô-đun ủy quyền không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="模块Code不能为空。" xml:space="preserve">
+    <value>Module Code không thể để trống.</value>
+  </data>
+  <data name="模块Code '{ModuleCode}' 已存在。" xml:space="preserve">
+    <value>Mô-đun Code'{ModuleCode}'đã tồn tại.</value>
+  </data>
+  <data name="模块Code '{ModuleCode}' 已被另一个模块使用。" xml:space="preserve">
+    <value>Mô-đun Code'{ModuleCode}'đã được sử dụng bởi một mô-đun khác.</value>
+  </data>
+  <data name="用户{UserName}没有模块{ModuleCode}的操作权限" xml:space="preserve">
+    <value>Người dùng {UserName} không có quyền hoạt động cho mô-đun {ModuleCode}</value>
+  </data>
+  <data name="未登录" xml:space="preserve">
+    <value>chưa đăng nhập</value>
+  </data>
+  <data name="未找到{ModuleCode}对应的模块" xml:space="preserve">
+    <value>Không tìm thấy mô-đun tương ứng {ModuleCode}</value>
+  </data>
+  <data name="操作成功" xml:space="preserve">
+    <value>Thao tác thành công</value>
+  </data>
+  <data name="编码{ModuleCode} 模块不存在，无法配置参数" xml:space="preserve">
+    <value>Mô-đun mã hóa {ModuleCode} không tồn tại và không thể cấu hình các tham số</value>
+  </data>
+  <data name="取消参数配置" xml:space="preserve">
+    <value>Hủy cấu hình tham số</value>
+  </data>
+  <data name="编码{ModuleCode} 模块配置参数完成" xml:space="preserve">
+    <value>Mã hóa {ModuleCode} Tham số cấu hình mô-đun đã hoàn thành</value>
+  </data>
+  <data name="参数配置出现未知错误，请联系管理人员" xml:space="preserve">
+    <value>Gặp lỗi không xác định cấu hình tham số, vui lòng liên hệ với quản lý</value>
+  </data>
+  <data name="查找参数并赋值失败，具体看Failed" xml:space="preserve">
+    <value>Tìm tham số và gán giá trị thất bại, cụ thể là Failed</value>
+  </data>
+  <data name="更新{ParameterCode}属性值失败" xml:space="preserve">
+    <value>Cập nhật {ParameterCode} giá trị thuộc tính không thành công</value>
+  </data>
+  <data name="更新{ParameterCode}属性值失败,原因:{Reason}" xml:space="preserve">
+    <value>Cập nhật {ParameterCode} giá trị thuộc tính không thành công, lý do: {Reason}</value>
+  </data>
+  <data name="该角色已配置了此参数的权限，无法重复添加" xml:space="preserve">
+    <value>Vai trò đã được cấu hình quyền cho tham số này và không thể thêm lại</value>
+  </data>
+  <data name="参数权限添加成功" xml:space="preserve">
+    <value>Thêm quyền tham số thành công</value>
+  </data>
+  <data name="添加参数权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>Thêm quyền tham số không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="要删除的权限记录不存在" xml:space="preserve">
+    <value>Bản ghi quyền cần xóa không tồn tại</value>
+  </data>
+  <data name="删除参数权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>Quyền xóa tham số không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="权限码 '{ParameterCode}' 已存在，不能重复" xml:space="preserve">
+    <value>Mã quyền'{ParameterCode}'đã tồn tại và không thể lặp lại</value>
+  </data>
+  <data name="权限创建成功" xml:space="preserve">
+    <value>Tạo quyền thành công</value>
+  </data>
+  <data name="创建权限失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi tạo quyền: {ErrorMessage}</value>
+  </data>
+  <data name="要更新的权限不存在" xml:space="preserve">
+    <value>Quyền cập nhật không tồn tại</value>
+  </data>
+  <data name="权限码 '{ParameterCode}' 已被其他权限占用。" xml:space="preserve">
+    <value>Mã quyền'{ParameterCode}'đã bị chiếm bởi các quyền khác.</value>
+  </data>
+  <data name="更新了权限 '{ParameterName}' (Code: {ParameterCode})." xml:space="preserve">
+    <value>Cập nhật quyền'{ParameterName}'(Code:{ParameterCode}).</value>
+  </data>
+  <data name="权限更新成功" xml:space="preserve">
+    <value>Cập nhật quyền thành công</value>
+  </data>
+  <data name="权限更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>Cập nhật quyền không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="要删除的权限不存在" xml:space="preserve">
+    <value>Quyền được xóa không tồn tại</value>
+  </data>
+  <data name="无法删除权限 '{ParameterName}'，因为它已被分配给一个或多个角色。请先从所有角色中移除此权限。" xml:space="preserve">
+    <value>Quyền'{ParameterName}'không thể bị xóa vì nó đã được gán cho một hoặc nhiều vai trò. Trước tiên, hãy loại bỏ quyền này khỏi tất cả các vai trò của bạn.</value>
+  </data>
+  <data name="删除权限 '{ParameterName}' (Code: {ParameterCode})." xml:space="preserve">
+    <value>Bỏ quyền truy cập'{ParameterName}'(Code:{ParameterCode}).</value>
+  </data>
+  <data name="权限删除成功" xml:space="preserve">
+    <value>Xóa quyền thành công</value>
+  </data>
+  <data name="权限删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi xóa quyền: {ErrorMessage}</value>
+  </data>
+  <data name="权限不足：无法操作权限等级高于或等于自己的角色。" xml:space="preserve">
+    <value>Không đủ quyền hạn: Không thể hoạt động với vai trò có cấp quyền cao hơn hoặc bằng chính mình.</value>
+  </data>
+  <data name="权限不足：无法将角色权限等级提升到高于自己的最高等级。" xml:space="preserve">
+    <value>Không đủ quyền hạn: Không có cách nào để nâng cấp quyền hạn của nhân vật lên mức cao nhất so với chính mình.</value>
+  </data>
+  <data name="获取角色列表成功" xml:space="preserve">
+    <value>Nhận danh sách vai trò thành công</value>
+  </data>
+  <data name="获取角色列表失败: {ErrorMessage}" xml:space="preserve">
+    <value>Nhận danh sách nhân vật thất bại: {ErrorMessage}</value>
+  </data>
+  <data name="获取用户角色信息成功" xml:space="preserve">
+    <value>Nhận thông tin vai trò người dùng thành công</value>
+  </data>
+  <data name="获取用户角色信息时出错: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi lấy thông tin vai trò người dùng: {ErrorMessage}</value>
+  </data>
+  <data name="角色 '{RoleName}' 已存在。" xml:space="preserve">
+    <value>Nhân vật'{RoleName}'đã tồn tại.</value>
+  </data>
+  <data name="角色 '{RoleName}' 添加成功。" xml:space="preserve">
+    <value>Nhân vật'{RoleName}'thêm thành công.</value>
+  </data>
+  <data name="指定Id({RoleId})的角色不存在。" xml:space="preserve">
+    <value>Vai trò xác định Id({RoleId}) không tồn tại.</value>
+  </data>
+  <data name="角色 '{RoleName}' 的信息已更新。" xml:space="preserve">
+    <value>Thông tin về nhân vật'{RoleName}'đã được cập nhật.</value>
+  </data>
+  <data name="无法删除角色 '{RoleName}'，因为它已被分配给一个或多个用户。" xml:space="preserve">
+    <value>Vai trò'{RoleName}'không thể bị xóa vì nó đã được gán cho một hoặc nhiều người dùng.</value>
+  </data>
+  <data name="角色 '{RoleName}' (ID: {RoleId}) 已删除。" xml:space="preserve">
+    <value>Nhân vật'{RoleName}'(ID:{RoleId}) đã bị xóa.</value>
+  </data>
+  <data name="模块 '{ModuleCode}' 不存在，无法查看参数" xml:space="preserve">
+    <value>Mô-đun'{ModuleCode}'không tồn tại và không thể xem tham số</value>
+  </data>
+  <data name="获取参数列表成功" xml:space="preserve">
+    <value>Lấy danh sách tham số thành công</value>
+  </data>
+  <data name="参数编码 '{ModuleCode}' 在指定模块下已存在。" xml:space="preserve">
+    <value>Mã hóa tham số'{ModuleCode}'đã tồn tại trong mô-đun được chỉ định.</value>
+  </data>
+  <data name="创建了新参数 '{ParameterName}'." xml:space="preserve">
+    <value>Tạo tham số mới'{ParameterName}'.</value>
+  </data>
+  <data name="参数创建失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi tạo tham số: {ErrorMessage}</value>
+  </data>
+  <data name="参数编码 '{ModuleCode}' 在指定模块下已被另一个参数使用。" xml:space="preserve">
+    <value>Mã hóa tham số'{ModuleCode}'đã được sử dụng bởi một tham số khác theo mô-đun được chỉ định.</value>
+  </data>
+  <data name="参数不存在" xml:space="preserve">
+    <value>Tham số không tồn tại</value>
+  </data>
+  <data name="更新参数 '{ParameterName}' 旧值：{OldValue}, 新值：{NewValue}." xml:space="preserve">
+    <value>Cập nhật tham số'{ParameterName}'giá trị cũ: {OldValue}, giá trị mới: {NewValue}.</value>
+  </data>
+  <data name="参数更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>Cập nhật tham số không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="参数 '{ParameterName}'成功删除." xml:space="preserve">
+    <value>Tham số'{ParameterName}'đã được xóa thành công.</value>
+  </data>
+  <data name="参数删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi xóa tham số: {ErrorMessage}</value>
+  </data>
+  <data name="没有需要处理的参数" xml:space="preserve">
+    <value>Không có tham số để xử lý</value>
+  </data>
+  <data name="参数编码不能为空。" xml:space="preserve">
+    <value>Mã hóa tham số không thể để trống.</value>
+  </data>
+  <data name="批处理请求中发现重复的参数组合 (编码='{ModuleCode}', 模块ID='{ModuleId}')。" xml:space="preserve">
+    <value>Sự kết hợp lặp đi lặp lại của các tham số được tìm thấy trong các yêu cầu batch (mã hóa='{ModuleCode}', và ID module='{ModuleId}').</value>
+  </data>
+  <data name="尝试更新的参数ID '{ParameterId}' 在数据库中不存在。" xml:space="preserve">
+    <value>ID tham số'{ParameterId}'đang cố gắng cập nhật không tồn tại trong cơ sở dữ liệu.</value>
+  </data>
+  <data name="参数ID '{ParameterId}' 匹配成功，但其数据库中的组合 (编码='{ModuleCode}', 模块ID='{ModuleId}') 与您提供的不符。" xml:space="preserve">
+    <value>ID tham số'{ParameterId}'khớp thành công, nhưng sự kết hợp trong cơ sở dữ liệu của nó (mã hóa='{ModuleCode}' và ID mô-đun='{ModuleId}') không khớp với những gì bạn cung cấp.</value>
+  </data>
+  <data name="参数组合 (编码='{ModuleCode}', 模块ID='{ModuleId}') 已存在，无法新增。" xml:space="preserve">
+    <value>Các tổ hợp tham số (mã hóa='{ModuleCode}', ID module='{ModuleId}') đã tồn tại và không thể thêm vào.</value>
+  </data>
+  <data name="数据保存失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi lưu dữ liệu: {ErrorMessage}</value>
+  </data>
+  <data name="批量处理完成。新增 {AddedCount} 个，更新 {UpdatedCount} 个，跳过 {SkippedCount} 个，失败 {FailedCount} 个。" xml:space="preserve">
+    <value>Xử lý hàng loạt hoàn tất. Thêm {AddedCount}, cập nhật {UpdatedCount}, bỏ qua {SkippedCount} và thất bại {FailedCount}.</value>
+  </data>
+  <data name="指定的参数的约束不存在" xml:space="preserve">
+    <value>Các ràng buộc cho các đối số đã xác định không tồn tại</value>
+  </data>
+  <data name="参数约束获取成功" xml:space="preserve">
+    <value>Parameter Constraint Thành công</value>
+  </data>
+  <data name="参数约束获取时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi xảy ra khi thu thập các ràng buộc tham số: {ErrorMessage}</value>
+  </data>
+  <data name="无法添加约束，因为所属的参数不存在" xml:space="preserve">
+    <value>Không thể thêm ràng buộc vì đối số thuộc về không tồn tại</value>
+  </data>
+  <data name="约束添加成功:参数ID '{ParameterId}' 添加了约束 '{ConstraintType}'." xml:space="preserve">
+    <value>Tham số ID'{ParameterId}'đã thêm ràng buộc'{ConstraintType}'.</value>
+  </data>
+  <data name="约束添加失败: {ErrorMessage}" xml:space="preserve">
+    <value>Thêm ràng buộc không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="约束更新成功: 参数ID '{ParameterId}' 的约束 '{ConstraintType}'." xml:space="preserve">
+    <value>Hạn chế cập nhật thành công: Hạn chế của ID tham số'{ParameterId}'{ConstraintType}'.</value>
+  </data>
+  <data name="约束更新失败: {ErrorMessage}" xml:space="preserve">
+    <value>Cập nhật ràng buộc không thành công: {ErrorMessage}</value>
+  </data>
+  <data name="约束不存在" xml:space="preserve">
+    <value>Constraint không tồn tại</value>
+  </data>
+  <data name="约束删除成功 : 参数ID '{ParameterId}' 的约束 '{ConstraintType}'." xml:space="preserve">
+    <value>Xóa ràng buộc thành công: ràng buộc của ID tham số'{ParameterId}'{ConstraintType}'.</value>
+  </data>
+  <data name="约束删除失败: {ErrorMessage}" xml:space="preserve">
+    <value>Lỗi xóa ràng buộc: {ErrorMessage}</value>
+  </data>
+  <data name="当前用户信息不能为空，无法查看参数" xml:space="preserve">
+    <value>Thông tin người dùng hiện tại không thể để trống, không thể xem tham số</value>
+  </data>
+  <data name="用户没有任何角色，无法查看参数" xml:space="preserve">
+    <value>Người dùng không có vai trò và không thể xem các tham số</value>
+  </data>
+  <data name="获取用户可见参数时发生错误。" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi lấy tham số hiển thị của người dùng.</value>
+  </data>
+  <data name="获取用户可见参数时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi lấy tham số hiển thị của người dùng: {ErrorMessage}</value>
+  </data>
+  <data name="指定的引用对象 (类型: {RefObjectType}, ID: {RefObjectId}) 不存在。" xml:space="preserve">
+    <value>Đối tượng tham chiếu được chỉ định (kiểu: {RefObjectType}, ID: {RefObjectId}) không tồn tại.</value>
+  </data>
+  <data name="用户未配置直接权限，应使用角色权限" xml:space="preserve">
+    <value>Người dùng không được cấu hình quyền trực tiếp và nên sử dụng quyền vai trò</value>
+  </data>
+  <data name="获取直接授权的模块ID成功" xml:space="preserve">
+    <value>Nhận ID mô-đun được ủy quyền trực tiếp Thành công</value>
+  </data>
+  <data name="获取直接授权信息时出错: {Message}" xml:space="preserve">
+    <value>Lỗi khi lấy thông tin ủy quyền trực tiếp: {Message}</value>
+  </data>
+  <data name="要授权的用户不存在。" xml:space="preserve">
+    <value>Người dùng được ủy quyền không tồn tại.</value>
+  </data>
+  <data name="该用户已拥有此权限，无法重复授予。" xml:space="preserve">
+    <value>Người dùng đã có quyền này và không thể cấp lại.</value>
+  </data>
+  <data name="权限授予成功" xml:space="preserve">
+    <value>Cấp quyền thành công</value>
+  </data>
+  <data name="授予用户ID '{UserId}' 对对象 '{RefObjectType}:{RefObjectId}' 的访问权限" xml:space="preserve">
+    <value>Cho phép ID người dùng'{UserId}'truy cập vào đối tượng'{RefObjectType}:{RefObjectId}'</value>
+  </data>
+  <data name="授予权限时发生错误: {ErrorMessage}" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi cấp quyền: {ErrorMessage}</value>
+  </data>
+  <data name="要撤销的权限记录不存在" xml:space="preserve">
+    <value>Bản ghi quyền để thu hồi không tồn tại</value>
+  </data>
+  <data name="撤销了用户ID '{UserId}' 对对象 '{RefObjType}:{RefObjId}' 的访问权限 (记录ID: {AccessRightId})" xml:space="preserve">
+    <value>Thu hồi quyền truy cập của ID người dùng'{UserId}'vào đối tượng'{RefObjType}:{RefObjId}' (ID bản ghi: {AccessRightId})</value>
+  </data>
+  <data name="权限撤销成功" xml:space="preserve">
+    <value>Thu hồi quyền thành công</value>
+  </data>
+  <data name="撤销权限时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi thu hồi quyền: {Message}</value>
+  </data>
+  <data name="获取用户权限列表成功" xml:space="preserve">
+    <value>Nhận danh sách quyền người dùng thành công</value>
+  </data>
+  <data name="获取用户权限列表时发生错误: {Message}" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi lấy danh sách quyền người dùng: {Message}</value>
+  </data>
+  <data name="用户拥有直接访问权限" xml:space="preserve">
+    <value>Người dùng có quyền truy cập trực tiếp</value>
+  </data>
+  <data name="用户没有直接访问权限" xml:space="preserve">
+    <value>Người dùng không có quyền truy cập trực tiếp</value>
+  </data>
+  <data name="检查访问权限时发生错误: {Message}" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi kiểm tra quyền truy cập: {Message}</value>
+  </data>
+  <data name="没有需要处理的授权请求" xml:space="preserve">
+    <value>Không có yêu cầu ủy quyền cần được xử lý</value>
+  </data>
+  <data name="要授权的用户不存在" xml:space="preserve">
+    <value>Người dùng được ủy quyền không tồn tại</value>
+  </data>
+  <data name="引用的对象 (类型: {RefObjectType}, ID: {RefObjectId}) 不存在" xml:space="preserve">
+    <value>Đối tượng tham chiếu (kiểu: {RefObjectType}, ID: {RefObjectId}) không tồn tại</value>
+  </data>
+  <data name="批量授权完成。成功 {SuccessCount} 个，跳过 {SkippedCount} 个，失败 {FailureCount} 个" xml:space="preserve">
+    <value>Ủy quyền số lượng lớn đã hoàn tất. Thành công {SuccessCount} một, bỏ qua {SkippedCount} một, thất bại {FailureCount} một</value>
+  </data>
+  <data name="没有需要撤销的权限" xml:space="preserve">
+    <value>Không có quyền yêu cầu thu hồi</value>
+  </data>
+  <data name="根据提供的ID，未找到任何可撤销的权限记录" xml:space="preserve">
+    <value>Theo ID được cung cấp, không có bản ghi quyền hủy bỏ nào được tìm thấy</value>
+  </data>
+  <data name="批量撤销了 {Count} 条直接访问权限" xml:space="preserve">
+    <value>Thu hồi hàng loạt {Count} quyền truy cập trực tiếp</value>
+  </data>
+  <data name="批量权限撤销成功" xml:space="preserve">
+    <value>Thu hồi quyền hàng loạt thành công</value>
+  </data>
+  <data name="批量撤销权限时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi thu hồi quyền hàng loạt: {Message}</value>
+  </data>
+  <data name="读取/创建操作的数据权限校验默认通过" xml:space="preserve">
+    <value>Đọc/tạo hành động Kiểm tra quyền dữ liệu Mặc định Vượt qua</value>
+  </data>
+  <data name="无法删除自己" xml:space="preserve">
+    <value>Không thể xóa bản thân</value>
+  </data>
+  <data name="允许修改自身信息" xml:space="preserve">
+    <value>Cho phép thay đổi thông tin của chính bạn</value>
+  </data>
+  <data name="未知的操作类型" xml:space="preserve">
+    <value>Kiểu hoạt động không rõ</value>
+  </data>
+  <data name="获取用户权限信息失败" xml:space="preserve">
+    <value>Lỗi lấy thông tin quyền người dùng</value>
+  </data>
+  <data name="权限不足：无法操作权限等级高于或等于自己的用户" xml:space="preserve">
+    <value>Không đủ quyền: Không thể thao tác người dùng có cấp quyền cao hơn hoặc bằng chính họ</value>
+  </data>
+  <data name="数据权限校验通过" xml:space="preserve">
+    <value>Kiểm tra quyền dữ liệu Pass</value>
+  </data>
+  <data name="数据权限校验时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi kiểm tra quyền dữ liệu: {Message}</value>
+  </data>
+  <data name="无法获取操作员的权限信息" xml:space="preserve">
+    <value>Không thể lấy thông tin về quyền của nhà điều hành</value>
+  </data>
+  <data name="一个或多个待分配的角色不存在" xml:space="preserve">
+    <value>Một hoặc nhiều vai trò được giao không tồn tại</value>
+  </data>
+  <data name="权限不足：无法为用户分配权限等级高于自己的角色" xml:space="preserve">
+    <value>Không đủ đặc quyền: Không thể gán cho người dùng vai trò có cấp quyền cao hơn họ</value>
+  </data>
+  <data name="用户名 '{UserName}' 已存在" xml:space="preserve">
+    <value>Tên người dùng'{UserName}'đã tồn tại</value>
+  </data>
+  <data name="成功创建并配置了新用户 '{UserName}'" xml:space="preserve">
+    <value>Người dùng mới đã được tạo và cấu hình thành công'{UserName}'</value>
+  </data>
+  <data name="用户注册成功" xml:space="preserve">
+    <value>Đăng ký thành công</value>
+  </data>
+  <data name="用户不存在" xml:space="preserve">
+    <value>Người dùng không tồn tại</value>
+  </data>
+  <data name="更新了用户 '{UserName}' 的信息、角色和直接权限" xml:space="preserve">
+    <value>Cập nhật thông tin, vai trò và quyền trực tiếp cho người dùng'{UserName}'</value>
+  </data>
+  <data name="用户信息更新成功" xml:space="preserve">
+    <value>Cập nhật thông tin người dùng thành công</value>
+  </data>
+  <data name="用户信息更新时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi cập nhật thông tin người dùng: {Message}</value>
+  </data>
+  <data name="注册失败: {Message}" xml:space="preserve">
+    <value>Đăng ký thất bại: {Message}</value>
+  </data>
+  <data name="更新了用户'{UserName}'的信息" xml:space="preserve">
+    <value>Cập nhật thông tin về người dùng'{UserName}'</value>
+  </data>
+  <data name="更新用户信息时发生错误: {Message}" xml:space="preserve">
+    <value>Đã xảy ra lỗi khi cập nhật thông tin người dùng: {Message}</value>
+  </data>
+  <data name="用户删除成功" xml:space="preserve">
+    <value>Xóa người dùng thành công</value>
+  </data>
+  <data name="用户信息删除时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi xóa thông tin người dùng: {Message}</value>
+  </data>
+  <data name="获取用户列表成功" xml:space="preserve">
+    <value>Nhận danh sách người dùng thành công</value>
+  </data>
+  <data name="按角色获取用户列表成功" xml:space="preserve">
+    <value>Nhận danh sách người dùng theo vai trò Thành công</value>
+  </data>
+  <data name="按角色获取用户列表失败: {Message}" xml:space="preserve">
+    <value>Nhận danh sách người dùng theo vai trò không thành công: {Message}</value>
+  </data>
+  <data name="无法为用户分配权限等级高于自己的角色" xml:space="preserve">
+    <value>Không thể gán vai trò cho người dùng có cấp quyền cao hơn họ</value>
+  </data>
+  <data name="用户角色分配成功" xml:space="preserve">
+    <value>Phân bổ vai trò người dùng thành công</value>
+  </data>
+  <data name="分配角色时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi khi gán vai trò: {Message}</value>
+  </data>
+  <data name="成功修改密码" xml:space="preserve">
+    <value>Thay đổi mật khẩu thành công</value>
+  </data>
+  <data name="GlobalVarService不能为空!" xml:space="preserve">
+    <value>GlobalVarService không thể để trống!</value>
+  </data>
+  <data name="[框架初始化]" xml:space="preserve">
+    <value>[Khởi tạo khung]</value>
+  </data>
+  <data name="基础初始化完成..." xml:space="preserve">
+    <value>Khởi tạo nền tảng hoàn tất. ..</value>
+  </data>
+  <data name="日志模块初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Việc khởi tạo mô-đun nhật ký hoàn tất, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="注入数据库服务初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Injection database service khởi tạo xong, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="InitialServiceType 不能为空，且必须从InitializationServiceBase派生!" xml:space="preserve">
+    <value>InitialServiceType không thể để trống và phải được dẫn xuất từ InitialServiceBase!</value>
+  </data>
+  <data name="基础模块初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Khởi tạo module cơ bản hoàn tất, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="模块 {ModuleName} 加载完成。。。。。。" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="参数" xml:space="preserve">
+    <value>tham số</value>
+  </data>
+  <data name="系统警告" xml:space="preserve">
+    <value>Cảnh báo hệ thống</value>
+  </data>
+  <data name="系统提示" xml:space="preserve">
+    <value>Mẹo hệ thống</value>
+  </data>
+  <data name="密码不允许为空" xml:space="preserve">
+    <value>Mật khẩu không được phép để trống</value>
+  </data>
+  <data name="俩次输入的密码不一致" xml:space="preserve">
+    <value>Hai lần nhập mật khẩu không đồng nhất</value>
+  </data>
+  <data name="【{UserName}】登录需要密码确认" xml:space="preserve">
+    <value>[{UserName}] Đăng nhập cần xác nhận mật khẩu</value>
+  </data>
+  <data name="没有选择任何程序集" xml:space="preserve">
+    <value>Không có assembly nào được chọn</value>
+  </data>
+  <data name="请先选择要加载的程序集文件." xml:space="preserve">
+    <value>Vui lòng chọn tập tin assembly bạn muốn tải trước.</value>
+  </data>
+  <data name="没有在选中的程序集文件中找到任何插件." xml:space="preserve">
+    <value>Không tìm thấy plugin nào trong tập tin assembly đã chọn.</value>
+  </data>
+  <data name="程序集文件 (*.dll, *.exe)" xml:space="preserve">
+    <value>Tập tin assembly (*.dll, *.exe)</value>
+  </data>
+  <data name="程序集文件 (*.dll)" xml:space="preserve">
+    <value>Tập tin assembly (*.dll)</value>
+  </data>
+  <data name="程序集文件 (*.exe)" xml:space="preserve">
+    <value>Tập tin assembly (*.exe)</value>
+  </data>
+  <data name="选择程序集文件" xml:space="preserve">
+    <value>Chọn tập tin assembly</value>
+  </data>
+  <data name="扫描完成，共找到 {Count} 个程序集" xml:space="preserve">
+    <value>Quét xong, tìm thấy tổng cộng {Count} assembly</value>
+  </data>
+  <data name="扫描已由用户取消" xml:space="preserve">
+    <value>Quét đã bị hủy bởi người dùng</value>
+  </data>
+  <data name="扫描时发生错误: {Message}" xml:space="preserve">
+    <value>Lỗi xảy ra khi quét: {Message}</value>
+  </data>
+  <data name="用户取消登陆" xml:space="preserve">
+    <value>Người dùng hủy đăng nhập</value>
+  </data>
+  <data name="用户名或密码不能为空" xml:space="preserve">
+    <value>Tên người dùng hoặc mật khẩu không được để trống</value>
+  </data>
+  <data name="日志数据配置界面" xml:space="preserve">
+    <value>Giao diện cấu hình dữ liệu nhật ký</value>
+  </data>
+  <data name="状态初始化完成。请查看日志源" xml:space="preserve">
+    <value>Khởi tạo trạng thái hoàn tất. Vui lòng xem nguồn log</value>
+  </data>
+  <data name="日志配置已更改，正在重新加载显示设置" xml:space="preserve">
+    <value>Cấu hình nhật ký đã thay đổi, cài đặt hiển thị đang được tải lại</value>
+  </data>
+  <data name="模块名称不能为空" xml:space="preserve">
+    <value>Tên module không được để trống</value>
+  </data>
+  <data name="默认模块不能被删除" xml:space="preserve">
+    <value>Mô-đun mặc định không thể bị xóa</value>
+  </data>
+  <data name="模块参数配置" xml:space="preserve">
+    <value>Cấu hình tham số mô-đun</value>
+  </data>
+  <data name="视图：{ModuleCode} 配置不正确，请联系管理人员" xml:space="preserve">
+    <value>View: {ModuleCode} được cấu hình không chính xác, vui lòng liên hệ với quản trị viên</value>
+  </data>
+  <data name="不能删除默认模块的操作权限" xml:space="preserve">
+    <value>Không thể xóa quyền hoạt động của mô-đun mặc định</value>
+  </data>
+  <data name="请先选中要删除的用户" xml:space="preserve">
+    <value>Vui lòng chọn người dùng bạn muốn xóa trước</value>
+  </data>
+  <data name="默认用户不允许删除" xml:space="preserve">
+    <value>Người dùng mặc định không được phép xóa</value>
+  </data>
+  <data name="操作已取消" xml:space="preserve">
+    <value>Hành động bị hủy bỏ</value>
+  </data>
+  <data name="处理实体变更时发生意外错误" xml:space="preserve">
+    <value>Lỗi bất ngờ xảy ra khi xử lý thay đổi thực thể</value>
+  </data>
+  <data name="数据加载失败，请稍后重试，原因：{Message}" xml:space="preserve">
+    <value>Tải dữ liệu không thành công, vui lòng thử lại sau, lý do: {Message}</value>
+  </data>
+  <data name="请先选中要删除的项" xml:space="preserve">
+    <value>Vui lòng chọn mục bạn muốn xóa trước</value>
+  </data>
+  <data name="请先选中要创建子节点的项" xml:space="preserve">
+    <value>Trước tiên, hãy chọn mục mà bạn muốn tạo nút con.</value>
+  </data>
+  <data name="请先选中要编辑的项" xml:space="preserve">
+    <value>Vui lòng chọn mục bạn muốn chỉnh sửa trước</value>
+  </data>
+  <data name="无法找到创建视图对应的模块，请联系管理员" xml:space="preserve">
+    <value>Không thể tìm thấy mô-đun tương ứng để tạo dạng xem, vui lòng liên hệ với quản trị viên</value>
+  </data>
+  <data name="创建成功" xml:space="preserve">
+    <value>Tạo thành công</value>
+  </data>
+  <data name="更新成功" xml:space="preserve">
+    <value>Cập nhật thành công</value>
+  </data>
+  <data name="保存失败: {Message}" xml:space="preserve">
+    <value>Lưu không thành công: {Message}</value>
+  </data>
+  <data name="请先选择一个实体" xml:space="preserve">
+    <value>Vui lòng chọn Entity trước</value>
+  </data>
+  <data name="确定要删除吗?" xml:space="preserve">
+    <value>Bạn chắc chắn muốn xóa?</value>
+  </data>
+  <data name="删除成功" xml:space="preserve">
+    <value>Xóa thành công</value>
+  </data>
+  <data name="删除失败: {Message}" xml:space="preserve">
+    <value>Lỗi xóa: {Message}</value>
+  </data>
+  <data name="数据验证失败，请修正以下错误：{NewLine}{Errors}" xml:space="preserve">
+    <value>Xác thực dữ liệu không thành công, vui lòng sửa lỗi sau: {NewLine}{Errors}</value>
+  </data>
+  <data name="正在加载，请稍候..." xml:space="preserve">
+    <value>Đang tải, vui lòng đợi. ..</value>
+  </data>
+  <data name="导航到 {ViewName} 失败，原因未知" xml:space="preserve">
+    <value>Điều hướng đến {ViewName} không thành công, không rõ lý do</value>
+  </data>
+  <data name="扫描完成" xml:space="preserve">
+    <value>Quét xong</value>
+  </data>
+  <data name="[数据库同步]" xml:space="preserve">
+    <value>[Đồng bộ hóa cơ sở dữ liệu]</value>
+  </data>
+  <data name="正在同步数据库初始数据..." xml:space="preserve">
+    <value>Đồng bộ hóa dữ liệu ban đầu của cơ sở dữ liệu. ..</value>
+  </data>
+  <data name="数据库初始数据同步失败" xml:space="preserve">
+    <value>Lỗi đồng bộ dữ liệu ban đầu của cơ sở dữ liệu</value>
+  </data>
+  <data name="数据库初始数据同步完成 , 耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Đồng bộ hóa dữ liệu ban đầu của cơ sở dữ liệu hoàn tất, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="数据库初始化失败: {Message} , 耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Lỗi khởi tạo cơ sở dữ liệu: {Message}, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="[初始化]" xml:space="preserve">
+    <value>[Khởi tạo]</value>
+  </data>
+  <data name="开始基础初始化..." xml:space="preserve">
+    <value>Bắt đầu khởi tạo nền tảng. ..</value>
+  </data>
+  <data name="权限系统初始化完成，耗时 {Milliseconds} ms" xml:space="preserve">
+    <value>Khởi tạo hệ thống quyền hoàn tất, tốn thời gian {Milliseconds} ms</value>
+  </data>
+  <data name="应用初始化完成..." xml:space="preserve">
+    <value>Áp dụng khởi tạo hoàn tất. ..</value>
+  </data>
+  <data name="[用户认证]" xml:space="preserve">
+    <value>[Xác thực người dùng]</value>
+  </data>
+  <data name="正在检查自动登录信息..." xml:space="preserve">
+    <value>Kiểm tra thông tin đăng nhập tự động. ..</value>
+  </data>
+  <data name="用户 '{UserName}' 自动登录完成..." xml:space="preserve">
+    <value>Người dùng'{UserName}'tự động đăng nhập hoàn tất. ..</value>
+  </data>
+  <data name="[加载模块]" xml:space="preserve">
+    <value>[Tải mô-đun]</value>
+  </data>
+  <data name="正在动态注入视图..." xml:space="preserve">
+    <value>Đang tiêm một hình chiếu động. ..</value>
+  </data>
+  <data name="开始加载模块..." xml:space="preserve">
+    <value>Bắt đầu tải module. ..</value>
+  </data>
+  <data name="加载模块：{ModuleName}" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="[应用程序数据]" xml:space="preserve">
+    <value>[Dữ liệu ứng dụng]</value>
+  </data>
+  <data name="开始载入应用程序数据..." xml:space="preserve">
+    <value>Bắt đầu tải dữ liệu ứng dụng. ..</value>
+  </data>
+  <data name="[初始化完成]" xml:space="preserve">
+    <value>[Khởi tạo xong]</value>
+  </data>
+  <data name="初始化完成" xml:space="preserve">
+    <value>Khởi tạo xong</value>
+  </data>
+  <data name="应用程序初始化失败: {Message}" xml:space="preserve">
+    <value>Lỗi khởi tạo ứng dụng: {Message}</value>
+  </data>
+  <data name="[加载出错]" xml:space="preserve">
+    <value>[Tải lỗi]</value>
+  </data>
+  <data name="集合编辑" xml:space="preserve">
+    <value>Bộ sưu tập Edit</value>
+  </data>
+  <data name="此电脑" xml:space="preserve">
+    <value>Máy tính này</value>
+  </data>
+  <data name="文件夹" xml:space="preserve">
+    <value>Thư mục</value>
+  </data>
+  <data name="驱动器" xml:space="preserve">
+    <value>ổ đĩa</value>
+  </data>
+  <data name="文件" xml:space="preserve">
+    <value>tài liệu</value>
+  </data>
+  <data name="执行" xml:space="preserve">
+    <value>thực hiện</value>
+  </data>
+  <data name="杂项" xml:space="preserve">
+    <value>Linh tinh</value>
+  </data>
+  <data name="正在以操作员模式启动..." xml:space="preserve">
+    <value>Khởi động ở chế độ điều khiển. ..</value>
+  </data>
+  <data name="操作员模式启动失败: {Message}" xml:space="preserve">
+    <value>Lỗi khởi động chế độ nhà điều hành: {Message}</value>
+  </data>
+  <data name="监控服务已在运行中" xml:space="preserve">
+    <value>Dịch vụ giám sát đang hoạt động</value>
+  </data>
+  <data name="监控服务已成功启动" xml:space="preserve">
+    <value>Dịch vụ giám sát đã được khởi chạy thành công</value>
+  </data>
+  <data name="监控服务未运行" xml:space="preserve">
+    <value>Dịch vụ giám sát không hoạt động</value>
+  </data>
+  <data name="监控服务已成功停止" xml:space="preserve">
+    <value>Dịch vụ giám sát đã dừng thành công</value>
+  </data>
+  <data name="监控服务尚未启动，请先调用 StartAsync" xml:space="preserve">
+    <value>Dịch vụ giám sát chưa bắt đầu, hãy gọi StartAsync trước</value>
+  </data>
+  <data name="已开启 {Target} 监控" xml:space="preserve">
+    <value>Đã bật {mục tiêu} giám sát</value>
+  </data>
+  <data name="未登陆" xml:space="preserve">
+    <value>Không hạ cánh</value>
+  </data>
+  <data name="确认密码" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="功能暂未实现" xml:space="preserve">
+    <value>Chức năng chưa thực hiện</value>
+  </data>
+  <data name="重试" xml:space="preserve">
+    <value>Thử lại</value>
+  </data>
+  <data name="详细信息" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="功能正在加载中" xml:space="preserve">
+    <value>Chức năng đang tải</value>
+  </data>
+  <data name="程序集列表" xml:space="preserve">
+    <value>Danh sách assembly</value>
+  </data>
+  <data name="从文件加载" xml:space="preserve">
+    <value>Tải từ tập tin</value>
+  </data>
+  <data name="从文件夹加载" xml:space="preserve">
+    <value>Đang tải từ thư mục</value>
+  </data>
+  <data name="启用" xml:space="preserve">
+    <value>kích hoạt</value>
+  </data>
+  <data name="插件名称" xml:space="preserve">
+    <value>Bổ sung tên</value>
+  </data>
+  <data name="完整类名" xml:space="preserve">
+    <value>Tên lớp đầy đủ</value>
+  </data>
+  <data name="所在程序集" xml:space="preserve">
+    <value>assembly trong đó</value>
+  </data>
+  <data name="日志来源" xml:space="preserve">
+    <value>Nguồn nhật ký</value>
+  </data>
+  <data name="级别" xml:space="preserve">
+    <value>cấp độ</value>
+  </data>
+  <data name="开始时间" xml:space="preserve">
+    <value>thời gian bắt đầu</value>
+  </data>
+  <data name="结束时间" xml:space="preserve">
+    <value>Thời gian kết thúc</value>
+  </data>
+  <data name="查询." xml:space="preserve">
+    <value>Truy vấn.</value>
+  </data>
+  <data name="编号" xml:space="preserve">
+    <value>số hiệu</value>
+  </data>
+  <data name="时间戳" xml:space="preserve">
+    <value>Dấu thời gian</value>
+  </data>
+  <data name="日志信息" xml:space="preserve">
+    <value>Thông tin đăng nhập</value>
+  </data>
+  <data name="异常信息" xml:space="preserve">
+    <value>Thông tin bất thường</value>
+  </data>
+  <data name="实时日志条数" xml:space="preserve">
+    <value>Số lượng thanh ghi trực tiếp</value>
+  </data>
+  <data name="最长存储时间" xml:space="preserve">
+    <value>Thời gian lưu trữ tối đa</value>
+  </data>
+  <data name="重置" xml:space="preserve">
+    <value>Đặt lại</value>
+  </data>
+  <data name="保存" xml:space="preserve">
+    <value>lưu</value>
+  </data>
+  <data name="消息" xml:space="preserve">
+    <value>tin tức</value>
+  </data>
+  <data name="上一条" xml:space="preserve">
+    <value>Bài viết trước</value>
+  </data>
+  <data name="下一条" xml:space="preserve">
+    <value>Tiếp theo</value>
+  </data>
+  <data name="关闭" xml:space="preserve">
+    <value>đóng</value>
+  </data>
+  <data name="数据来源" xml:space="preserve">
+    <value>Nguồn dữ liệu</value>
+  </data>
+  <data name="历史日志" xml:space="preserve">
+    <value>Lịch sử</value>
+  </data>
+  <data name="测试" xml:space="preserve">
+    <value>kiểm tra</value>
+  </data>
+  <data name="清除实时" xml:space="preserve">
+    <value>Xóa thời gian thực</value>
+  </data>
+  <data name="日志数据源参数设置" xml:space="preserve">
+    <value>Cài đặt tham số nguồn dữ liệu nhật ký</value>
+  </data>
+  <data name="时间" xml:space="preserve">
+    <value>thời gian</value>
+  </data>
+  <data name="来源" xml:space="preserve">
+    <value>Nguồn</value>
+  </data>
+  <data name="信息" xml:space="preserve">
+    <value>thông tin</value>
+  </data>
+  <data name="所属参数" xml:space="preserve">
+    <value>Tham số sở hữu</value>
+  </data>
+  <data name="约束类型" xml:space="preserve">
+    <value>Loại Constraint</value>
+  </data>
+  <data name="增加约束" xml:space="preserve">
+    <value>Tăng ràng buộc</value>
+  </data>
+  <data name="删除约束" xml:space="preserve">
+    <value>Xoá ràng buộc</value>
+  </data>
+  <data name="约束值" xml:space="preserve">
+    <value>Giá trị ràng buộc</value>
+  </data>
+  <data name="描述" xml:space="preserve">
+    <value>mô tả</value>
+  </data>
+  <data name="所有参数列表" xml:space="preserve">
+    <value>Danh sách tất cả các tham số</value>
+  </data>
+  <data name="模块参数配置列表" xml:space="preserve">
+    <value>Danh sách cấu hình tham số mô-đun</value>
+  </data>
+  <data name="参数约束管理" xml:space="preserve">
+    <value>Quản lý ràng buộc tham số</value>
+  </data>
+  <data name="设置最低显示权限" xml:space="preserve">
+    <value>Đặt quyền hiển thị tối thiểu</value>
+  </data>
+  <data name="设置最低编辑权限" xml:space="preserve">
+    <value>Đặt quyền chỉnh sửa tối thiểu</value>
+  </data>
+  <data name="最低显示权限" xml:space="preserve">
+    <value>Quyền hiển thị tối thiểu</value>
+  </data>
+  <data name="最低编辑权限" xml:space="preserve">
+    <value>Quyền chỉnh sửa tối thiểu</value>
+  </data>
+  <data name="类型" xml:space="preserve">
+    <value>loại</value>
+  </data>
+  <data name="显示名称" xml:space="preserve">
+    <value>Hiện tên</value>
+  </data>
+  <data name="分类" xml:space="preserve">
+    <value>phân loại</value>
+  </data>
+  <data name="步长" xml:space="preserve">
+    <value>Bước chân</value>
+  </data>
+  <data name="小数位数" xml:space="preserve">
+    <value>Số thập phân</value>
+  </data>
+  <data name="参数当前值" xml:space="preserve">
+    <value>Tham số Giá trị hiện tại</value>
+  </data>
+  <data name="管理" xml:space="preserve">
+    <value>quản lý</value>
+  </data>
+  <data name="参数值" xml:space="preserve">
+    <value>Giá trị tham số</value>
+  </data>
+  <data name="创建人" xml:space="preserve">
+    <value>người tạo</value>
+  </data>
+  <data name="修改人" xml:space="preserve">
+    <value>người sửa đổi</value>
+  </data>
+  <data name="左区域" xml:space="preserve">
+    <value>Khu vực trái</value>
+  </data>
+  <data name="右区域" xml:space="preserve">
+    <value>Khu vực bên phải</value>
+  </data>
+  <data name="启动" xml:space="preserve">
+    <value>khởi động</value>
+  </data>
+  <data name="暂停" xml:space="preserve">
+    <value>Tạm dừng</value>
+  </data>
+  <data name="停止" xml:space="preserve">
+    <value>dừng lại</value>
+  </data>
+  <data name="开始阀标定" xml:space="preserve">
+    <value>Bắt đầu đánh dấu van</value>
+  </data>
+  <data name="停止阀标定" xml:space="preserve">
+    <value>Tiêu chuẩn van dừng</value>
+  </data>
+  <data name="最小值约束(数值或日期)" xml:space="preserve">
+    <value>Hạn chế tối thiểu (giá trị số hoặc ngày)</value>
+  </data>
+  <data name="最大值约束(数值或日期)" xml:space="preserve">
+    <value>Hạn chế tối đa (giá trị số hoặc ngày)</value>
+  </data>
+  <data name="正则表达式" xml:space="preserve">
+    <value>Biểu thức chính quy</value>
+  </data>
+  <data name="下拉列表数据源" xml:space="preserve">
+    <value>Nguồn dữ liệu danh sách thả xuống</value>
+  </data>
+  <data name="字符串的最大长度" xml:space="preserve">
+    <value>Độ dài tối đa của chuỗi</value>
+  </data>
+  <data name="小数点位数" xml:space="preserve">
+    <value>Số thập phân</value>
+  </data>
+  <data name="字符串" xml:space="preserve">
+    <value>Chuỗi</value>
+  </data>
+  <data name="长整数" xml:space="preserve">
+    <value>Số nguyên dài</value>
+  </data>
+  <data name="整数" xml:space="preserve">
+    <value>Số nguyên</value>
+  </data>
+  <data name="短整数" xml:space="preserve">
+    <value>Số nguyên ngắn</value>
+  </data>
+  <data name="字节" xml:space="preserve">
+    <value>Byte</value>
+  </data>
+  <data name="双精度浮点数" xml:space="preserve">
+    <value>Số float chính xác gấp đôi</value>
+  </data>
+  <data name="单精度浮点数" xml:space="preserve">
+    <value>Số float chính xác đơn</value>
+  </data>
+  <data name="枚举" xml:space="preserve">
+    <value>Danh sách</value>
+  </data>
+  <data name="布尔值" xml:space="preserve">
+    <value>Giá trị Boolean</value>
+  </data>
+  <data name="时间日期" xml:space="preserve">
+    <value>Ngày giờ</value>
+  </data>
+  <data name="坐标点位" xml:space="preserve">
+    <value>các vị trí tọa độ</value>
+  </data>
+  <data name="数组" xml:space="preserve">
+    <value>Mảng</value>
+  </data>
+  <data name="集合" xml:space="preserve">
+    <value>Tập hợp</value>
+  </data>
+  <data name="模块" xml:space="preserve">
+    <value>mô-đun</value>
+  </data>
+  <data name="功能" xml:space="preserve">
+    <value>chức năng</value>
+  </data>
+  <data name="查询" xml:space="preserve">
+    <value>truy vấn</value>
+  </data>
+  <data name="创建" xml:space="preserve">
+    <value>tạo</value>
+  </data>
+  <data name="更新" xml:space="preserve">
+    <value>cập nhật</value>
+  </data>
+  <data name="新建" xml:space="preserve">
+    <value>Mới</value>
+  </data>
+  <data name="复制" xml:space="preserve">
+    <value>sao chép</value>
+  </data>
+  <data name="重命名" xml:space="preserve">
+    <value>đổi tên</value>
+  </data>
+  <data name="导入" xml:space="preserve">
+    <value>nhập khẩu</value>
+  </data>
+  <data name="导出" xml:space="preserve">
+    <value>Xuất</value>
+  </data>
+  <data name="打印" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="从不" xml:space="preserve">
+    <value>Không bao giờ</value>
+  </data>
+  <data name="获得焦点时" xml:space="preserve">
+    <value>Khi tập trung</value>
+  </data>
+  <data name="左侧标题" xml:space="preserve">
+    <value>Tiêu đề trái</value>
+  </data>
+  <data name="上方标题" xml:space="preserve">
+    <value>Tiêu đề trên</value>
+  </data>
+  <data name="标题隐藏" xml:space="preserve">
+    <value>Tiêu đề Ẩn</value>
+  </data>
+  <data name="标题折叠" xml:space="preserve">
+    <value>Gấp tiêu đề</value>
+  </data>
+  <data name="左" xml:space="preserve">
+    <value>trái</value>
+  </data>
+  <data name="居中" xml:space="preserve">
+    <value>Ở giữa</value>
+  </data>
+  <data name="右" xml:space="preserve">
+    <value>phải</value>
+  </data>
+  <data name="水平方向" xml:space="preserve">
+    <value>Hướng ngang</value>
+  </data>
+  <data name="垂直方向" xml:space="preserve">
+    <value>Hướng dọc</value>
+  </data>
+  <data name="纯文本" xml:space="preserve">
+    <value>Văn bản thuần</value>
+  </data>
+  <data name="文本只读" xml:space="preserve">
+    <value>Văn bản chỉ đọc</value>
+  </data>
+  <data name="字节(无符号)" xml:space="preserve">
+    <value>Byte (không dấu)</value>
+  </data>
+  <data name="短整数(无符号)" xml:space="preserve">
+    <value>Số nguyên ngắn (unsigned)</value>
+  </data>
+  <data name="整数(无符号)" xml:space="preserve">
+    <value>Số nguyên (unsigned)</value>
+  </data>
+  <data name="长整数(无符号)" xml:space="preserve">
+    <value>Số nguyên dài (unsigned)</value>
+  </data>
+  <data name="水平对齐" xml:space="preserve">
+    <value>Căn ngang</value>
+  </data>
+  <data name="垂直对齐" xml:space="preserve">
+    <value>Canh lề dọc</value>
+  </data>
+  <data name="图像源" xml:space="preserve">
+    <value>Nguồn ảnh</value>
+  </data>
+  <data name="列表" xml:space="preserve">
+    <value>Danh sách</value>
+  </data>
+  <data name="获得焦点时生效" xml:space="preserve">
+    <value>Có hiệu lực khi lấy nét</value>
+  </data>
+  <data name="获得焦点且鼠标悬停时生效" xml:space="preserve">
+    <value>Lấy nét và có hiệu lực khi di chuột</value>
+  </data>
+  <data name="鼠标悬停时生效" xml:space="preserve">
+    <value>Hiệu lực khi di chuột</value>
+  </data>
+  <data name="禁用鼠标滚轮" xml:space="preserve">
+    <value>Vô hiệu hóa bánh xe chuột</value>
+  </data>
+  <data name="深色" xml:space="preserve">
+    <value>Tối</value>
+  </data>
+  <data name="浅色" xml:space="preserve">
+    <value>Màu sáng</value>
+  </data>
+  <data name="运行日志" xml:space="preserve">
+    <value>Nhật ký chạy</value>
+  </data>
+  <data name="弹窗日志" xml:space="preserve">
+    <value>Đăng nhập cửa sổ</value>
+  </data>
+  <data name="视觉日志" xml:space="preserve">
+    <value>Nhật ký hình ảnh</value>
+  </data>
+  <data name="运控日志" xml:space="preserve">
+    <value>Nhật ký vận chuyển</value>
+  </data>
+  <data name="硬件日志" xml:space="preserve">
+    <value>Nhật ký phần cứng</value>
+  </data>
+  <data name="生产日志" xml:space="preserve">
+    <value>Nhật ký sản xuất</value>
+  </data>
+  <data name="MES日志" xml:space="preserve">
+    <value>Nhật ký MES</value>
+  </data>
+  <data name="数据库日志" xml:space="preserve">
+    <value>Nhật ký cơ sở dữ liệu</value>
+  </data>
+  <data name="未定义" xml:space="preserve">
+    <value>Chưa xác định</value>
+  </data>
+  <data name="无监控对象" xml:space="preserve">
+    <value>Không có đối tượng giám sát</value>
+  </data>
+  <data name="进程状态" xml:space="preserve">
+    <value>Trạng thái tiến trình</value>
+  </data>
+  <data name="设备状态" xml:space="preserve">
+    <value>Trạng thái thiết bị</value>
+  </data>
+  <data name="运行状态" xml:space="preserve">
+    <value>trạng thái hoạt động</value>
+  </data>
+  <data name="监控所有" xml:space="preserve">
+    <value>Giám sát tất cả</value>
+  </data>
+  <data name="名称" xml:space="preserve">
+    <value>tên</value>
+  </data>
+  <data name="修改时间" xml:space="preserve">
+    <value>Thời gian sửa đổi</value>
+  </data>
+  <data name="修改日期" xml:space="preserve">
+    <value>Ngày sửa đổi</value>
+  </data>
+  <data name="桌面" xml:space="preserve">
+    <value>bàn làm việc</value>
+  </data>
+  <data name="文档" xml:space="preserve">
+    <value>tài liệu</value>
+  </data>
+  <data name="下载" xml:space="preserve">
+    <value>tải xuống</value>
+  </data>
+  <data name="音乐" xml:space="preserve">
+    <value>Âm nhạc</value>
+  </data>
+  <data name="图片" xml:space="preserve">
+    <value>hình ảnh</value>
+  </data>
+  <data name="视频" xml:space="preserve">
+    <value>video</value>
+  </data>
+  <data name="大小" xml:space="preserve">
+    <value>kích thước</value>
+  </data>
+</root>

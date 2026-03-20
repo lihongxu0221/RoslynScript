@@ -1,0 +1,206 @@
+using BgCommon.Script.Runtime.Compilation;
+using BgCommon.Script.Runtime.DotNet;
+
+namespace BgCommon.Script.Runtime.CodeAnalysis;
+
+/// <summary>
+/// 代码分析服务类，用于处理语法树生成与中间语言反编译.
+/// </summary>
+internal class CodeAnalysisService : ICodeAnalysisService
+{
+    /// <summary>
+    /// 语法琐事（Trivia）的显示映射字典.
+    /// </summary>
+    private static readonly Dictionary<SyntaxKind, string> TriviaDisplayValues = new Dictionary<SyntaxKind, string>
+    {
+        [SyntaxKind.SemicolonToken] = ";",
+        [SyntaxKind.EndOfLineTrivia] = "\\n",
+        [SyntaxKind.WhitespaceTrivia] = "<space>",
+        [SyntaxKind.SingleLineCommentTrivia] = "<comment>",
+        [SyntaxKind.MultiLineCommentTrivia] = "<comment>",
+        [SyntaxKind.DocumentationCommentExteriorTrivia] = "<comment>",
+        [SyntaxKind.SingleLineDocumentationCommentTrivia] = "<comment>",
+        [SyntaxKind.MultiLineDocumentationCommentTrivia] = "<comment>",
+        [SyntaxKind.XmlComment] = "<comment>",
+        [SyntaxKind.PublicKeyword] = "public",
+        [SyntaxKind.VoidKeyword] = "void",
+    };
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CodeAnalysisService"/> class.
+    /// </summary>
+    public CodeAnalysisService()
+    {
+    }
+
+    /// <summary>
+    /// 获取 C# 解析选项.
+    /// </summary>
+    /// <param name="sourceCodeKind">源代码的种类（如脚本或常规源文件）.</param>
+    /// <param name="targetFrameworkVersion">目标框架版本.</param>
+    /// <param name="optimizationLevel">优化级别.</param>
+    /// <returns>返回配置好的 CSharpParseOptions 对象.</returns>
+    public CSharpParseOptions GetParseOptions(
+        SourceCodeKind sourceCodeKind,
+        DotNetFrameworkVersion targetFrameworkVersion,
+        OptimizationLevel optimizationLevel)
+    {
+        // 构建默认解析选项并配置语言版本与预处理符号
+        return CSharpParseOptions.Default.WithKind(sourceCodeKind)
+            .WithLanguageVersion(targetFrameworkVersion.GetLatestSupportedCSharpLanguageVersion())
+            .WithPreprocessorSymbols(PreprocessorSymbols.For(optimizationLevel, targetFrameworkVersion));
+    }
+
+    /// <summary>
+    /// 获取代码的语法树.
+    /// </summary>
+    /// <param name="code">源代码字符串.</param>
+    /// <param name="sourceCodeKind">源代码种类.</param>
+    /// <param name="targetFrameworkVersion">目标框架版本.</param>
+    /// <param name="optimizationLevel">优化级别.</param>
+    /// <param name="cancellationToken">取消令牌.</param>
+    /// <returns>解析后的语法树.</returns>
+    public SyntaxTree GetSyntaxTree(
+        string code,
+        SourceCodeKind sourceCodeKind,
+        DotNetFrameworkVersion targetFrameworkVersion,
+        OptimizationLevel optimizationLevel,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(code, nameof(code));
+
+        // 将字符串转换为 Roslyn 源码文本对象
+        var textContent = SourceText.From(code);
+
+        // 获取解析配置参数
+        var options = this.GetParseOptions(sourceCodeKind, targetFrameworkVersion, optimizationLevel);
+
+        // 调用 Roslyn 工厂方法解析语法树
+        return SyntaxFactory.ParseSyntaxTree(textContent, options, cancellationToken: cancellationToken);
+    }
+
+    /// <summary>
+    /// 获取精简版的语法树节点或令牌信息.
+    /// </summary>
+    /// <param name="code">源代码字符串.</param>
+    /// <param name="sourceCodeKind">源代码种类.</param>
+    /// <param name="targetFrameworkVersion">目标框架版本.</param>
+    /// <param name="optimizationLevel">优化级别.</param>
+    /// <param name="cancellationToken">取消令牌.</param>
+    /// <returns>精简版语法节点包装对象.</returns>
+    public SyntaxNodeOrTokenSlim GetSyntaxTreeSlim(
+        string code,
+        SourceCodeKind sourceCodeKind,
+        DotNetFrameworkVersion targetFrameworkVersion,
+        OptimizationLevel optimizationLevel,
+        CancellationToken cancellationToken = default)
+    {
+        // 获取原始语法树
+        var tree = this.GetSyntaxTree(code, sourceCodeKind, targetFrameworkVersion, optimizationLevel, cancellationToken);
+
+        // 获取语法树根节点
+        var syntaxRoot = tree.GetRoot(cancellationToken);
+
+        // 递归构建精简版树结构
+        return Build(syntaxRoot, cancellationToken);
+    }
+
+    /// <summary>
+    /// 获取程序集的中间语言（IL）代码.
+    /// </summary>
+    /// <param name="assembly">程序集字节数组.</param>
+    /// <param name="includeAssemblyHeader">是否包含程序集头信息.</param>
+    /// <param name="cancellationToken">取消令牌.</param>
+    /// <returns>反编译后的 IL 字符串.</returns>
+    public string GetIntermediateLanguage(
+        byte[] assembly,
+        bool includeAssemblyHeader = false,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(assembly, nameof(assembly));
+
+        // TODO: 待实现反编译逻辑，当前暂时返回空字符串
+        return string.Empty;
+    }
+
+    /// <summary>
+    /// 递归构建精简语法节点.
+    /// </summary>
+    /// <param name="nodeOrToken">Roslyn 语法节点或令牌.</param>
+    /// <param name="cancellationToken">取消令牌.</param>
+    /// <returns>精简版语法节点包装对象.</returns>
+    private static SyntaxNodeOrTokenSlim Build(SyntaxNodeOrToken nodeOrToken, CancellationToken cancellationToken)
+    {
+        // 检查任务是否已取消
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var syntaxKind = nodeOrToken.Kind();
+
+        // 初始化精简版节点信息
+        var slimNode = new SyntaxNodeOrTokenSlim(
+            nodeOrToken.IsToken,
+            nodeOrToken.IsNode,
+            syntaxKind,
+            nodeOrToken.IsNode ? nodeOrToken.AsNode()!.GetType().Name : string.Empty,
+            nodeOrToken.GetLocation()!.GetLineSpan().Span,
+            nodeOrToken.IsMissing);
+
+        // 如果是令牌，则记录其文本内容
+        if (nodeOrToken.IsToken)
+        {
+            slimNode.SetValueText(nodeOrToken.AsToken().ValueText.Truncate(50, true));
+        }
+
+        // 处理前导琐事（如注释、空格）
+        if (nodeOrToken.HasLeadingTrivia)
+        {
+            slimNode.LeadingTrivia.AddRange(nodeOrToken.GetLeadingTrivia().Select(ToTrivia));
+        }
+
+        // 处理后置琐事
+        if (nodeOrToken.HasTrailingTrivia)
+        {
+            slimNode.TrailingTrivia.AddRange(nodeOrToken.GetTrailingTrivia().Select(ToTrivia));
+        }
+
+        // 递归处理子节点
+        foreach (var child in nodeOrToken.ChildNodesAndTokens())
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var childSlimNode = Build(child, cancellationToken);
+            slimNode.Children.Add(childSlimNode);
+        }
+
+        return slimNode;
+    }
+
+    /// <summary>
+    /// 将 Roslyn 语法琐事转换为精简版对象.
+    /// </summary>
+    /// <param name="trivia">语法琐事对象.</param>
+    /// <returns>精简版琐事包装对象.</returns>
+    private static SyntaxTriviaSlim ToTrivia(SyntaxTrivia trivia)
+    {
+        var syntaxKind = trivia.Kind();
+
+        // 尝试从预定义字典获取显示名称
+        if (!TriviaDisplayValues.TryGetValue(syntaxKind, out var displayValue))
+        {
+            // 特殊处理空格琐事
+            if (trivia.IsKind(SyntaxKind.WhitespaceTrivia))
+            {
+                var length = trivia.Span.Length;
+                displayValue = length > 1 ? $"<space:{length}>" : "<space>";
+            }
+            else
+            {
+                // 默认使用枚举名称
+                displayValue = syntaxKind.ToString();
+            }
+        }
+
+        // 返回精简版琐事对象并限制文本长度
+        return new SyntaxTriviaSlim(syntaxKind, trivia.GetLocation().GetLineSpan().Span, displayValue.Truncate(50, true));
+    }
+}
